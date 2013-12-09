@@ -17,13 +17,14 @@ public class pathManager : MonoBehaviour
 		}
 	}
 	
-	Vector3[] getClosestPath(Vector3 enemy) {
+	public Vector3[] getClosestPath(Vector3 enemy) {
 		int closest = 0;
 		float distance = Vector3.Distance(paths[closest].GetComponent<pathData>().getStart(), enemy);
 
 		for(int p = 1; p < paths.Length; p++) {
 			float newDistance = Vector3.Distance(paths[p].GetComponent<pathData>().getStart(), enemy);
 			if(newDistance < distance) {
+				distance = newDistance;
 				closest = p;
 			}
 		}
