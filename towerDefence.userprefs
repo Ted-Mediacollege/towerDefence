@@ -1,8 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\soundVisual\Assets\musicAnalizer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\pathManager.cs">
     <Files>
-      <File FileName="..\..\soundVisual\Assets\musicAnalizer.cs" Line="46" Column="5" />
+      <File FileName="Assets\script\CameraFollow.cs" Line="24" Column="1" />
+      <File FileName="Assets\script\enemyManager.cs" Line="16" Column="1" />
+      <File FileName="Assets\script\pathManager.cs" Line="19" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
