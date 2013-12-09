@@ -15,18 +15,17 @@ public class pathData : MonoBehaviour
 			Vector3 point = this.gameObject.transform.GetChild(i).position;
 			points[i] = point;
 
-			if(i == 0)
-			{
+			if(i == 0) {
 				startPoint = point;
 			}
 		}
 	}
 
-	Vector3 getStart() {
+	public Vector3 getStart() {
 		return startPoint;
 	}
 
-	Vector3[] getPoints() {
+	public Vector3[] getPoints() {
 		return points;
 	}
 }
