@@ -7,7 +7,7 @@ public class enemy : MonoBehaviour {
 	private int ProgressInPath = 0;
 	private float DistPointReached = 1.5f;
 
-	public float angularVelocity;
+	public float maxAngularVelocity = 2;
 	public float drag = 0.97f;
 	public float dashForce = 200;
 	public float moveForce = 2;
@@ -50,9 +50,9 @@ public class enemy : MonoBehaviour {
 			deltaAngel -=360;
 		}
 
-		if(deltaAngel<0){
-			deltaAngel +=360;
-		}
+		//if(deltaAngel<0){
+		//	deltaAngel +=360;
+		//}
 		if(deltaAngel>maxRotateForce){
 			deltaAngel = maxRotateForce;
 		}else if(deltaAngel<maxRotateForce){
@@ -64,10 +64,10 @@ public class enemy : MonoBehaviour {
 		//add force
 		rigidbody2D.AddTorque(-deltaAngel);
 		//limit force
-		if(rigidbody2D.angularVelocity > angularVelocity){
-			rigidbody2D.angularVelocity = angularVelocity;
-		}else if(rigidbody2D.angularVelocity < -angularVelocity){
-			rigidbody2D.angularVelocity = -angularVelocity;
+		if(rigidbody2D.angularVelocity > maxAngularVelocity){
+			rigidbody2D.angularVelocity = maxAngularVelocity;
+		}else if(rigidbody2D.angularVelocity < -maxAngularVelocity){
+			rigidbody2D.angularVelocity = -maxAngularVelocity;
 		}
 	}
 

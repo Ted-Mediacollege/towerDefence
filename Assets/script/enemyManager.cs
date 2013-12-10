@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class enemyManager : MonoBehaviour {
 
-	private List<GameObject> enemies;
+	public List<GameObject> enemies;
 	public Transform[] SpawnPoints; 
 	private int timer;
 	private GameObject test;
