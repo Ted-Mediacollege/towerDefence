@@ -31,4 +31,22 @@ public class pathManager : MonoBehaviour
 
 		return paths[closest].GetComponent<pathData>().getPoints();
 	}
+
+	public Vector3[] getRandomPath(Vector3 enemy, int reqDistance) {
+		ArrayList pathlist = new ArrayList();
+
+		for(int p = 0; p < paths.Length; p++) {
+			float distance = Vector3.Distance(paths[p].GetComponent<pathData>().getStart(), enemy);
+			if(distance < reqDistance) {
+				pathlist.Add(p);
+			}
+		}
+
+		if(pathlist.Count > 0) {
+			int randomPathID = Random.Range(0, pathlist.Count);
+			return paths[(int) pathlist[randomPathID]].GetComponent<pathData>().getPoints();
+		}
+
+		return null;
+	}
 }
