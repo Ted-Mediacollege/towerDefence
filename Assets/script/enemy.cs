@@ -5,13 +5,13 @@ public class enemy : MonoBehaviour {
 	private pathManager pathMngr;
 	private Vector3[] path;
 	private int ProgressInPath = 0;
-	private float DistPointReached = 0.5f;
+	private float DistPointReached = 1.5f;
 
 	public float angularVelocity;
 	public float drag = 0.97f;
 	public float dashForce = 200;
 	public float moveForce = 2;
-	public float maxRotation = 2;
+	public float maxRotateForce = 1;
 
 	private void Start () {
 		pathMngr = GameObject.Find("pathManager").GetComponent<pathManager>() as pathManager;
@@ -39,11 +39,36 @@ public class enemy : MonoBehaviour {
 	}
 
 	private void RotateToPoint(){
-		float thisrotation =  transform.rotation.z;
+		float thisRotation =  transform.eulerAngles.z;
 		float deltaY = transform.position.y - path[ProgressInPath].y;
 		float deltaX = transform.position.x - path[ProgressInPath].x;
-		float angleInDegrees = (Mathf.Atan2(deltaY,deltaX) * 180 / Mathf.PI)+90;
-		transform.rotation =  Quaternion.Euler(new Vector3(0, 0, angleInDegrees));
+		float rotationGoal = (Mathf.Atan2(deltaY,deltaX) * 180 / Mathf.PI)+90;
+		//transform.rotation =  Quaternion.Euler(new Vector3(0, 0, angleInDegrees));
+		float deltaAngel = thisRotation - rotationGoal;
+		//Debug.Log(thisRotation +"-"+rotationGoal+"="+deltaAngel);
+		if(deltaAngel>360){
+			deltaAngel -=360;
+		}
+
+		if(deltaAngel<0){
+			deltaAngel +=360;
+		}
+		if(deltaAngel>maxRotateForce){
+			deltaAngel = maxRotateForce;
+		}else if(deltaAngel<maxRotateForce){
+			deltaAngel = -maxRotateForce;
+		}
+		//Debug.Log(deltaAngel);
+		//Debug.Log(path[ProgressInPath]);
+		//get input
+		//add force
+		rigidbody2D.AddTorque(-deltaAngel);
+		//limit force
+		if(rigidbody2D.angularVelocity > angularVelocity){
+			rigidbody2D.angularVelocity = angularVelocity;
+		}else if(rigidbody2D.angularVelocity < -angularVelocity){
+			rigidbody2D.angularVelocity = -angularVelocity;
+		}
 	}
 
 	private void Drag(){

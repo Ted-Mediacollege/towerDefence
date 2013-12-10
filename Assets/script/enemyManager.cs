@@ -17,7 +17,7 @@ public class enemyManager : MonoBehaviour {
 		timer++;
 		int randomSpawn = Random.Range(0,3);
 		Vector3 spawn = (Vector3)SpawnPoints[randomSpawn].transform.position;
-		if(timer%5==0){
+		if(timer%20==0){
 			GameObject newEnemy = (GameObject)GameObject.Instantiate(Resources.Load("enemy"),
 			                                                         spawn,
 			                                                         Quaternion.identity);

@@ -11,7 +11,6 @@ public class PlayerMove : MonoBehaviour {
 	private void FixedUpdate () {
 		Move();
 		Rotate();
-
 	}
 
 	private void Rotate(){
