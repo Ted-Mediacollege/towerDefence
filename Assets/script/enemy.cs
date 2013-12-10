@@ -15,7 +15,8 @@ public class enemy : MonoBehaviour {
 
 	private void Start () {
 		pathMngr = GameObject.Find("pathManager").GetComponent<pathManager>() as pathManager;
-		path = pathMngr.getClosestPath(transform.position);
+		getPath();
+		transform.rotation =  movement.RotateToPoint(transform,path[ProgressInPath]);
 	}
 
 	private void FixedUpdate(){
@@ -23,13 +24,20 @@ public class enemy : MonoBehaviour {
 		rigidbody2D.AddForce( ForceAndAngleToDirection(moveForce,transform.rotation.eulerAngles.z));
 		Drag();
 		RotateToPoint();
+		//transform.rotation =  Quaternion.Euler(new Vector3(0, 0, movement.RotateToPoint(transform,path[ProgressInPath])));
+
+
 		if(DistPointReached>distanceToPoint){
 			ProgressInPath++;
 			if(ProgressInPath>path.Length-1){
-				path = pathMngr.getClosestPath(transform.position);
-				ProgressInPath = 0;
+				getPath();
 			}
 		}
+	}
+
+	private void getPath(){
+		path = pathMngr.getRandomPath(transform.position,10);
+		ProgressInPath = 0;
 	}
 
 	private Vector2 ForceAndAngleToDirection(float force,float angle){
@@ -39,6 +47,14 @@ public class enemy : MonoBehaviour {
 	}
 
 	private void RotateToPoint(){
+		rigidbody2D.AddTorque(movement.RotateForce(transform,
+		                                           path[ProgressInPath],
+		                                           maxRotateForce));
+		//limit force
+		rigidbody2D.angularVelocity = movement.limitTorque(rigidbody2D.angularVelocity,maxAngularVelocity);
+	}
+
+	private void oldRotateToPoint(){
 		float thisRotation =  transform.eulerAngles.z;
 		float deltaY = transform.position.y - path[ProgressInPath].y;
 		float deltaX = transform.position.x - path[ProgressInPath].x;

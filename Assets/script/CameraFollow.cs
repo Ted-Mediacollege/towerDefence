@@ -11,7 +11,7 @@ public class CameraFollow : MonoBehaviour {
 		playerTrans = GameObject.Find("player").GetComponent<Transform>();
 	}
 
-	private void Update(){
+	private void LateUpdate(){
 		float newXPos = Mathf.SmoothDamp(transform.position.x, 
 		                                 playerTrans.position.x, 
 		                                 ref velocity.x,smoothTime);

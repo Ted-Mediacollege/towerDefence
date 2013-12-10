@@ -4,15 +4,22 @@ using System.Collections;
 public class tower : MonoBehaviour {
 	private enemyManager enemyMngr;
 	private Transform playerTrance;
-	// Use this for initialization
+
+	public float maxAngularVelocity = 50;
+	public float maxRotForce = 90;
+	public float maxangularVelocity = 90;
 	void Start () {
 		enemyMngr = GameObject.Find("manager").GetComponent<enemyManager>() as enemyManager;
-		Debug.Log( math.add(3,7));
 		playerTrance = GameObject.Find("player").GetComponent<Transform>() as Transform;
 	}
 
 	void FixedUpdate(){
-		Debug.Log(enemyMngr.enemies.Count);
-		rigidbody2D.angularVelocity = movement.RotateForce(transform,playerTrance.position,20,1);
+		//Debug.Log(enemyMngr.enemies.Count);
+		//transform.rotation =  Quaternion.Euler(new Vector3(0, 0, movement.RotateToPoint(transform,playerTrance.position)));
+		rigidbody2D.AddTorque(movement.RotateForce(transform,
+		                                           playerTrance.position,
+		                                           maxRotForce));
+		//limit force
+		rigidbody2D.angularVelocity = movement.limitTorque(rigidbody2D.angularVelocity,maxAngularVelocity);
 	}
 }

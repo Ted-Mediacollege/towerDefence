@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlayerMove : MonoBehaviour {
-	public float angularVelocity;
+	public float maxAngularVelocity = 10;
 	public float drag = 0.97f;
 	public float dashForce = 200;
 	public float moveForce = 5;
@@ -19,11 +19,7 @@ public class PlayerMove : MonoBehaviour {
 		//add force
 		rigidbody2D.AddTorque(hor*rotateForce);
 		//limit force
-		if(rigidbody2D.angularVelocity > angularVelocity){
-			rigidbody2D.angularVelocity = angularVelocity;
-		}else if(rigidbody2D.angularVelocity < -angularVelocity){
-			rigidbody2D.angularVelocity = -angularVelocity;
-		}
+		rigidbody2D.angularVelocity = movement.limitTorque(rigidbody2D.angularVelocity,maxAngularVelocity);
 	}
 
 	private void Move(){

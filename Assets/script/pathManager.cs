@@ -41,7 +41,6 @@ public class pathManager : MonoBehaviour
 				pathlist.Add(p);
 			}
 		}
-
 		if(pathlist.Count > 0) {
 			int randomPathID = Random.Range(0, pathlist.Count);
 			return paths[(int) pathlist[randomPathID]].GetComponent<pathData>().getPoints();
