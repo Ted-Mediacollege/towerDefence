@@ -49,7 +49,8 @@ public class enemy : MonoBehaviour {
 	private void RotateToPoint(){
 		rigidbody2D.AddTorque(movement.RotateForce(transform,
 		                                           path[ProgressInPath],
-		                                           maxRotateForce));
+		                                           maxRotateForce,
+		                                           1));
 		//limit force
 		rigidbody2D.angularVelocity = movement.limitTorque(rigidbody2D.angularVelocity,maxAngularVelocity);
 	}

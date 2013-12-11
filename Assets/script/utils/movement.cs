@@ -5,7 +5,8 @@ static class movement {
 
 	static public float RotateForce(Transform selfTrans, 
 	                                Vector3 target,
-	                                float maxRotateForce){
+	                                float maxRotateForce,
+	                                float forceMultiply){
 		float thisRotation =  selfTrans.eulerAngles.z;
 		float deltaY = selfTrans.position.y - target.y;
 		float deltaX = selfTrans.position.x - target.x;
@@ -18,13 +19,14 @@ static class movement {
 		if(deltaAngel<-180){
 			deltaAngel +=360;
 		}
-		if(deltaAngel>maxRotateForce){
-			deltaAngel = maxRotateForce;
-		}else if(deltaAngel<-maxRotateForce){
-			deltaAngel = -maxRotateForce;
+		float force = deltaAngel * forceMultiply;
+		if(force>maxRotateForce){
+			force = maxRotateForce;
+		}else if(force<-maxRotateForce){
+			force = -maxRotateForce;
 		}else{
 		}
-		return -deltaAngel;
+		return -force;
 	}
 
 	static public float limitTorque(float torque, float limit){

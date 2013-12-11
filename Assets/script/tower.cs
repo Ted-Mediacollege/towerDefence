@@ -7,7 +7,6 @@ public class tower : MonoBehaviour {
 
 	public float maxAngularVelocity = 50;
 	public float maxRotForce = 90;
-	public float maxangularVelocity = 90;
 	public float agroDistance = 5;
 	void Start () {
 		enemyMngr = GameObject.Find("enemyManager").GetComponent<enemyManager>() as enemyManager;
@@ -40,7 +39,7 @@ public class tower : MonoBehaviour {
 			}
 			if(distCurrentTarget < agroDistance && targetFound){
 				//print("rotate"+"\n");
-				rigidbody2D.AddTorque(movement.RotateForce(transform,currentTarget,maxRotForce));
+				rigidbody2D.AddTorque(movement.RotateForce(transform,currentTarget,maxRotForce,10));
 			}
 		}
 
