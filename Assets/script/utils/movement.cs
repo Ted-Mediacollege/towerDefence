@@ -3,13 +3,14 @@ using System.Collections;
 
 static class movement {
 
-	static public float RotateForce(Transform selfTrans, 
+	static public float RotateForce(Vector3 selfPos, 
+	                                float selfAng,
 	                                Vector3 target,
 	                                float maxRotateForce,
 	                                float forceMultiply){
-		float thisRotation =  selfTrans.eulerAngles.z;
-		float deltaY = selfTrans.position.y - target.y;
-		float deltaX = selfTrans.position.x - target.x;
+		float thisRotation =  selfAng;
+		float deltaY = selfPos.y - target.y;
+		float deltaX = selfPos.x - target.x;
 		float rotationGoal = (Mathf.Atan2(deltaY,deltaX) * 180 / Mathf.PI)+90;
 		float deltaAngel = thisRotation - rotationGoal;
 		if(deltaAngel>180){
@@ -48,5 +49,11 @@ static class movement {
 
 	static public Quaternion RotateToPoint( Transform selfTrans, Vector3 point ){
 		return  Quaternion.Euler(new Vector3(0, 0, movement.angleToPoint(selfTrans,point)));
+	}
+
+	static public Vector2 ForceAndAngleToDirection(float force,float angle){
+		float xForce = force * Mathf.Sin(angle*Mathf.PI/180);
+		float yForce = force * Mathf.Cos(angle*Mathf.PI/180);
+		return new Vector2(-xForce,yForce);
 	}
 }

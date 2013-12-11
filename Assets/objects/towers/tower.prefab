@@ -58,6 +58,7 @@ MonoBehaviour:
   maxAngularVelocity: 300
   maxRotForce: 10000
   agroDistance: 3
+  bullit: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -8,9 +8,20 @@ public class PlayerMove : MonoBehaviour {
 	public float moveForce = 5;
 	public float rotateForce = 2;
 
+	private towerManager towerMngr;
+
+	private void Start(){
+		towerMngr = GameObject.Find("gameManager").GetComponent<towerManager>() as towerManager;
+	}
+
 	private void FixedUpdate () {
 		Move();
 		Rotate();
+		bool buttonRDown = Input.GetKeyDown(KeyCode.R);
+
+		if (buttonRDown){
+			towerMngr.LoadTower(transform.position);
+		}
 	}
 
 	private void Rotate(){
@@ -26,12 +37,17 @@ public class PlayerMove : MonoBehaviour {
 		//dash
 		bool jump = Input.GetButtonDown("Jump");
 		if(jump){
-			rigidbody2D.AddForce( ForceAndAngleToDirection(dashForce,transform.rotation.eulerAngles.z));
+			rigidbody2D.AddForce( movement.ForceAndAngleToDirection(dashForce,transform.rotation.eulerAngles.z));
 		}
 		//move
-		bool upKeyDown = Input.GetKey(KeyCode.UpArrow);
+		bool upKeyDown;
+		if(Input.GetKey(KeyCode.UpArrow)||Input.GetKey(KeyCode.W)){
+			upKeyDown = true;
+		}else{
+			upKeyDown = false;
+		}
 		if(upKeyDown){
-			rigidbody2D.AddForce( ForceAndAngleToDirection(moveForce,transform.rotation.eulerAngles.z));
+			rigidbody2D.AddForce( movement.ForceAndAngleToDirection(moveForce,transform.rotation.eulerAngles.z));
 		}
 		//drag
 		float newX = 0;
@@ -49,9 +65,5 @@ public class PlayerMove : MonoBehaviour {
 		rigidbody2D.velocity = new Vector2(newX,newY);
 	}
 
-	private Vector2 ForceAndAngleToDirection(float force,float angle){
-		float xForce = force * Mathf.Sin(angle*Mathf.PI/180);
-		float yForce = force * Mathf.Cos(angle*Mathf.PI/180);
-		return new Vector2(-xForce,yForce);
-	}
+
 }

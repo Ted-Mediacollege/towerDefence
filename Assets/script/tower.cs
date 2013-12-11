@@ -8,15 +8,18 @@ public class tower : MonoBehaviour {
 	public float maxAngularVelocity = 50;
 	public float maxRotForce = 90;
 	public float agroDistance = 5;
+	public GameObject bullit;
+
 	void Start () {
-		enemyMngr = GameObject.Find("enemyManager").GetComponent<enemyManager>() as enemyManager;
+		enemyMngr = GameObject.Find("gameManager").GetComponent<enemyManager>() as enemyManager;
 		playerTrance = GameObject.Find("player").GetComponent<Transform>() as Transform;
 	}
 
-	float distCurrentTarget;
-	Vector3 currentTarget;
-	bool targetFound = false;
-	void FixedUpdate(){
+	private float distCurrentTarget;
+	private Vector3 currentTarget;
+	private bool targetFound = false;
+
+	private void FixedUpdate(){
 		targetFound = false;
 		//get targer
 		if(enemyMngr.enemies.Count>0){
@@ -38,14 +41,23 @@ public class tower : MonoBehaviour {
 				}
 			}
 			if(distCurrentTarget < agroDistance && targetFound){
-				//print("rotate"+"\n");
-				rigidbody2D.AddTorque(movement.RotateForce(transform,currentTarget,maxRotForce,10));
+				rigidbody2D.AddTorque(movement.RotateForce(transform.position,
+				                                           transform.eulerAngles.z,
+				                                           currentTarget,
+				                                           maxRotForce,
+				                                           10));
 			}
 		}
-
 		//transform.rotation =  Quaternion.Euler(new Vector3(0, 0, movement.RotateToPoint(transform,playerTrance.position)));
-		//print(distCurrentTarget+"\n");
+
 		//limit force
 		rigidbody2D.angularVelocity = movement.limitTorque(rigidbody2D.angularVelocity,maxAngularVelocity);
 	}
+
+	private void Shoot(){
+		//GameObject.Instantiate
+	}
 }
+
+
+

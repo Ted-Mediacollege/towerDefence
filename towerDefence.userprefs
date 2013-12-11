@@ -1,6 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\enemy.cs">
+    <Files>
+      <File FileName="Assets\script\utils\movement.cs" Line="11" Column="33" />
+      <File FileName="Assets\script\enemyManager.cs" Line="24" Column="22" />
+      <File FileName="Assets\script\towerManager.cs" Line="10" Column="27" />
+      <File FileName="Assets\script\PlayerMove.cs" Line="44" Column="60" />
+      <File FileName="Assets\script\enemy.cs" Line="52" Column="53" />
+      <File FileName="Assets\script\pathData.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\pathManager.cs" Line="38" Column="13" />
+      <File FileName="Assets\script\minimap.cs" Line="19" Column="31" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
