@@ -20,7 +20,7 @@ public class enemyManager : MonoBehaviour {
 		int randomSpawn = Random.Range(0,SpawnPoints.Length);
 		if(enemies.Count<200){//maxSpawn
 			Vector3 spawn = (Vector3)SpawnPoints[randomSpawn].transform.position;
-			if(timer%10==0){
+			if(timer%100==0){
 				GameObject newEnemy = (GameObject)GameObject.Instantiate(Resources.Load("enemy"),
 				                                                         spawn,
 				                                                         Quaternion.identity);

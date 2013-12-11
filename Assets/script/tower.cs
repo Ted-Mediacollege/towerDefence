@@ -16,26 +16,36 @@ public class tower : MonoBehaviour {
 
 	float distCurrentTarget;
 	Vector3 currentTarget;
+	bool targetFound = false;
 	void FixedUpdate(){
-
+		targetFound = false;
 		//get targer
 		if(enemyMngr.enemies.Count>0){
 			currentTarget = enemyMngr.enemies[0].transform.position;
 			distCurrentTarget = Vector3.Distance(transform.position,currentTarget);
-		}
-		for (int i = 0; i < enemyMngr.enemies.Count; i++){
-			distCurrentTarget = Vector3.Distance(transform.position,currentTarget);
-			float distNewTarget = Vector3.Distance(transform.position,enemyMngr.enemies[i].transform.position);
-			if(distNewTarget<distCurrentTarget){
-				currentTarget = enemyMngr.enemies[i].transform.position;
+			if(distCurrentTarget<agroDistance){
+				targetFound = true;
+			}else{
+				for (int i = 0; i < enemyMngr.enemies.Count; i++){
+					distCurrentTarget = Vector3.Distance(transform.position,currentTarget);
+					float distNewTarget = Vector3.Distance(transform.position,enemyMngr.enemies[i].transform.position);
+					if(distNewTarget<distCurrentTarget){
+						currentTarget = enemyMngr.enemies[i].transform.position;
+					}
+					if(distCurrentTarget<agroDistance){
+						targetFound = true;
+						break;
+					}
+				}
+			}
+			if(distCurrentTarget < agroDistance && targetFound){
+				//print("rotate"+"\n");
+				rigidbody2D.AddTorque(movement.RotateForce(transform,currentTarget,maxRotForce));
 			}
 		}
+
 		//transform.rotation =  Quaternion.Euler(new Vector3(0, 0, movement.RotateToPoint(transform,playerTrance.position)));
-		if(distCurrentTarget <agroDistance){
-			rigidbody2D.AddTorque(movement.RotateForce(transform,
-			                                           currentTarget,
-			                                           maxRotForce));
-		}
+		//print(distCurrentTarget+"\n");
 		//limit force
 		rigidbody2D.angularVelocity = movement.limitTorque(rigidbody2D.angularVelocity,maxAngularVelocity);
 	}

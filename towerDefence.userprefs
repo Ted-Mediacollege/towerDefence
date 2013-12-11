@@ -1,13 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\enemyManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\tower.cs">
     <Files>
-      <File FileName="Assets\script\tower.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\utils\movement.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\enemy.cs" Line="19" Column="24" />
-      <File FileName="Assets\script\CameraFollow.cs" Line="24" Column="1" />
-      <File FileName="Assets\script\PlayerMove.cs" Line="22" Column="33" />
-      <File FileName="Assets\script\enemyManager.cs" Line="23" Column="20" />
+      <File FileName="Assets\script\tower.cs" Line="42" Column="28" />
+      <File FileName="Assets\script\utils\movement.cs" Line="19" Column="21" />
+      <File FileName="Assets\script\enemyManager.cs" Line="23" Column="16" />
+      <File FileName="Assets\script\PlayerMove.cs" Line="9" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
