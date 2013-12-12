@@ -1,23 +1,50 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraFollow : MonoBehaviour {
-
-	private Transform playerTrans;
+public class CameraFollow : MonoBehaviour
+{
+	public GameObject cameraTarget;
+	
+	public float smoothTime = 0.1f;
+	public bool cameraFollowX = true;
+	public bool cameraFollowY = true;
+	
 	private Vector2 velocity;
-	public float smoothTime = 0.2f;
-
-	private void Start () {
-		playerTrans = GameObject.Find("player").GetComponent<Transform>();
-	}
-
-	private void LateUpdate(){
-		float newXPos = Mathf.SmoothDamp(transform.position.x, 
-		                                 playerTrans.position.x, 
-		                                 ref velocity.x,smoothTime);
-		float newYPos = Mathf.SmoothDamp(transform.position.y, 
-		                                 playerTrans.position.y, 
-		                                 ref velocity.y,smoothTime);
-		transform.position = new Vector3(newXPos,newYPos,transform.position.z);
+	private Vector3 newPos;
+	private float newXPos;
+	private float newYPos;
+	private Vector3 targetPos;
+	
+	public float maxXpos;
+	public float minXpos;
+	public float maxYpos;
+	public float minYpos;
+	
+	void LateUpdate()
+	{
+		newPos = transform.position;
+		targetPos = cameraTarget.transform.position;
+		
+		if (cameraFollowX)
+		{
+			newXPos = Mathf.SmoothDamp(newPos.x, targetPos.x, ref velocity.x, smoothTime);
+		}
+		if (cameraFollowY)
+		{
+			newYPos = Mathf.SmoothDamp(newPos.y, targetPos.y, ref velocity.y, smoothTime);
+		}
+		if(newXPos>maxXpos){
+			newXPos = maxXpos;
+		}else if(newXPos<minXpos){
+			newXPos = minXpos;
+		}
+		if(newYPos>maxYpos){
+			newYPos = maxYpos;
+		}else if(newYPos<minYpos){
+			newYPos = minYpos;
+		}
+		//Update camera position
+		newPos = new Vector3(newXPos,newYPos,newPos.z);
+		transform.position = newPos;
 	}
 }

@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.4902611, y: -10.6778269, z: -10}
+  m_LocalPosition: {x: -14.4902611, y: -18.2833786, z: -10}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,7 +85,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40a5246fc4abd14380ad6a91d2552f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTarget: {fileID: 0}
   smoothTime: .200000003
+  cameraFollowX: 1
+  cameraFollowY: 1
+  maxXpos: 9.5
+  minXpos: -37.4000015
+  maxYpos: -20
+  minYpos: -49.0999985
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
