@@ -19,6 +19,7 @@ public class enemyManager : MonoBehaviour {
 	}
 
 	private void FixedUpdate () {
+		//Debug.Log("enemy count: "+enemies.Count);
 		timer++;
 		int randomSpawn = Random.Range(0,SpawnPoints.Length);
 		if(enemies.Count<2000){//maxSpawn

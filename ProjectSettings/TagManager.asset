@@ -3,6 +3,7 @@
 --- !u!78 &1
 TagManager:
   tags:
+  - itemButton
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -48,4 +49,8 @@ TagManager:
   - name: light
     userID: 2
     uniqueID: 1263311795
-    locked: 1
+    locked: 0
+  - name: ui
+    userID: 3
+    uniqueID: 596525099
+    locked: 0

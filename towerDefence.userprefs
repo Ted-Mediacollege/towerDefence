@@ -1,8 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\CameraFollow.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\player\PlayerMove.cs">
     <Files>
-      <File FileName="Assets\script\CameraFollow.cs" Line="23" Column="17" />
+      <File FileName="Assets\script\player\PlayerMove.cs" Line="82" Column="7" />
+      <File FileName="Assets\script\ui\inGame\itemButton.cs" Line="13" Column="26" />
+      <File FileName="Assets\script\ui\inGame\minimap.cs" Line="14" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
