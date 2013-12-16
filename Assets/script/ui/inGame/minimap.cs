@@ -4,8 +4,10 @@ using System.Collections;
 public class minimap : MonoBehaviour {	
 	private GameObject player;
 	private enemyManager enemymanager;
-	public float zoom = 1;
+	public float zoom = 2;
 	public int size = 100;
+	private float centerX = 0;
+	private float centerY = 0;
 
 	private Texture2D texture;
 	
@@ -13,6 +15,9 @@ public class minimap : MonoBehaviour {
 		player = GameObject.Find("player");
 		enemymanager = GameObject.Find("gameManager").GetComponent<enemyManager>() as enemyManager;
 		texture = new Texture2D(20, 20);
+
+		centerX = transform.position.x;
+		centerY = transform.position.y;
 	}
 	
 	void OnGUI() {
@@ -35,10 +40,9 @@ public class minimap : MonoBehaviour {
 	Vector3 worldToMapCoord(Vector3 worldCoord) {
 		Vector3 mapCoord = new Vector3(size,size,0);
 		
-		mapCoord.x = worldCoord.x;
-		mapCoord.y = worldCoord.y;
+		mapCoord.x = worldCoord.x * zoom + centerX;
+		mapCoord.y = worldCoord.y * zoom + centerY;
 		
 		return mapCoord;
 	}
 }
-
