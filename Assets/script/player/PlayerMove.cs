@@ -12,16 +12,25 @@ public class PlayerMove : MonoBehaviour {
 	private int currentItem = 0;
 
 	private towerManager towerMngr;
+	private GameObject buttonHolder;
 	private GameObject[] buttons;
 	private SpriteRenderer[] buttonsArts;
 
 	private void Start(){
 		towerMngr = GameObject.Find("gameManager").GetComponent<towerManager>() as towerManager;
-		buttons = GameObject.FindGameObjectsWithTag("itemButton");
-		buttonsArts = new SpriteRenderer[buttons.Length];
-		for (int i = 0;i<buttons.Length;i++){
-			buttonsArts[i] = buttons[i].GetComponent<SpriteRenderer>();
+		buttonHolder = GameObject.Find("itembuttons");
+
+		int buttonCount = buttonHolder.gameObject.transform.childCount;
+		buttonsArts = new SpriteRenderer[buttonCount];
+		
+		for(int i = 0; i < buttonCount; i++) {
+			buttonsArts[i] = buttonHolder.gameObject.transform.GetChild(i).GetComponent<SpriteRenderer>();
 		}
+
+		//buttonsArts = new SpriteRenderer[buttons.Length];
+		//for (int i = 0;i<buttons.Length;i++){
+		//	buttonsArts[i] = buttons[i].GetComponent<SpriteRenderer>();
+		//}
 		updateUI();
 	}
 
@@ -32,7 +41,7 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	private void Update(){
-		float scrol = Input.GetAxis("Mouse ScrollWheel");
+		float scrol = -Input.GetAxis("Mouse ScrollWheel");
 		if(scrol!=0){
 			if(scrol>0){
 				if(currentItem<items){
@@ -48,11 +57,9 @@ public class PlayerMove : MonoBehaviour {
 		}
 	}
 
-	public void buttonPress(GameObject button){
-		Debug.Log("click");
-		for (int i = 0;i<buttons.Length;i++){
-			if(buttons[i] == button){
-				Debug.Log("change");
+	public void buttonPress(SpriteRenderer buttonArt){
+		for (int i = 0;i<buttonsArts.Length;i++){
+			if(buttonsArts[i] == buttonArt){
 				currentItem = i;
 				updateUI();
 				break;
@@ -61,7 +68,7 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	private void updateUI(){
-		for (int i = 0;i<buttons.Length;i++){
+		for (int i = 0;i<buttonsArts.Length;i++){
 			if(i==currentItem){
 				buttonsArts[i].color = new Color(1,1,1,1);
 			}else{
