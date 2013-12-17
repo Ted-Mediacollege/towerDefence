@@ -43,8 +43,8 @@ static class movement {
 		float thisRotation =  selfTrans.eulerAngles.z;
 		float deltaY = selfTrans.position.y - target.y;
 		float deltaX = selfTrans.position.x - target.x;
-		float rotationGoal = (Mathf.Atan2(deltaY,deltaX) * 180 / Mathf.PI)+90;
-		return rotationGoal;
+		float angle = (Mathf.Atan2(deltaY,deltaX) * 180 / Mathf.PI)+90;
+		return angle;
 	}
 
 	static public Quaternion RotateToPoint( Transform selfTrans, Vector3 point ){
@@ -55,5 +55,10 @@ static class movement {
 		float xForce = force * Mathf.Sin(angle*Mathf.PI/180);
 		float yForce = force * Mathf.Cos(angle*Mathf.PI/180);
 		return new Vector2(-xForce,yForce);
+	}
+	static public Vector2 AngleToDirection(float angle){
+		float dx = Mathf.Sin(angle*Mathf.PI/180);
+		float dy = Mathf.Cos(angle*Mathf.PI/180);
+		return new Vector2(-dx,dy);
 	}
 }

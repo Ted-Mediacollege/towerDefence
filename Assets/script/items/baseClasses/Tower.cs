@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class tower : MonoBehaviour {
+public class Tower : Item {
 	private enemyManager enemyMngr;
 	private Transform playerTrance;
 

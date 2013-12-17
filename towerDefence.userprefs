@@ -1,13 +1,33 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\player\PlayerMove.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\items\baseClasses\Bullet.cs">
     <Files>
-      <File FileName="Assets\script\ui\inGame\itemButton.cs" Line="13" Column="36" />
-      <File FileName="Assets\script\player\PlayerMove.cs" Line="70" Column="26" />
-      <File FileName="Assets\script\ui\inGame\itemButton.cs" Line="13" Column="36" />
-      <File FileName="Assets\script\ui\inGame\minimap.cs" Line="14" Column="3" />
-      <File FileName="Assets\script\pathData.cs" Line="21" Column="4" />
+      <File FileName="Assets\script\ui\inGame\itemButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\player\PlayerMove.cs" Line="118" Column="29" />
+      <File FileName="Assets\script\managers\towerManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\items\baseClasses\Item.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\items\baseClasses\Bullet.cs" Line="6" Column="16" />
+      <File FileName="Assets\script\items\baseClasses\Tower.cs" Line="15" Column="34" />
+      <File FileName="Assets\script\utils\movement.cs" Line="65" Column="1" />
+      <File FileName="Assets\script\utils\math.cs" Line="4" Column="3" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="script" expanded="True">
+              <Node name="items" expanded="True">
+                <Node name="baseClasses" expanded="True">
+                  <Node name="Bullet.cs" selected="True" />
+                </Node>
+              </Node>
+              <Node name="player" expanded="True" />
+              <Node name="utils" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

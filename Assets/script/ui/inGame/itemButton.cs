@@ -10,9 +10,7 @@ public class itemButton : MonoBehaviour {
 		Art = gameObject.GetComponent<SpriteRenderer>();
 	}
 
-	//private void OnCollisionEnter2D(Collision2D collision){
 	private void OnMouseDown () {
-		Debug.Log("mouseDown");
 		playerScript.buttonPress(Art);
 	}
 }

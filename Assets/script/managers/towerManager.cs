@@ -7,15 +7,14 @@ public class towerManager : MonoBehaviour {
 	internal List<GameObject> towers;
 	private int timer;
 	private GameObject test;
-	public GameObject tower1;
 
 	private void Start(){
 		towers = new List<GameObject>();
 		towerHolder = GameObject.Find("towers");
 	}
 	
-	public void LoadTower ( Vector3 spawnPoint) {
-		GameObject newEnemy = (GameObject)GameObject.Instantiate(tower1,
+	public void LoadTower ( Vector3 spawnPoint , GameObject tower) {
+		GameObject newEnemy = (GameObject)GameObject.Instantiate(tower,
 		                                                         spawnPoint,
 		                                                         Quaternion.identity);
 		newEnemy.transform.parent = towerHolder.transform;

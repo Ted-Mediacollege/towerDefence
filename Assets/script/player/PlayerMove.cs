@@ -7,18 +7,32 @@ public class PlayerMove : MonoBehaviour {
 	public float dashForce = 200;
 	public float moveForce = 5;
 	public float rotateForce = 2;
+    public GameObject[] items;
+    public int shootTime = 10;
 
-	private int items = 4;
-	private int currentItem = 0;
+	private int itemIcons = 4;
+	private CurrentItem currentItem = 0;
+	private int shootTimer = 0;
 
 	private towerManager towerMngr;
 	private GameObject buttonHolder;
 	private GameObject[] buttons;
 	private SpriteRenderer[] buttonsArts;
+	private GameObject bulletHolder;
+	
+	//enum currentItem
+	private enum CurrentItem {
+		item1 = 0,
+		item2 = 1,
+		item3 = 2,
+		item4 = 3,
+		item5 = 4
+	};
 
 	private void Start(){
 		towerMngr = GameObject.Find("gameManager").GetComponent<towerManager>() as towerManager;
 		buttonHolder = GameObject.Find("itembuttons");
+		bulletHolder = GameObject.Find("bullets");
 
 		int buttonCount = buttonHolder.gameObject.transform.childCount;
 		buttonsArts = new SpriteRenderer[buttonCount];
@@ -37,18 +51,18 @@ public class PlayerMove : MonoBehaviour {
 	private void FixedUpdate () {
 		Move();
 		Rotate();
-		Fire();
 	}
 
 	private void Update(){
+		Fire();
 		float scrol = -Input.GetAxis("Mouse ScrollWheel");
 		if(scrol!=0){
 			if(scrol>0){
-				if(currentItem<items){
+				if((int)currentItem<itemIcons){
 					currentItem++;
 				}
 			}else{
-				if(currentItem>0){
+				if((int)currentItem>0){
 					currentItem--;
 				}
 			}
@@ -60,7 +74,7 @@ public class PlayerMove : MonoBehaviour {
 	public void buttonPress(SpriteRenderer buttonArt){
 		for (int i = 0;i<buttonsArts.Length;i++){
 			if(buttonsArts[i] == buttonArt){
-				currentItem = i;
+				currentItem = (CurrentItem)i;
 				updateUI();
 				break;
 			}
@@ -69,7 +83,7 @@ public class PlayerMove : MonoBehaviour {
 
 	private void updateUI(){
 		for (int i = 0;i<buttonsArts.Length;i++){
-			if(i==currentItem){
+			if(i==(int)currentItem){
 				buttonsArts[i].color = new Color(1,1,1,1);
 			}else{
 				buttonsArts[i].color = new Color(0.4f,0.4f,0.4f,1);
@@ -78,18 +92,38 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	private void Fire(){
-		bool Fire = Input.GetMouseButtonDown(0);
-		if (Fire){
-			Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-			Collider2D mouseHit = Physics2D.OverlapPoint(mouseRay.origin);
-			float mousex =  mouseRay.origin.x;
-			float mousey =  mouseRay.origin.y;
-			//Debug.Log(mousex+" "+mousey);
-			if(mouseHit!=null){
-				//Debug.Log(mouseHit.name);
-			}else{
-				Vector3 spawnPosition = new Vector3(mousex,mousey,0);
-				towerMngr.LoadTower(spawnPosition);
+		if(shootTimer>0){
+			shootTimer--;
+		}
+		
+		bool fire = Input.GetMouseButtonDown(0);
+		bool firing = Input.GetMouseButton(0);
+		Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+		Vector3 mousePosition = new Vector3(mouseRay.origin.x,mouseRay.origin.y,0);
+		if(items.Length>(int)currentItem){
+			itemType currentItemType = items[(int)currentItem].GetComponent<Item>().type;
+			switch(currentItemType){
+				case itemType.Tower:
+					if (fire){
+						Collider2D mouseHit = Physics2D.OverlapPoint(mousePosition);
+						//Debug.Log(mousex+" "+mousey);
+						if(mouseHit!=null){
+							//Debug.Log(mouseHit.name);
+						}else{
+						towerMngr.LoadTower(mousePosition,items[(int)currentItem]);
+						}
+					}
+				break;
+				case itemType.Bullet:
+					if (firing&&shootTimer==0){
+						shootTimer = shootTime;
+						GameObject bul = GameObject.Instantiate( items[(int)currentItem]
+						,transform.position 
+						,Quaternion.identity) as GameObject;
+						bul.transform.rotation = movement.RotateToPoint(transform,mousePosition);
+						bul.transform.parent = bulletHolder.transform;
+				}
+				break;
 			}
 		}
 	}
