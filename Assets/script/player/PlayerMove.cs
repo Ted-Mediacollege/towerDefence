@@ -19,6 +19,12 @@ public class PlayerMove : MonoBehaviour {
 	private GameObject[] buttons;
 	private SpriteRenderer[] buttonsArts;
 	private GameObject bulletHolder;
+
+	//line
+	private LineRenderer lineRenderer;
+	public Color c1 = Color.yellow;
+	public Color c2 = Color.red;
+	private int lengthOfLineRenderer = 2;
 	
 	//enum currentItem
 	private enum CurrentItem {
@@ -36,7 +42,13 @@ public class PlayerMove : MonoBehaviour {
 
 		int buttonCount = buttonHolder.gameObject.transform.childCount;
 		buttonsArts = new SpriteRenderer[buttonCount];
-		
+
+		lineRenderer = gameObject.AddComponent<LineRenderer>();
+		lineRenderer.SetColors(c1, c2);
+		lineRenderer.SetWidth(0.2F, 0.2F);
+		lineRenderer.SetVertexCount(lengthOfLineRenderer);
+		lineRenderer.enabled = false;
+
 		for(int i = 0; i < buttonCount; i++) {
 			buttonsArts[i] = buttonHolder.gameObject.transform.GetChild(i).GetComponent<SpriteRenderer>();
 		}
@@ -54,7 +66,7 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	private void Update(){
-		Fire();
+		ItemUpdate();
 		float scrol = -Input.GetAxis("Mouse ScrollWheel");
 		if(scrol!=0){
 			if(scrol>0){
@@ -91,37 +103,55 @@ public class PlayerMove : MonoBehaviour {
 		}
 	}
 
-	private void Fire(){
+	private void ItemUpdate(){
+
 		if(shootTimer>0){
 			shootTimer--;
 		}
-		
+
+		//get input and mouse position
 		bool fire = Input.GetMouseButtonDown(0);
 		bool firing = Input.GetMouseButton(0);
 		Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		Vector3 mousePosition = new Vector3(mouseRay.origin.x,mouseRay.origin.y,0);
+		Vector2 mousePos2D = new Vector2(mouseRay.origin.x,mouseRay.origin.y);
+		Vector2 thisPos2D = new Vector2(transform.position.x,transform.position.y);
+		
+
 		if(items.Length>(int)currentItem){
 			itemType currentItemType = items[(int)currentItem].GetComponent<Item>().type;
 			switch(currentItemType){
 				case itemType.Tower:
-					if (fire){
-						Collider2D mouseHit = Physics2D.OverlapPoint(mousePosition);
-						//Debug.Log(mousex+" "+mousey);
-						if(mouseHit!=null){
-							//Debug.Log(mouseHit.name);
-						}else{
-						towerMngr.LoadTower(mousePosition,items[(int)currentItem]);
-						}
+
+				//cast aim ray
+				Vector2 mousedirection = mousePos2D-thisPos2D;
+				RaycastHit2D aimRay = Physics2D.Raycast(thisPos2D,mousedirection,10,1 << LayerMask.NameToLayer("Level"));
+				//draw line
+				lineRenderer.enabled = true;
+				lineRenderer.SetPosition(0, transform.position);
+				lineRenderer.SetPosition(1, aimRay.point);
+
+				//spawn tower
+				if (fire){
+					Collider2D mouseHit = Physics2D.OverlapPoint(mousePosition);
+					//Debug.Log(mousex+" "+mousey);
+					if(mouseHit!=null){
+						//Debug.Log(mouseHit.name);
+					}else{
+						towerMngr.LoadTower(aimRay.point,items[(int)currentItem]);
 					}
+				}
 				break;
 				case itemType.Bullet:
-					if (firing&&shootTimer==0){
-						shootTimer = shootTime;
-						GameObject bul = GameObject.Instantiate( items[(int)currentItem]
-						,transform.position 
-						,Quaternion.identity) as GameObject;
-						bul.transform.rotation = movement.RotateToPoint(transform,mousePosition);
-						bul.transform.parent = bulletHolder.transform;
+			    //fire bullet
+				lineRenderer.enabled = false;
+				if (firing&&shootTimer==0){
+					shootTimer = shootTime;
+					GameObject bul = GameObject.Instantiate( items[(int)currentItem]
+					,transform.position 
+					,Quaternion.identity) as GameObject;
+					bul.transform.rotation = movement.RotateToPoint(transform,mousePosition);
+					bul.transform.parent = bulletHolder.transform;
 				}
 				break;
 			}
