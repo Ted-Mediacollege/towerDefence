@@ -13,10 +13,13 @@ public class towerManager : MonoBehaviour {
 		towerHolder = GameObject.Find("towers");
 	}
 	
-	public void LoadTower ( Vector3 spawnPoint , GameObject tower) {
+	public void LoadTower ( Vector3 spawnPoint , GameObject tower , Vector2 groundNormal) {
+		Vector3 groundNormal3D = new Vector3(groundNormal.x,groundNormal.y,0);
+		Quaternion quatGound = Quaternion.FromToRotation(Vector3.up , groundNormal3D);
+
 		GameObject newEnemy = (GameObject)GameObject.Instantiate(tower,
 		                                                         spawnPoint,
-		                                                         Quaternion.identity);
+		                                                         quatGound);
 		newEnemy.transform.parent = towerHolder.transform;
 		towers.Add(newEnemy);
 	}

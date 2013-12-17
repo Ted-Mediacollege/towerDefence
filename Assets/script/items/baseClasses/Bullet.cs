@@ -9,7 +9,9 @@ public class Bullet : Item {
 	}
 	
 	private void OnTriggerEnter2D(Collider2D col){
-		if(col.gameObject.name!="player"&&col.gameObject.tag!="bullet"){
+		if(col.gameObject.tag!=gameObject.tag 
+		   && col.gameObject.tag!="tower"
+		   && col.gameObject.name!="player" ){
 			GameObject.Destroy(gameObject);
 		}
 	}

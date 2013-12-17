@@ -20,10 +20,13 @@ public class PlayerMove : MonoBehaviour {
 	private SpriteRenderer[] buttonsArts;
 	private GameObject bulletHolder;
 
+	//tower
+	private float towerSpawnDistace = 0.3f;
+
 	//line
 	private LineRenderer lineRenderer;
-	public Color c1 = Color.yellow;
-	public Color c2 = Color.red;
+	public Color lineColor1 = Color.yellow;
+	public Color lineColor2 = Color.red;
 	private int lengthOfLineRenderer = 2;
 	
 	//enum currentItem
@@ -43,10 +46,12 @@ public class PlayerMove : MonoBehaviour {
 		int buttonCount = buttonHolder.gameObject.transform.childCount;
 		buttonsArts = new SpriteRenderer[buttonCount];
 
+		//create line
 		lineRenderer = gameObject.AddComponent<LineRenderer>();
-		lineRenderer.SetColors(c1, c2);
+		lineRenderer.SetColors(lineColor1, lineColor2);
 		lineRenderer.SetWidth(0.2F, 0.2F);
 		lineRenderer.SetVertexCount(lengthOfLineRenderer);
+		lineRenderer.material = new Material (Shader.Find("Particles/Additive"));
 		lineRenderer.enabled = false;
 
 		for(int i = 0; i < buttonCount; i++) {
@@ -125,20 +130,20 @@ public class PlayerMove : MonoBehaviour {
 
 				//cast aim ray
 				Vector2 mousedirection = mousePos2D-thisPos2D;
-				RaycastHit2D aimRay = Physics2D.Raycast(thisPos2D,mousedirection,10,1 << LayerMask.NameToLayer("Level"));
-				//draw line
+				RaycastHit2D aimRay = Physics2D.Raycast(thisPos2D,mousedirection,100,1 << LayerMask.NameToLayer("Level"));
+				//draw aim line
 				lineRenderer.enabled = true;
 				lineRenderer.SetPosition(0, transform.position);
 				lineRenderer.SetPosition(1, aimRay.point);
 
 				//spawn tower
 				if (fire){
-					Collider2D mouseHit = Physics2D.OverlapPoint(mousePosition);
-					//Debug.Log(mousex+" "+mousey);
+					Collider2D mouseHit = Physics2D.OverlapCircle(aimRay.point
+					                                              ,towerSpawnDistace
+					                                              ,1 << LayerMask.NameToLayer("Towers"));
 					if(mouseHit!=null){
-						//Debug.Log(mouseHit.name);
 					}else{
-						towerMngr.LoadTower(aimRay.point,items[(int)currentItem]);
+						towerMngr.LoadTower(aimRay.point,items[(int)currentItem],aimRay.normal);
 					}
 				}
 				break;
@@ -149,8 +154,7 @@ public class PlayerMove : MonoBehaviour {
 					shootTimer = shootTime;
 					GameObject bul = GameObject.Instantiate( items[(int)currentItem]
 					,transform.position 
-					,Quaternion.identity) as GameObject;
-					bul.transform.rotation = movement.RotateToPoint(transform,mousePosition);
+					,movement.RotateToPoint(transform,mousePosition)) as GameObject;
 					bul.transform.parent = bulletHolder.transform;
 				}
 				break;
