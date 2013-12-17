@@ -16,6 +16,7 @@ public class towerManager : MonoBehaviour {
 	public void LoadTower ( Vector3 spawnPoint , GameObject tower , Vector2 groundNormal) {
 		Vector3 groundNormal3D = new Vector3(groundNormal.x,groundNormal.y,0);
 		Quaternion quatGound = Quaternion.FromToRotation(Vector3.up , groundNormal3D);
+		quatGound.eulerAngles = new Vector3(0,0,quatGound.eulerAngles.z);
 
 		GameObject newEnemy = (GameObject)GameObject.Instantiate(tower,
 		                                                         spawnPoint,

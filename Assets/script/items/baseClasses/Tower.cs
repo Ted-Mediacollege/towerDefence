@@ -63,7 +63,7 @@ public class Tower : Item {
 		//transform.rotation =  Quaternion.Euler(new Vector3(0, 0, movement.RotateToPoint(transform,playerTrance.position)));
 		
 		//limit force
-		gun.rigidbody2D.angularVelocity = movement.limitTorque(rigidbody2D.angularVelocity,maxAngularVelocity);
+		gun.rigidbody2D.angularVelocity = movement.limitTorque(gun.rigidbody2D.angularVelocity,maxAngularVelocity);
 	}
 
 	private void Shoot(){

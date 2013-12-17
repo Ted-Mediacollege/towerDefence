@@ -29,6 +29,7 @@ public class PlayerMove : MonoBehaviour {
 	public Color lineColor2 = Color.red;
 	private int lengthOfLineRenderer = 2;
 	
+
 	//enum currentItem
 	private enum CurrentItem {
 		item1 = 0,
