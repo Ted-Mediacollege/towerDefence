@@ -2907,6 +2907,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoom: 1
   size: 100
+  native_width: 1280
+  native_height: 720
 --- !u!4 &1081208840
 Transform:
   m_ObjectHideFlags: 0

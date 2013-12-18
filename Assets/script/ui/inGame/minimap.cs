@@ -9,6 +9,9 @@ public class minimap : MonoBehaviour {
 	private float centerX = 0;
 	private float centerY = 0;
 
+	public float native_width  = 1280;
+	public float native_height  = 720;
+
 	private Texture2D texture;
 	
 	void Start () {
@@ -21,6 +24,12 @@ public class minimap : MonoBehaviour {
 	}
 	
 	void OnGUI() {
+		//scale
+		float rx = Screen.width / native_width;
+		float ry = Screen.height / native_height;
+		GUI.matrix = Matrix4x4.TRS ( new Vector3(0, 0, 0),Quaternion.identity,  new Vector3 (rx, ry, 1));
+
+		//minimap
 		GUI.color = new Color(0F, 0F, 0F, 1F);
 		GUI.DrawTexture(new Rect(0, 0, size * 2, size * 2), texture);
 		
