@@ -3,9 +3,9 @@ using System.Collections;
 
 public class Bullet : Item {
 	public float speed = 0.01f;
-	private void Update(){
+	private void FixedUpdate(){
 		Vector2 move =  movement.AngleToDirection(transform.eulerAngles.z);
-		transform.localPosition = transform.position +new Vector3(move.x*speed*Time.deltaTime,move.y*speed*Time.deltaTime,0);
+		transform.localPosition = transform.position +new Vector3(move.x*speed,move.y*speed,0);
 	}
 	
 	private void OnTriggerEnter2D(Collider2D col){

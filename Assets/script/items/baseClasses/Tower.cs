@@ -2,49 +2,53 @@
 using System.Collections;
 
 public class Tower : Item {
-	private enemyManager enemyMngr;
-	private Transform playerTrance;
+	protected enemyManager enemyMngr;
 
-	public float maxAngularVelocity = 50;
-	public float maxRotForce = 90;
+	public float maxAngularVelocity = 300;
+	public float maxRotForce = 10000;
 	public float agroDistance = 5;
 	public GameObject bullet;
 	private int shootTimer = 0;
 	public int shootTime = 10;
 	private GameObject bulletHolder;
+	private bool aimingAtTarget;
+
+	protected float distCurrentTarget;
+	protected GameObject currentTarget;
+	protected Vector3 currentTargetPos;
+	protected bool targetFound = false;
 
 	public GameObject gun;
 
 	void Start () {
 		enemyMngr = GameObject.Find("gameManager").GetComponent<enemyManager>() as enemyManager;
-		playerTrance = GameObject.Find("player").GetComponent<Transform>() as Transform;
 
 		bulletHolder = GameObject.Find("bullets");
 	}
 
-	private float distCurrentTarget;
-	private Vector3 currentTarget;
-	private bool targetFound = false;
-
 	private void FixedUpdate(){
 		targetFound = false;
+		GetTarget();
 		Rotate();
+		checkTargetAim();
 		Shoot();
 	}
 
-	private void Rotate(){
+	private void GetTarget(){
 		//get targer
 		if(enemyMngr.enemies.Count>0){
-			currentTarget = enemyMngr.enemies[0].transform.position;
-			distCurrentTarget = Vector3.Distance(transform.position,currentTarget);
+			currentTargetPos = enemyMngr.enemies[0].transform.position;
+			distCurrentTarget = Vector3.Distance(transform.position,currentTargetPos);
+			currentTarget = enemyMngr.enemies[0];
 			if(distCurrentTarget<agroDistance){
 				targetFound = true;
 			}else{
 				for (int i = 0; i < enemyMngr.enemies.Count; i++){
-					distCurrentTarget = Vector3.Distance(gun.transform.position,currentTarget);
+					distCurrentTarget = Vector3.Distance(gun.transform.position,currentTargetPos);
 					float distNewTarget = Vector3.Distance(gun.transform.position,enemyMngr.enemies[i].transform.position);
 					if(distNewTarget<distCurrentTarget){
-						currentTarget = enemyMngr.enemies[i].transform.position;
+						currentTarget = enemyMngr.enemies[i];
+						currentTargetPos = currentTarget.transform.position;
 					}
 					if(distCurrentTarget<agroDistance){
 						targetFound = true;
@@ -52,18 +56,41 @@ public class Tower : Item {
 					}
 				}
 			}
+		}
+		if(targetFound){
+			if(Vector3.Distance(transform.position,currentTargetPos) > agroDistance){
+				targetFound = false;
+			}
+		}
+	}
+
+	public virtual void Rotate(){
+		if(enemyMngr.enemies.Count>0){
 			if(distCurrentTarget < agroDistance && targetFound){
 				gun.rigidbody2D.AddTorque(movement.RotateForce(gun.transform.position,
 				                                               gun.transform.eulerAngles.z,
-				                                           currentTarget,
-				                                           maxRotForce,
-				                                           10));
+				                                               currentTargetPos,
+				                                               maxRotForce,
+				                                               10));
 			}
 		}
-		//transform.rotation =  Quaternion.Euler(new Vector3(0, 0, movement.RotateToPoint(transform,playerTrance.position)));
-		
 		//limit force
 		gun.rigidbody2D.angularVelocity = movement.limitTorque(gun.rigidbody2D.angularVelocity,maxAngularVelocity);
+	}
+
+	private void checkTargetAim(){
+		if(targetFound){
+			//transform.rotation =  Quaternion.Euler(new Vector3(0, 0, movement.RotateToPoint(transform,playerTrance.position)));
+			float rotatioGloal = movement.RotateToPoint(transform,currentTargetPos).eulerAngles.z;
+			float deltaRotation = Mathf.Abs( rotatioGloal - gun.transform.rotation.eulerAngles.z);
+			if(deltaRotation<5){
+				aimingAtTarget = true;
+			}else{
+				aimingAtTarget = false;
+			}
+		}else{
+			aimingAtTarget = false;
+		}
 	}
 
 	private void Shoot(){
@@ -72,7 +99,7 @@ public class Tower : Item {
 		}
 
 		//GameObject.Instantiate 
-		if (shootTimer==0&&targetFound){
+		if (shootTimer==0&&aimingAtTarget){
 			shootTimer = shootTime;
 
 			Vector3 displace = movement.AngleToDirection(gun.transform.eulerAngles.z);

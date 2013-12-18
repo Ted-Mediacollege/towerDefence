@@ -1,9 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\ui\inGame\minimap.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\items\TowerMachineGun.cs">
     <Files>
-      <File FileName="..\..\..\Git_Projects\unity\OnGui\Assets\Menu.cs" Line="14" Column="3" />
-      <File FileName="Assets\script\ui\inGame\minimap.cs" Line="58" Column="1" />
+      <File FileName="Assets\script\items\baseClasses\Tower.cs" Line="85" Column="90" />
+      <File FileName="Assets\script\items\TowerMachineGun.cs" Line="15" Column="82" />
+      <File FileName="Assets\script\items\baseClasses\Bullet.cs" Line="8" Column="73" />
+      <File FileName="Assets\script\managers\enemyManager.cs" Line="36" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
