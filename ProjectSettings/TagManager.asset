@@ -45,6 +45,14 @@ TagManager:
     userID: 0
     uniqueID: 0
     locked: 0
+  - name: background
+    userID: 4
+    uniqueID: 1294021149
+    locked: 0
+  - name: level
+    userID: 5
+    uniqueID: 741521227
+    locked: 0
   - name: player
     userID: 1
     uniqueID: 1294392665

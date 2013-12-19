@@ -54,6 +54,7 @@ public class PlayerMove : MonoBehaviour {
 		lineRenderer.SetVertexCount(lengthOfLineRenderer);
 		lineRenderer.material = new Material (Shader.Find("Particles/Additive"));
 		lineRenderer.enabled = false;
+		lineRenderer.sortingLayerName = "level";
 
 		for(int i = 0; i < buttonCount; i++) {
 			buttonsArts[i] = buttonHolder.gameObject.transform.GetChild(i).GetComponent<SpriteRenderer>();
