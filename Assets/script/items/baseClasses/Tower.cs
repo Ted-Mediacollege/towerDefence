@@ -17,6 +17,9 @@ public class Tower : Item {
 	protected GameObject currentTarget;
 	protected Vector3 currentTargetPos;
 	protected bool targetFound = false;
+	
+	[SerializeField]
+	protected float BulletSpawnDCenter;
 
 	public GameObject gun;
 
@@ -102,7 +105,7 @@ public class Tower : Item {
 		if (shootTimer==0&&aimingAtTarget){
 			shootTimer = shootTime;
 
-			Vector3 displace = movement.AngleToDirection(gun.transform.eulerAngles.z);
+			Vector3 displace = movement.AngleToDirection(gun.transform.eulerAngles.z)*BulletSpawnDCenter;
 			Vector3 thisPos = gun.transform.position;
 			Vector3 spawnPoint = new Vector3(thisPos.x+(displace.x*0.2f),thisPos.y+(displace.y*0.2f),0);
 

@@ -72,7 +72,7 @@ MonoBehaviour:
   dashForce: 200
   moveForce: 2
   maxRotateForce: 1
-  startHealt: 100
+  startHealt: 1000
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

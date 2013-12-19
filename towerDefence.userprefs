@@ -1,16 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\Healt.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\items\TowerMachineGun.cs">
     <Files>
-      <File FileName="Assets\script\items\baseClasses\Item.cs" Line="12" Column="18" />
-      <File FileName="Assets\script\enemy.cs" Line="131" Column="17" />
+      <File FileName="Assets\script\enemy.cs" Line="61" Column="3" />
+      <File FileName="Assets\script\items\TowerMachineGun.cs" Line="31" Column="45" />
+      <File FileName="Assets\script\managers\towerManager.cs" Line="13" Column="33" />
+      <File FileName="Assets\script\items\baseClasses\Bullet.cs" Line="7" Column="25" />
       <File FileName="Assets\script\utils\movement.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\Healt.cs" Line="10" Column="24" />
-      <File FileName="Assets\script\utils\math.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\items\baseClasses\Bullet.cs" Line="10" Column="25" />
-      <File FileName="Assets\script\items\TowerMachineGun.cs" Line="13" Column="1" />
-      <File FileName="Assets\script\player\PlayerMove.cs" Line="128" Column="80" />
-      <File FileName="Assets\script\managers\enemyManager.cs" Line="13" Column="27" />
+      <File FileName="Assets\script\items\baseClasses\Tower.cs" Line="89" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -5,14 +5,19 @@ public class Bullet : Item {
 	[SerializeField]
 	private float _speed = 0.01f;
 	public int damage = 10;
+	private Vector3 velocity;
 
 	public float speed {
 		get { return _speed;} 
 	}
+	
+	private void Start(){
+		Vector2 move =  movement.AngleToDirection(transform.eulerAngles.z);
+		velocity = new Vector3(move.x*speed,move.y*speed,0);
+	}
 
 	private void FixedUpdate(){
-		Vector2 move =  movement.AngleToDirection(transform.eulerAngles.z);
-		transform.localPosition = transform.position +new Vector3(move.x*speed,move.y*speed,0);
+		transform.localPosition = transform.position + velocity;
 	}
 	
 	private void OnTriggerEnter2D(Collider2D col){
