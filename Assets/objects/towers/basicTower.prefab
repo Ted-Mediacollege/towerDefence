@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac005c03767e0244a6423509a8317ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  _type: 1
   maxAngularVelocity: 300
   maxRotForce: 10000
   agroDistance: 3

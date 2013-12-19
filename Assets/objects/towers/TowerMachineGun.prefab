@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72071de8aa7bc6a49b9d2c3ba6550ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  _type: 1
   maxAngularVelocity: 300
   maxRotForce: 10000
   agroDistance: 5

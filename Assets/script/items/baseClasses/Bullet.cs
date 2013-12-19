@@ -2,7 +2,14 @@
 using System.Collections;
 
 public class Bullet : Item {
-	public float speed = 0.01f;
+	[SerializeField]
+	private float _speed = 0.01f;
+	public int damage = 10;
+
+	public float speed {
+		get { return _speed;} 
+	}
+
 	private void FixedUpdate(){
 		Vector2 move =  movement.AngleToDirection(transform.eulerAngles.z);
 		transform.localPosition = transform.position +new Vector3(move.x*speed,move.y*speed,0);

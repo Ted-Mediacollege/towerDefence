@@ -9,14 +9,20 @@ public class enemy : MonoBehaviour {
 	private float DistPointReached = 1.5f;
 	private Vector3 target;
 	private bool pathFound;
-
+	
 	public float maxAngularVelocity = 2;
 	public float drag = 0.97f;
 	public float dashForce = 200;
 	public float moveForce = 2;
 	public float maxRotateForce = 1;
+	[SerializeField]
+	private int startHealt;
+
+	private Healt healt;
 
 	private void Start () {
+		healt = new Healt(startHealt);
+
 		pathMngr = GameObject.Find("pathManager").GetComponent<pathManager>() as pathManager;
 		enemyMngr = GameObject.Find("gameManager").GetComponent<enemyManager>() as enemyManager;
 		getTarget();
@@ -117,5 +123,14 @@ public class enemy : MonoBehaviour {
 			newY= rigidbody2D.velocity.y;
 		}
 		rigidbody2D.velocity = new Vector2(newX,newY);
+	}
+
+	private void OnTriggerEnter2D(Collider2D col){
+		if((itemType)col.gameObject.GetComponent<Item>().type == itemType.Bullet){
+			healt.ChangeHealt(-10);
+			if(healt.dead){
+				enemyMngr.removeEnemy(transform.gameObject);
+			}
+		}
 	}
 }
