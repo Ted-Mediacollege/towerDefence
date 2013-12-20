@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 86564901d2ba20342952187e056604c6
+guid: 1df57c73f977daf4cbfd4680b9743f69
 TextureImporter:
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    linearTexture: 0
+    linearTexture: 1
     correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
@@ -16,11 +16,11 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: .25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: 4
   maxTextureSize: 1024
   textureSettings:
     filterMode: 0
@@ -37,11 +37,11 @@ TextureImporter:
   spritePivot: {x: .5, y: .5}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
-  textureType: 8
+  textureType: 5
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: itemButton_0
+    - name: itemButtonTurret_0
       rect:
         serializedVersion: 2
         x: 0
@@ -50,7 +50,7 @@ TextureImporter:
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: itemButton_1
+    - name: itemButtonTurret_1
       rect:
         serializedVersion: 2
         x: 0

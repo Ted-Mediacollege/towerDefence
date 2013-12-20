@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
+  icon: {fileID: 0}
+  iconS: {fileID: 21300008, guid: 0a2e79a32be2ce047ae992d65f15f02f, type: 3}
   maxAngularVelocity: 300
   maxRotForce: 10000
   agroDistance: 3

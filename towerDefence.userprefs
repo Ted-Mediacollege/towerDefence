@@ -1,13 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\items\TowerMachineGun.cs">
     <Files>
-      <File FileName="Assets\script\enemy.cs" Line="61" Column="3" />
-      <File FileName="Assets\script\items\TowerMachineGun.cs" Line="31" Column="45" />
-      <File FileName="Assets\script\managers\towerManager.cs" Line="13" Column="33" />
-      <File FileName="Assets\script\items\baseClasses\Bullet.cs" Line="7" Column="25" />
-      <File FileName="Assets\script\utils\movement.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\items\baseClasses\Tower.cs" Line="89" Column="22" />
+      <File FileName="Assets\script\player\PlayerMove.cs" Line="47" Column="25" />
+      <File FileName="Assets\script\items\baseClasses\Item.cs" Line="17" Column="1" />
+      <File FileName="Assets\script\ui\inGame\minimap.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\ui\inGame\itemButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\managers\ItemManager.cs" Line="36" Column="17" />
+      <File FileName="Assets\script\managers\towerManager.cs" Line="24" Column="7" />
+      <File FileName="Assets\script\items\TowerMachineGun.cs" Line="42" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

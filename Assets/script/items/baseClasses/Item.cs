@@ -14,4 +14,9 @@ public class Item : MonoBehaviour {
 
 	[SerializeField]
 	private itemType _type;
+
+	public Sprite iconS;
+
+	void Start(){
+	}
 }
