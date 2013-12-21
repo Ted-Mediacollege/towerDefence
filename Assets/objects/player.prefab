@@ -73,21 +73,6 @@ MonoBehaviour:
   dashForce: 300
   moveForce: 25
   rotateForce: 3
-  items:
-  - {fileID: 100000, guid: f64c648bb1871c14d8c325b196eabfb7, type: 2}
-  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
-  - {fileID: 100000, guid: be4bf2ee13f8dc84d9c8fdcd53df1531, type: 2}
-  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
-  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
-  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
-  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
-  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
-  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
-  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
-  shootTime: 10
-  uiCam: {fileID: 0}
-  lineColor1: {r: .0156862736, g: 1, b: .959269643, a: .325490206}
-  lineColor2: {r: 0, g: 1, b: .751724243, a: .227450982}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,6 +85,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemHolder: {fileID: 0}
+  items:
+  - {fileID: 100000, guid: f64c648bb1871c14d8c325b196eabfb7, type: 2}
+  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
+  - {fileID: 100000, guid: f64c648bb1871c14d8c325b196eabfb7, type: 2}
+  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
+  - {fileID: 100000, guid: be4bf2ee13f8dc84d9c8fdcd53df1531, type: 2}
+  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
+  - {fileID: 100000, guid: be4bf2ee13f8dc84d9c8fdcd53df1531, type: 2}
+  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
+  - {fileID: 100000, guid: be4bf2ee13f8dc84d9c8fdcd53df1531, type: 2}
+  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
+  uiCam: {fileID: 0}
+  shootTime: 10
+  lineColor1: {r: 1, g: .921568632, b: .0156862754, a: 1}
+  lineColor2: {r: 1, g: 0, b: 0, a: 1}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
