@@ -3,7 +3,7 @@ using System.Collections;
 
 public class minimap : MonoBehaviour {	
 	private GameObject player;
-	private enemyManager enemymanager;
+	private EnemyManager enemymanager;
 	public float zoom = 2;
 	public int size = 100;
 	private float centerX = 0;
@@ -16,7 +16,7 @@ public class minimap : MonoBehaviour {
 	
 	void Start () {
 		player = GameObject.Find("player");
-		enemymanager = GameObject.Find("gameManager").GetComponent<enemyManager>() as enemyManager;
+		enemymanager = GameObject.Find("gameManager").GetComponent<EnemyManager>() as EnemyManager;
 		texture = new Texture2D(20, 20);
 
 		centerX = transform.position.x;

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class towerManager : MonoBehaviour {
+public class TowerManager : MonoBehaviour {
 	private GameObject towerHolder;
 	internal List<GameObject> towers;
 	private int timer;
@@ -18,11 +18,11 @@ public class towerManager : MonoBehaviour {
 		Quaternion quatGound = Quaternion.FromToRotation(Vector3.up , groundNormal3D);
 		quatGound.eulerAngles = new Vector3(0,0,quatGound.eulerAngles.z);
 
-		GameObject newEnemy = (GameObject)GameObject.Instantiate(tower,
+		GameObject newTower = (GameObject)GameObject.Instantiate(tower,
 		                                                         spawnPoint,
 		                                                         quatGound);
-		newEnemy.transform.parent = towerHolder.transform;
-		towers.Add(newEnemy);
+		newTower.transform.parent = towerHolder.transform;
+		towers.Add(newTower);
 	}
 
 }

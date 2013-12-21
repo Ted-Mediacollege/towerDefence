@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMove : MonoBehaviour {
+public class Player : MonoBehaviour {
 	public float maxAngularVelocity = 10;
 	public float drag = 0.97f;
 	public float dashForce = 200;
@@ -9,16 +9,21 @@ public class PlayerMove : MonoBehaviour {
 	public float rotateForce = 2;
     public GameObject[] items;
     public int shootTime = 10;
+    
+    [SerializeField]
+    private Camera uiCam;
 
 	private int itemIcons = 4;
-	private CurrentItem currentItem = 0;
+	private int currentItem = 0;
 	private int shootTimer = 0;
 
-	private towerManager towerMngr;
+	private TowerManager towerMngr;
+	private ItemManager itemMngr;
 	private GameObject buttonHolder;
 	private GameObject[] buttons;
-	private SpriteRenderer[] buttonsArts;
+	private Collider2D[] buttonsArts;
 	private GameObject bulletHolder;
+	private int buttonCount;
 
 	//tower
 	private float towerSpawnDistace = 0.3f;
@@ -30,41 +35,27 @@ public class PlayerMove : MonoBehaviour {
 	private int lengthOfLineRenderer = 2;
 	
 
-	//enum currentItem
-	private enum CurrentItem {
-		item1 = 0,
-		item2 = 1,
-		item3 = 2,
-		item4 = 3,
-		item5 = 4
-	};
-
 	private void Start(){
-		towerMngr = GameObject.Find("gameManager").GetComponent<towerManager>() as towerManager;
+		itemMngr = transform.GetComponent<ItemManager>();
+		towerMngr = GameObject.Find("gameManager").GetComponent<TowerManager>() as TowerManager;
 		buttonHolder = GameObject.Find("itembuttons");
 		bulletHolder = GameObject.Find("bullets");
 
-		int buttonCount = buttonHolder.gameObject.transform.childCount;
-		buttonsArts = new SpriteRenderer[buttonCount];
-
+		buttonCount = buttonHolder.gameObject.transform.childCount;
+		buttonsArts = new Collider2D[buttonCount];
+		for(int i = 0; i < buttonCount; i++) {
+			buttonsArts[i] = buttonHolder.gameObject.transform.GetChild(i).GetComponent<Collider2D>();
+		}
 		//create line
 		lineRenderer = gameObject.AddComponent<LineRenderer>();
 		lineRenderer.SetColors(lineColor1, lineColor2);
-		lineRenderer.SetWidth(0.2F, 0.2F);
+		lineRenderer.SetWidth(0.1F, 0.1F);
 		lineRenderer.SetVertexCount(lengthOfLineRenderer);
 		lineRenderer.material = new Material (Shader.Find("Particles/Additive"));
 		lineRenderer.enabled = false;
 		lineRenderer.sortingLayerName = "level";
 
-		for(int i = 0; i < buttonCount; i++) {
-			buttonsArts[i] = buttonHolder.gameObject.transform.GetChild(i).GetComponent<SpriteRenderer>();
-		}
-
-		//buttonsArts = new SpriteRenderer[buttons.Length];
-		//for (int i = 0;i<buttons.Length;i++){
-		//	buttonsArts[i] = buttons[i].GetComponent<SpriteRenderer>();
-		//}
-		updateUI();
+		itemMngr.setItem(currentItem);
 	}
 
 	private void FixedUpdate () {
@@ -77,35 +68,24 @@ public class PlayerMove : MonoBehaviour {
 		float scrol = -Input.GetAxis("Mouse ScrollWheel");
 		if(scrol!=0){
 			if(scrol>0){
-				if((int)currentItem<itemIcons){
+				if(currentItem<buttonCount-1){
 					currentItem++;
 				}
 			}else{
-				if((int)currentItem>0){
+				if(currentItem>0){
 					currentItem--;
 				}
 			}
-			updateUI();
-			//Debug.Log(scrol+" - "+currentItem);
+			itemMngr.setItem(currentItem);
 		}
 	}
 
-	public void buttonPress(SpriteRenderer buttonArt){
-		for (int i = 0;i<buttonsArts.Length;i++){
+	public void buttonPress(Collider2D buttonArt){
+		for (int i = 0;i<buttonCount;i++){
 			if(buttonsArts[i] == buttonArt){
-				currentItem = (CurrentItem)i;
-				updateUI();
+				currentItem = i;
+				itemMngr.setItem(currentItem);
 				break;
-			}
-		}
-	}
-
-	private void updateUI(){
-		for (int i = 0;i<buttonsArts.Length;i++){
-			if(i==(int)currentItem){
-				buttonsArts[i].color = new Color(1,1,1,1);
-			}else{
-				buttonsArts[i].color = new Color(0.4f,0.4f,0.4f,1);
 			}
 		}
 	}
@@ -117,49 +97,65 @@ public class PlayerMove : MonoBehaviour {
 		}
 
 		//get input and mouse position
-		bool fire = Input.GetMouseButtonDown(0);
+		bool click = Input.GetMouseButtonDown(0);
 		bool firing = Input.GetMouseButton(0);
 		Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+		Ray uiRay = uiCam.ScreenPointToRay(Input.mousePosition);
 		Vector3 mousePosition = new Vector3(mouseRay.origin.x,mouseRay.origin.y,0);
 		Vector2 mousePos2D = new Vector2(mouseRay.origin.x,mouseRay.origin.y);
 		Vector2 thisPos2D = new Vector2(transform.position.x,transform.position.y);
 		
-
-		if(items.Length>(int)currentItem){
-			itemType currentItemType = items[(int)currentItem].GetComponent<Item>().type;
-			switch(currentItemType){
-				case itemType.Tower:
-
-				//cast aim ray
-				Vector2 mousedirection = mousePos2D-thisPos2D;
-				RaycastHit2D aimRay = Physics2D.Raycast(thisPos2D,mousedirection,100,1 << LayerMask.NameToLayer("Level"));
-				//draw aim line
-				lineRenderer.enabled = true;
-				lineRenderer.SetPosition(0, transform.position);
-				lineRenderer.SetPosition(1, aimRay.point);
-
-				//spawn tower
-				if (fire){
-					Collider2D mouseHit = Physics2D.OverlapCircle(aimRay.point
-					                                              ,towerSpawnDistace
-					                                              ,1 << LayerMask.NameToLayer("Towers"));
-					if(mouseHit!=null){
-					}else{
-						towerMngr.LoadTower(aimRay.point,items[(int)currentItem],aimRay.normal);
+		
+		
+		if(buttonCount>currentItem){
+			Collider2D uiHit = Physics2D.OverlapPoint(uiRay.origin
+			                                          ,1 << LayerMask.NameToLayer("UI"));
+			
+			if(uiHit&&click){   
+				//buttonPress(uiHit);
+				for (int i = 0;i<buttonCount;i++){
+					if(buttonsArts[i] == uiHit){
+						currentItem = i;
+						itemMngr.setItem(currentItem);
+						break;
 					}
 				}
-				break;
+			}else{
+				itemType currentItemType = items[currentItem].GetComponent<Item>().type;
+				switch(currentItemType){
+				case itemType.Tower:
+					
+					//cast aim ray
+					Vector2 mousedirection = mousePos2D-thisPos2D;
+					RaycastHit2D aimRay = Physics2D.Raycast(thisPos2D,mousedirection,100,1 << LayerMask.NameToLayer("Level"));
+					//draw aim line
+					lineRenderer.enabled = true;
+					lineRenderer.SetPosition(0, transform.position);
+					lineRenderer.SetPosition(1, aimRay.point);
+					
+					//spawn tower
+					if (click){                      
+						Collider2D mouseCircle = Physics2D.OverlapCircle(aimRay.point
+						                                                 ,towerSpawnDistace
+						                                                 ,1 << LayerMask.NameToLayer("Towers"));
+						if(mouseCircle!=null){
+						}else{
+							towerMngr.LoadTower(aimRay.point,items[currentItem],aimRay.normal);
+						}
+					}
+					break;
 				case itemType.Bullet:
-			    //fire bullet
-				lineRenderer.enabled = false;
-				if (firing&&shootTimer==0){
-					shootTimer = shootTime;
-					GameObject bul = GameObject.Instantiate( items[(int)currentItem]
-					,transform.position 
-					,movement.RotateToPoint(transform,mousePosition)) as GameObject;
-					bul.transform.parent = bulletHolder.transform;
+					//fire bullet
+					lineRenderer.enabled = false;
+					if (firing&&shootTimer==0){
+						shootTimer = shootTime;
+						GameObject bul = GameObject.Instantiate( items[currentItem]
+						                                        ,transform.position 
+						                                        ,movement.RotateToPoint(transform,mousePosition)) as GameObject;
+						bul.transform.parent = bulletHolder.transform;
+					}
+					break;
 				}
-				break;
 			}
 		}
 	}

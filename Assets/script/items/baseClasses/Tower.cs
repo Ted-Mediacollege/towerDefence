@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Tower : Item {
-	protected enemyManager enemyMngr;
+	protected EnemyManager enemyMngr;
 
 	public float maxAngularVelocity = 300;
 	public float maxRotForce = 10000;
@@ -24,7 +24,7 @@ public class Tower : Item {
 	public GameObject gun;
 
 	void Start () {
-		enemyMngr = GameObject.Find("gameManager").GetComponent<enemyManager>() as enemyManager;
+		enemyMngr = GameObject.Find("gameManager").GetComponent<EnemyManager>() as EnemyManager;
 
 		bulletHolder = GameObject.Find("bullets");
 	}

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class pathManager : MonoBehaviour 
+public class PathManager : MonoBehaviour 
 {
 	private GameObject[] paths;
 

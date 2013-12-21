@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class enemy : MonoBehaviour {
-	private pathManager pathMngr;
-	private enemyManager enemyMngr;
+public class Enemy : MonoBehaviour {
+	private PathManager pathMngr;
+	private EnemyManager enemyMngr;
 	private Vector3[] path;
 	private int ProgressInPath = 0;
 	private float DistPointReached = 1.5f;
@@ -23,8 +23,8 @@ public class enemy : MonoBehaviour {
 	private void Start () {
 		healt = new Healt(startHealt);
 
-		pathMngr = GameObject.Find("pathManager").GetComponent<pathManager>() as pathManager;
-		enemyMngr = GameObject.Find("gameManager").GetComponent<enemyManager>() as enemyManager;
+		pathMngr = GameObject.Find("pathManager").GetComponent<PathManager>() as PathManager;
+		enemyMngr = GameObject.Find("gameManager").GetComponent<EnemyManager>() as EnemyManager;
 		getTarget();
 		transform.rotation =  movement.RotateToPoint(transform,target);
 	}

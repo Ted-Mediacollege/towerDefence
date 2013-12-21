@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class enemyManager : MonoBehaviour {
+public class EnemyManager : MonoBehaviour {
 
 	private GameObject enemieHolder;
 	internal List<GameObject> enemies;

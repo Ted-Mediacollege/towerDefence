@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5000000}
   - 58: {fileID: 5800000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.92240334, y: .388423204, z: 0}
+  m_LocalPosition: {x: -15.7813396, y: 16.1482582, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 12}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,7 +53,7 @@ CircleCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 564cfc50fbb402e40a2b4ac9ee37afcd, type: 2}
   m_IsTrigger: 0
   m_Radius: .25
   m_Center: {x: 0, y: 0}
@@ -64,7 +65,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6093ac3b063b2d043997c02bf2a7481b, type: 3}
+  m_Script: {fileID: 11500000, guid: 13b252ec9ee99f74bbae63a1c92690c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxAngularVelocity: 10
@@ -72,10 +73,33 @@ MonoBehaviour:
   dashForce: 300
   moveForce: 25
   rotateForce: 3
-  items: []
+  items:
+  - {fileID: 100000, guid: f64c648bb1871c14d8c325b196eabfb7, type: 2}
+  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
+  - {fileID: 100000, guid: be4bf2ee13f8dc84d9c8fdcd53df1531, type: 2}
+  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
+  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
+  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
+  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
+  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
+  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
+  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
   shootTime: 10
-  lineColor1: {r: 1, g: .921568632, b: .0156862754, a: 1}
-  lineColor2: {r: 1, g: 0, b: 0, a: 1}
+  uiCam: {fileID: 0}
+  lineColor1: {r: .0156862736, g: 1, b: .959269643, a: .325490206}
+  lineColor2: {r: 0, g: 1, b: .751724243, a: .227450982}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ad6301775a3c14abaaf1c7cc9e124e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemHolder: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -94,7 +118,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 1294392665
   m_Sprite: {fileID: 21300000, guid: 9bc1ab605cde21f43b12edb9a4ea1678, type: 3}

@@ -40,7 +40,6 @@ static class movement {
 	}
 
 	static private float angleToPoint(Transform selfTrans, Vector3 target){
-		float thisRotation =  selfTrans.eulerAngles.z;
 		float deltaY = selfTrans.position.y - target.y;
 		float deltaX = selfTrans.position.x - target.x;
 		float angle = (Mathf.Atan2(deltaY,deltaX) * 180 / Mathf.PI)+90;
