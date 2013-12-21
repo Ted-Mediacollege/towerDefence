@@ -27,6 +27,8 @@ public class ItemManager : MonoBehaviour {
 	private LineRenderer lineRenderer;
 	public Color lineColor1 = Color.yellow;
 	public Color lineColor2 = Color.red;
+	public float linewidth1 = 0.1f;
+	public float linewidth2 = 0.1f;
 	private int lengthOfLineRenderer = 2;
 	
 	//tower
@@ -55,7 +57,7 @@ public class ItemManager : MonoBehaviour {
 		//create line
 		lineRenderer = gameObject.AddComponent<LineRenderer>();
 		lineRenderer.SetColors(lineColor1, lineColor2);
-		lineRenderer.SetWidth(0.1F, 0.1F);
+		lineRenderer.SetWidth(linewidth1, linewidth2);
 		lineRenderer.SetVertexCount(lengthOfLineRenderer);
 		lineRenderer.material = new Material (Shader.Find("Particles/Additive"));
 		lineRenderer.enabled = false;
@@ -85,7 +87,6 @@ public class ItemManager : MonoBehaviour {
 		button.transform.parent = itemHolder.transform;
 		button.transform.position = itemHolder.transform.position+topRight+itemDisplasment+new Vector3(-0.32f+i*-0.64f,-0.32f,0);
 		button.layer = LayerMask.NameToLayer("UI");
-		transform.Translate(  new Vector3(0,0.64f,0));
 		
 		buttonList.Add (button);
 	}
@@ -162,11 +163,20 @@ public class ItemManager : MonoBehaviour {
 					
 					//cast aim ray
 					Vector2 mousedirection = mousePos2D-thisPos2D;
-					RaycastHit2D aimRay = Physics2D.Raycast(thisPos2D,mousedirection,100,1 << LayerMask.NameToLayer("Level"));
-					//draw aim line
-					lineRenderer.enabled = true;
-					lineRenderer.SetPosition(0, transform.position);
-					lineRenderer.SetPosition(1, aimRay.point);
+					RaycastHit2D aimRay = Physics2D.Raycast(thisPos2D,mousedirection,5,1 << LayerMask.NameToLayer("Level"));
+					if(aimRay.collider==null){
+						//draw aim line if no wall found
+						lineRenderer.enabled = true;
+						lineRenderer.SetPosition(0, transform.position);
+						Vector2 aim = mousedirection.normalized*5 + thisPos2D;
+						lineRenderer.SetPosition(1, new Vector3(aim.x,aim.y,0));
+						break;
+					}else{
+						//draw aim line if wall found
+						lineRenderer.enabled = true;
+						lineRenderer.SetPosition(0, transform.position);
+						lineRenderer.SetPosition(1, aimRay.point);
+					}
 					
 					//spawn tower
 					if (click){                      
