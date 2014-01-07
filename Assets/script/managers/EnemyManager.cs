@@ -20,18 +20,26 @@ public class EnemyManager : MonoBehaviour {
 
 	private void FixedUpdate () {
 		//Debug.Log("enemy count: "+enemies.Count);
-		timer++;
+		//timer++;
+		//int randomSpawn = Random.Range(0,SpawnPoints.Length);
+		//if(enemies.Count<2000){//maxSpawn
+		//	Vector3 spawn = (Vector3)SpawnPoints[randomSpawn].transform.position;
+		//	if(timer%100==0){
+		//		GameObject newEnemy = (GameObject)GameObject.Instantiate(enemy1,
+		//		                                                         spawn,
+		//		                                                         Quaternion.identity);
+		//		newEnemy.transform.parent = enemieHolder.transform;
+		//		enemies.Add(newEnemy);
+		//	}
+		//}
+	}
+
+	public void spawnEnemy(string enemytype, string spawnpoint) {
 		int randomSpawn = Random.Range(0,SpawnPoints.Length);
-		if(enemies.Count<2000){//maxSpawn
-			Vector3 spawn = (Vector3)SpawnPoints[randomSpawn].transform.position;
-			if(timer%100==0){
-				GameObject newEnemy = (GameObject)GameObject.Instantiate(enemy1,
-				                                                         spawn,
-				                                                         Quaternion.identity);
-				newEnemy.transform.parent = enemieHolder.transform;
-				enemies.Add(newEnemy);
-			}
-		}
+		Vector3 spawn = (Vector3)SpawnPoints[randomSpawn].transform.position;
+		GameObject newEnemy = (GameObject)GameObject.Instantiate(enemy1, spawn, Quaternion.identity);
+		newEnemy.transform.parent = enemieHolder.transform;
+		enemies.Add(newEnemy);
 	}
 
 	public void removeEnemy(GameObject enemy){
