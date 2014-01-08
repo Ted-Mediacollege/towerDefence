@@ -49,8 +49,8 @@ public class minimap : MonoBehaviour {
 	Vector3 worldToMapCoord(Vector3 worldCoord) {
 		Vector3 mapCoord = new Vector3(size,size,0);
 		
-		mapCoord.x = worldCoord.x * zoom + centerX;
-		mapCoord.y = worldCoord.y * zoom + centerY;
+		mapCoord.x = worldCoord.x * zoom - centerX;
+		mapCoord.y = worldCoord.y * zoom - centerY;
 		
 		return mapCoord;
 	}
