@@ -2,18 +2,16 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &100000
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  - 58: {fileID: 5800000}
-  - 114: {fileID: 11400002}
-  m_Layer: 9
-  m_Name: TowerMachineGun
-  m_TagString: tower
+  m_Layer: 0
+  m_Name: gunArt
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,6 +25,23 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200002}
+  - 58: {fileID: 5800000}
+  - 114: {fileID: 11400000}
+  m_Layer: 9
+  m_Name: TowerMachineGunArt
+  m_TagString: tower
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400004}
   - 50: {fileID: 5000000}
   m_Layer: 0
   m_Name: gun
@@ -41,12 +56,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.60343313, y: 3.15255117, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 400002}
-  m_Father: {fileID: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106829}
+  m_LocalPosition: {x: .0070848465, y: .315665483, z: 0}
+  m_LocalScale: {x: .190972969, y: .190972939, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400004}
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -54,16 +68,29 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .021235466, y: .0796318054, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400000}
+  m_LocalPosition: {x: 6.26253557, y: 3.40629816, z: 0}
+  m_LocalScale: {x: .25, y: .25, z: 1}
+  m_Children:
+  - {fileID: 400004}
+  m_Father: {fileID: 0}
+--- !u!4 &400004
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.0158651955, y: .32533142, z: 0}
+  m_LocalScale: {x: 5.23634338, y: 5.23634386, z: 1}
+  m_Children:
+  - {fileID: 400000}
+  m_Father: {fileID: 400002}
 --- !u!50 &5000000
 Rigidbody2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
+  m_GameObject: {fileID: 100004}
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 5
@@ -78,32 +105,32 @@ CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
+  m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Radius: .5
   m_Center: {x: 0, y: 0}
---- !u!114 &11400002
+--- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
+  m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72071de8aa7bc6a49b9d2c3ba6550ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
-  iconS: {fileID: 21300012, guid: 0a2e79a32be2ce047ae992d65f15f02f, type: 3}
+  iconS: {fileID: 21300000, guid: 0a2e79a32be2ce047ae992d65f15f02f, type: 3}
   maxAngularVelocity: 300
   maxRotForce: 10000
   agroDistance: 5
   bullet: {fileID: 100000, guid: f64c648bb1871c14d8c325b196eabfb7, type: 2}
   shootTime: 10
   BulletSpawnDCenter: 3
-  gun: {fileID: 100002}
+  gun: {fileID: 100004}
   targetAimAstimationPresition: 20
 --- !u!212 &21200000
 SpriteRenderer:
@@ -126,8 +153,8 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 1294392665
-  m_Sprite: {fileID: 21300002, guid: 0279c565fa84f4d4c9a54e88e3886207, type: 3}
-  m_Color: {r: 1, g: 0, b: .80689621, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 22e13e7340643714f88e21d386bbb5d6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200002
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -149,8 +176,8 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 1294392665
-  m_Sprite: {fileID: 21300000, guid: 0279c565fa84f4d4c9a54e88e3886207, type: 3}
-  m_Color: {r: .860294104, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 548a94055a9bbac48b3614e51a673969, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -160,6 +187,6 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 100000}
+  m_RootGameObject: {fileID: 100002}
   m_IsPrefabParent: 1
   m_IsExploded: 1

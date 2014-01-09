@@ -4,7 +4,20 @@ using System.Collections;
 public class TowerMachineGun : Tower {
 	[SerializeField]
 	private int targetAimAstimationPresition = 20;
-	//top.LookAt(enemyPos);
+	private Animator animCtrl;
+
+	public override void Animate(){
+		if(animCtrl==null){
+			Transform gnT = gun.transform.FindChild("gunArt");
+			if(gnT!=null){
+				GameObject gn = gnT.gameObject;
+				animCtrl = gun.transform.FindChild("gunArt").GetComponent<Animator>();
+			}
+		}
+		if(animCtrl!=null){
+			animCtrl.SetTrigger("shoot");
+		}
+	}
 
 	public override void Rotate(){
 		if(enemyMngr.enemies.Count>0){

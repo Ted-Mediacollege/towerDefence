@@ -67,6 +67,10 @@ public class Tower : Item {
 		}
 	}
 
+	public virtual void Animate(){
+
+	}
+
 	public virtual void Rotate(){
 		if(enemyMngr.enemies.Count>0){
 			if(distCurrentTarget < agroDistance && targetFound){
@@ -113,6 +117,8 @@ public class Tower : Item {
 			                                        ,spawnPoint 
 			                                        ,gun.transform.rotation) as GameObject;
 			bul.transform.parent = bulletHolder.transform;
+
+			Animate();
 		}
 	}
 }
