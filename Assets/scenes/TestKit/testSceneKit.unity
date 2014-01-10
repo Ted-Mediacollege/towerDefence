@@ -5777,7 +5777,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 1294392665
-  m_Sprite: {fileID: 21300000, guid: 22e13e7340643714f88e21d386bbb5d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab2bcbb4f3883964da6e8a996cfc6f24, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1456888182
 GameObject:
@@ -7275,6 +7275,19 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: .736380339
       objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 5d5068920623b304ca6ecb60f62a4b7d, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 5d5068920623b304ca6ecb60f62a4b7d, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .25
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 5d5068920623b304ca6ecb60f62a4b7d, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ab2bcbb4f3883964da6e8a996cfc6f24,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d5068920623b304ca6ecb60f62a4b7d, type: 2}
   m_RootGameObject: {fileID: 1947291751}
