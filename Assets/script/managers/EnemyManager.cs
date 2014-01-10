@@ -12,6 +12,9 @@ public class EnemyManager : MonoBehaviour {
 	private GameObject test;
 	private GameObject enemy1;
 
+	[SerializeField]
+	private int livePoints = 10;
+
 	private void Start(){
 		enemies = new List<GameObject>();
 		enemieHolder = GameObject.Find("enemies");
@@ -46,15 +49,17 @@ public class EnemyManager : MonoBehaviour {
 		}
 	}
 
-	public void removeEnemy(GameObject enemy){
-		//for (int i = 0; i < enemies.Count;i++){
-		//	if(enemies[i]==enemy){
-		//		break;
-		//		enemies.Remove(enemies[i]);
-		//	}
-		//}
+	public void removeEnemy(GameObject enemy, bool reachedEnd = false){
 		enemies.Remove(enemy);
 		GameObject.Destroy(enemy);
+		if(reachedEnd){
+			livePoints--;
+			if(livePoints<0){
+				Debug.Log("life: "+livePoints+" gameOver");
+			}else{
+				Debug.Log("life: "+livePoints);
+			}
+		}
 	}
 
 	public Vector3 getClosestEnd(Vector3 selfPos){

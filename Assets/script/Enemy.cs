@@ -43,7 +43,8 @@ public class Enemy : MonoBehaviour {
 			}
 		}else{
 			if(DistPointReached>distanceToTarget){
-				enemyMngr.removeEnemy(transform.gameObject);
+				// enemy reached end
+				enemyMngr.removeEnemy(transform.gameObject,true);
 			}
 		}
 
