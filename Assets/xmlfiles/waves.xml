@@ -1,18 +1,24 @@
 <data>
 	<levels>
-		<!-- =============== LEVEL 1 =============== -->
 		<level id="0" >
 			<waves>
-				<wave id="0" time="5" delay="30" >
+				<wave id="0" time="60" delay="20" >
 					<enemies>
-						<enemy name="default" amount="100" spawnpoint="Spawn" />
+						<enemy name="default" amount="10" spawnpoint="Spawn" />
+						<enemy name="default" amount="10" spawnpoint="Spawn2" />
+						<enemy name="default" amount="10" spawnpoint="Spawn3" />
 					</enemies>
 				</wave>
-				<wave id="1" time="40" delay="50" >
+			</waves>
+		</level>
+		
+		<level id="1" >
+			<waves>
+				<wave id="0" time="2000" delay="20" >
 					<enemies>
-						<enemy name="default" amount="32" spawnpoint="Spawn" />
-						<enemy name="default" amount="32" spawnpoint="Spawn2" />
-						<enemy name="default" amount="32" spawnpoint="Spawn3" />
+						<enemy name="default" amount="400" spawnpoint="Spawn" />
+						<enemy name="default" amount="400" spawnpoint="Spawn2" />
+						<enemy name="default" amount="400" spawnpoint="Spawn3" />
 					</enemies>
 				</wave>
 			</waves>

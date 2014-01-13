@@ -55,6 +55,7 @@ public class waveManager : MonoBehaviour {
 			}
 
 			wd.left = wd.total;
+			wd.floatleft = wd.total;
 			wd.id = waves[i].id;
 			wd.time = waves[i].time;
 			wd.timeTotal = waves[i].time;
@@ -105,19 +106,20 @@ public class waveManager : MonoBehaviour {
 						}
 					}
 				} else {
-					int old = (int) Mathf.Floor(wavedata[0].time);
+					int oldtime = (int) Mathf.Floor(wavedata[0].time);
 					wavedata[0].time -= Time.deltaTime;
 
-					if(old != (int) Mathf.Floor(wavedata[0].time)) {
-						int am1 = (int) Mathf.Floor(wavedata[0].left);
-						int am2 = (int) Mathf.Ceil(wavedata[0].left - wavedata[0].spawn);
+					int oldleft = (int) Mathf.Floor(wavedata[0].floatleft);
+					wavedata[0].floatleft -= wavedata[0].spawn * Time.deltaTime;
 
-						for(int s = am1 - am2; s > -1; s-- )
-						{
-							wavedata[0].left -= 1;
-							if(wavedata[0].left > 0)
-							{
-								spawnNextEnemy();
+					if(wavedata[0].left > 0) {
+						if(oldleft != (int) Mathf.Floor(wavedata[0].floatleft)) {	
+							int newleft = (int) Mathf.Floor(wavedata[0].floatleft);
+							for(int s = oldleft - newleft; s > -1; s--) {
+								if(wavedata[0].left > 0) {
+									wavedata[0].left--;
+									spawnNextEnemy();
+								}
 							}
 						}
 					}
@@ -139,11 +141,15 @@ public class waveManager : MonoBehaviour {
 	}
 
 	void spawnNextEnemy() {
-		for(int w = 0; w < wavedata[0].enemies.Count; w++) {
-			if(wavedata[0].enemies[w].amount > 0) {
-				wavedata[0].enemies[w].amount--;
-				enemyMngr.spawnEnemy(wavedata[0].enemies[w].name, wavedata[0].enemies[w].spawnpoint);
-				break;
+		if(wavedata[0].enemies.Count > 0) {
+			int r = Random.Range(0, wavedata[0].enemies.Count);
+
+			if(wavedata[0].enemies[r].amount > 0) {
+				wavedata[0].enemies[r].amount--;
+				enemyMngr.spawnEnemy(wavedata[0].enemies[r].name, wavedata[0].enemies[r].spawnpoint);
+			} else {
+				wavedata[0].enemies.RemoveAt(r);
+				spawnNextEnemy();
 			}
 		}
 	}

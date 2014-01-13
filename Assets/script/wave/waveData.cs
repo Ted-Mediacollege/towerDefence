@@ -7,6 +7,7 @@ public class waveData {
 	public float delay;
 	public int total = 0;
 	public int left = 0;
+	public float floatleft = 0;
 	public float spawn = 0;
 
 	public List<waveDataQueue> enemies = new List<waveDataQueue>();
