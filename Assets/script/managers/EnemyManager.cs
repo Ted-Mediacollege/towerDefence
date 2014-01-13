@@ -41,6 +41,9 @@ public class EnemyManager : MonoBehaviour {
 		for(int i = 0; i < SpawnPoints.Length; i++) {
 			if(SpawnPoints[i].name == spawnpoint) {
 				Vector3 spawn = (Vector3)SpawnPoints[i].transform.position;
+				spawn.x += -1 + Random.Range(0.0F,2.0F);
+				spawn.y += -1 + Random.Range(0.0F,2.0F);
+
 				GameObject newEnemy = (GameObject)GameObject.Instantiate(enemy1, spawn, Quaternion.identity);
 				newEnemy.transform.parent = enemieHolder.transform;
 				enemies.Add(newEnemy);
