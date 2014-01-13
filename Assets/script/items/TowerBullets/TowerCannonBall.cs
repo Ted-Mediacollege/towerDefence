@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerBullet : Bullet {
+public class TowerCannonBall : Bullet {
 
 	private void FixedUpdate(){
 		transform.localPosition = transform.position + velocity;
@@ -11,6 +11,7 @@ public class TowerBullet : Bullet {
 		if(col.gameObject.tag!=gameObject.tag 
 		   && col.gameObject.tag!="tower"
 		   && col.gameObject.name!="player" ){
+			col.GetComponent<Enemy>().Hit(damage);
 			GameObject.Destroy(gameObject);
 		}
 	}

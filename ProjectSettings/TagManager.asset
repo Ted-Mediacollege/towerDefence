@@ -6,7 +6,7 @@ TagManager:
   - itemButton
   - bullet
   - tower
-  - 
+  - enemy
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

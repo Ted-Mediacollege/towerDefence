@@ -1,21 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\player\BulletPlayer.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\items\TowerBullets\TowerCannonBall.cs">
     <Files>
-      <File FileName="Assets\script\managers\EnemyManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\items\TowerMachineGun.cs" Line="31" Column="1" />
-      <File FileName="Assets\script\items\TowerCannon.cs" Line="64" Column="1" />
-      <File FileName="Assets\script\items\baseClasses\Bullet.cs" Line="8" Column="10" />
-      <File FileName="Assets\script\items\TowerBullet.cs" Line="7" Column="58" />
-      <File FileName="Assets\script\player\BulletPlayer.cs" Line="8" Column="3" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\player\Player3.cs">
-    <Files>
-      <File FileName="Assets\script\player\Player3.cs" Line="63" Column="33" />
-      <File FileName="Assets\script\wave\waveManager.cs" Line="44" Column="47" />
-      <File FileName="Assets\xmlfiles\waves.xml" Line="11" Column="16" />
->>>>>>> bc6e629657d0df7ef937e24007fb783169b26c2e
+      <File FileName="Assets\script\player\ItemManager.cs" Line="142" Column="1" />
+      <File FileName="Assets\script\items\TowerBullets\TowerCannonBall.cs" Line="14" Column="7" />
+      <File FileName="Assets\script\Enemy.cs" Line="130" Column="28" />
+      <File FileName="Assets\script\items\baseClasses\Bullet.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\items\TowerBullets\TowerBullet.cs" Line="15" Column="8" />
+      <File FileName="Assets\script\player\BulletPlayer.cs" Line="15" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

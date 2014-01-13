@@ -126,12 +126,19 @@ public class Enemy : MonoBehaviour {
 		rigidbody2D.velocity = new Vector2(newX,newY);
 	}
 
-	private void OnTriggerEnter2D(Collider2D col){
+	public void Hit(int damage){
+		healt.ChangeHealt(-damage);
+		if(healt.dead){
+			enemyMngr.removeEnemy(transform.gameObject);
+		}
+	}
+
+	/*private void OnTriggerEnter2D(Collider2D col){
 		if((itemType)col.gameObject.GetComponent<Item>().type == itemType.Bullet){
 			healt.ChangeHealt(-10);
 			if(healt.dead){
 				enemyMngr.removeEnemy(transform.gameObject);
 			}
 		}
-	}
+	}*/
 }

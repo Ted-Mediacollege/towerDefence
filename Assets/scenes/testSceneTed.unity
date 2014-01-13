@@ -6431,6 +6431,7 @@ GameObject:
   - 114: {fileID: 1749855481}
   - 114: {fileID: 1749855482}
   - 114: {fileID: 1749855483}
+  - 114: {fileID: 1749855484}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -6555,9 +6556,27 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1301411274}
   m_GameObject: {fileID: 1749855476}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa9a34d816e2e274bb15908a26b35793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAngularVelocity: 10
+  drag: .899999976
+  dashForce: 300
+  moveForce: 25
+  rotateForce: 3
+  gun: {fileID: 0}
+--- !u!114 &1749855484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: eb916f1871a8e55428dbad018cbf004e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1301411274}
+  m_GameObject: {fileID: 1749855476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37545cef5a89b704d85bac90a4763aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxAngularVelocity: 10

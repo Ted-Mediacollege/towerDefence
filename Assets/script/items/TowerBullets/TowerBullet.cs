@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BulletPlayer : Bullet {
+public class TowerBullet : Bullet {
 
-	private void Update(){
+	private void FixedUpdate(){
 		transform.localPosition = transform.position + velocity;
 	}
 	

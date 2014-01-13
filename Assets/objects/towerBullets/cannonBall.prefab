@@ -70,7 +70,7 @@ MonoBehaviour:
   _type: 0
   iconS: {fileID: 0}
   _speed: .100000001
-  damage: 10
+  damage: 50
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
