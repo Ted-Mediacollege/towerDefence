@@ -13,25 +13,13 @@ public class Player3 : MonoBehaviour {
 	
 	private void FixedUpdate () {
 		Move();
-		Rotate();
 	}
 	
 	private void Update(){
-		//dash
 		bool jump = Input.GetButtonDown("Jump");
 		if(jump){
 			rigidbody2D.AddForce( movement.ForceAndAngleToDirection(dashForce,transform.rotation.eulerAngles.z));
 		}
-		
-	}
-	
-	private void Rotate(){
-		//get input
-		float hor = -Input.GetAxis("Horizontal");
-		//add force
-		rigidbody2D.AddTorque(hor*rotateForce);
-		//limit force
-		rigidbody2D.angularVelocity = movement.limitTorque(rigidbody2D.angularVelocity,maxAngularVelocity);
 	}
 
 	private float fixPos(float p) {
@@ -60,6 +48,17 @@ public class Player3 : MonoBehaviour {
 
 		newX = fixPos(rigidbody2D.velocity.x);
 		newY = fixPos(rigidbody2D.velocity.y);
+		
+		if(newX > 0.1) {
+			Vector3 scale = transform.localScale;
+			scale.x = -1;
+			transform.localScale = scale;
+		} else if(newX < -0.1) {
+			Vector3 scale = transform.localScale;
+			scale.x = 1;
+			transform.localScale = scale;
+		}
+
 		rigidbody2D.velocity = new Vector2(newX, newY);
 	}
 }
