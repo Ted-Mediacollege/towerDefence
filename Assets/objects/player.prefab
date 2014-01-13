@@ -17,7 +17,7 @@ GameObject:
   - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
   - {fileID: 100000, guid: be4bf2ee13f8dc84d9c8fdcd53df1531, type: 2}
   - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
-  - {fileID: 100000, guid: be4bf2ee13f8dc84d9c8fdcd53df1531, type: 2}
+  - {fileID: 100000, guid: 61d3fa2cc62d8964d8587d72c586b443, type: 2}
   - {fileID: 100002, guid: 5d5068920623b304ca6ecb60f62a4b7d, type: 2}
   uiCam: {fileID: 0}
   shootTime: 10
