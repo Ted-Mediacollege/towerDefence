@@ -69,8 +69,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   iconS: {fileID: 0}
-  _speed: .100000001
-  damage: 20
+  _speed: .0599999987
+  damage: 50
   explosionRange: 4
   drawExplosionRange: 1
 --- !u!212 &21200000

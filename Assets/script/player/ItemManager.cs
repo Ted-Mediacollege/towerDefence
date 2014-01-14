@@ -25,15 +25,23 @@ public class ItemManager : MonoBehaviour {
 	
 	//line
 	private LineRenderer lineRenderer;
-	public Color lineColor1 = Color.yellow;
-	public Color lineColor2 = Color.red;
-	public float linewidth1 = 0.1f;
-	public float linewidth2 = 0.1f;
 	private int lengthOfLineRenderer = 2;
+	[SerializeField]
+	private Color lineColor1 = Color.yellow;
+	[SerializeField]
+	private Color lineColor2 = Color.red;
+	[SerializeField]
+	private float linewidth1 = 0.1f;
+	[SerializeField]
+	private float linewidth2 = 0.1f;
 	
 	//tower
 	private float towerSpawnDistace = 0.3f;
 	private TowerManager towerMngr;
+
+	//gun
+	[SerializeField]
+	private GameObject gun;
 	
 	private int currentItem = 0;
 	
@@ -61,7 +69,7 @@ public class ItemManager : MonoBehaviour {
 		lineRenderer.SetVertexCount(lengthOfLineRenderer);
 		lineRenderer.material = new Material (Shader.Find("Particles/Additive"));
 		lineRenderer.enabled = false;
-		lineRenderer.sortingLayerName = "level";
+		lineRenderer.sortingLayerName = "player";
 	}
 	
 	public void CreateButton( int i){
@@ -143,6 +151,23 @@ public class ItemManager : MonoBehaviour {
 		Vector3 mousePosition = new Vector3(mouseRay.origin.x,mouseRay.origin.y,0);
 		Vector2 mousePos2D = new Vector2(mouseRay.origin.x,mouseRay.origin.y);
 		Vector2 thisPos2D = new Vector2(transform.position.x,transform.position.y);
+		Vector2 gunPos2D = new Vector2(gun.transform.position.x,gun.transform.position.y);
+
+		//rotate gun
+		Quaternion gunRotation = movement.RotateToPoint(gun.transform,mousePosition);
+		if(transform.localScale.x>0){
+			gunRotation.eulerAngles = new Vector3(gunRotation.eulerAngles.x,
+			                                      gunRotation.eulerAngles.y,
+			                                      gunRotation.eulerAngles.z - 90);
+		}else{
+			gunRotation.eulerAngles = new Vector3(gunRotation.eulerAngles.x,
+			                                      gunRotation.eulerAngles.y,
+			                                      gunRotation.eulerAngles.z + 90);
+			gunRotation.eulerAngles = new Vector3(gunRotation.eulerAngles.x,
+			                                      gunRotation.eulerAngles.y,
+			                                      -gunRotation.eulerAngles.z);
+		}
+		gun.transform.rotation = gunRotation;
 		
 		if(itemLenght>currentItem){
 			Collider2D uiHit = Physics2D.OverlapPoint(uiRay.origin
@@ -162,19 +187,19 @@ public class ItemManager : MonoBehaviour {
 				case itemType.Tower:
 					
 					//cast aim ray
-					Vector2 mousedirection = mousePos2D-thisPos2D;
-					RaycastHit2D aimRay = Physics2D.Raycast(thisPos2D,mousedirection,5,1 << LayerMask.NameToLayer("Level"));
+					Vector2 mousedirection = mousePos2D-gunPos2D;
+					RaycastHit2D aimRay = Physics2D.Raycast(gunPos2D,mousedirection,5,1 << LayerMask.NameToLayer("Level"));
 					if(aimRay.collider==null){
 						//draw aim line if no wall found
 						lineRenderer.enabled = true;
-						lineRenderer.SetPosition(0, transform.position);
-						Vector2 aim = mousedirection.normalized*5 + thisPos2D;
+						lineRenderer.SetPosition(0, gun.transform.position);
+						Vector2 aim = mousedirection.normalized*5 + gunPos2D;
 						lineRenderer.SetPosition(1, new Vector3(aim.x,aim.y,0));
 						break;
 					}else{
 						//draw aim line if wall found
 						lineRenderer.enabled = true;
-						lineRenderer.SetPosition(0, transform.position);
+						lineRenderer.SetPosition(0, gun.transform.position);
 						lineRenderer.SetPosition(1, aimRay.point);
 					}
 					
@@ -195,7 +220,7 @@ public class ItemManager : MonoBehaviour {
 					if (firing&&shootTimer==0){
 						shootTimer = shootTime;
 						GameObject bul = GameObject.Instantiate( items[currentItem]
-						                                        ,transform.position 
+						                                        ,gun.transform.position 
 						                                        ,movement.RotateToPoint(transform,mousePosition)) as GameObject;
 						bul.transform.parent = bulletHolder.transform;
 					}

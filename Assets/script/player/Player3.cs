@@ -8,9 +8,6 @@ public class Player3 : MonoBehaviour {
 	public float moveForce = 25;
 	public float rotateForce = 3;
 	
-	[SerializeField]
-	private GameObject gun;
-	
 	private void FixedUpdate () {
 		Move();
 	}
