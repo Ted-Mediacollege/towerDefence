@@ -11,6 +11,7 @@ public class EnemyManager : MonoBehaviour {
 	private int timer;
 	private GameObject test;
 	private GameObject enemy1;
+	private GameObject moneyobject;
 
 	[SerializeField]
 	private int livePoints = 10;
@@ -19,6 +20,7 @@ public class EnemyManager : MonoBehaviour {
 		enemies = new List<GameObject>();
 		enemieHolder = GameObject.Find("enemies");
 		enemy1 = Resources.Load("enemy") as GameObject;
+		moneyobject = Resources.Load("money") as GameObject;
 	}
 
 	private void FixedUpdate () {
@@ -54,7 +56,6 @@ public class EnemyManager : MonoBehaviour {
 
 	public void removeEnemy(GameObject enemy, bool reachedEnd = false){
 		enemies.Remove(enemy);
-		GameObject.Destroy(enemy);
 		if(reachedEnd){
 			livePoints--;
 			if(livePoints<0){
@@ -62,7 +63,10 @@ public class EnemyManager : MonoBehaviour {
 			}else{
 				Debug.Log("life: "+livePoints);
 			}
+		} else {
+			GameObject money = (GameObject)GameObject.Instantiate(moneyobject, enemy.transform.position, Quaternion.identity);
 		}
+		GameObject.Destroy(enemy);
 	}
 
 	public Vector3 getClosestEnd(Vector3 selfPos){
