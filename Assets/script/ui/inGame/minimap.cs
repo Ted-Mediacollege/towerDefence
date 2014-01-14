@@ -30,12 +30,12 @@ public class minimap : MonoBehaviour {
 	
 	void OnGUI() {
 		if(Input.GetKey(KeyCode.M)) {
-			zooming += 0.01F;
+			zooming += 0.02F;
 			if(zooming > 2F) {
 				zooming = 2F;
 			}
 		} else {
-			zooming -= 0.01F;
+			zooming -= 0.02F;
 			if(zooming < 1F) {
 				zooming = 1F;
 			}

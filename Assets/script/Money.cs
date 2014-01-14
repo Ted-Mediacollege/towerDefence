@@ -16,7 +16,7 @@ public class Money : MonoBehaviour
 			pickUp();
 		} else if(dis < 5) {
 			Vector3 newpos = transform.position;
-			Vector2 change = movement.ForceAndAngleToDirection(0.1F / (dis * 2), movement.angleToPoint(transform, p.transform.position)); // Vector3.Angle(transform.position, p.transform.position));
+			Vector2 change = movement.ForceAndAngleToDirection(0.1F / (dis * 2), movement.angleToPoint(transform, p.transform.position));
 
 			newpos.x += change.x;
 			newpos.y += change.y;
