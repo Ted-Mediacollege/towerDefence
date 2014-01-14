@@ -41,7 +41,7 @@ public class CameraFollow1 : MonoBehaviour
 		Vector2 mousePos2D = new Vector2(mouseRay.origin.x,mouseRay.origin.y);
 		newPos = transform.position;
 		Vector3 distMouseTarget = mousePosition - cameraTarget.transform.position;
-		targetPos = (cameraTarget.transform.position + (distMouseTarget/2));
+		targetPos = (cameraTarget.transform.position + (distMouseTarget/3));
 		
 		if (cameraFollowX)
 		{

@@ -20,8 +20,12 @@ public class Enemy : MonoBehaviour {
 
 	private Healt healt;
 
-	private void Start () {
+	private void Awake(){
 		healt = new Healt(startHealt);
+	}
+
+	private void Start () {
+
 
 		pathMngr = GameObject.Find("pathManager").GetComponent<PathManager>() as PathManager;
 		enemyMngr = GameObject.Find("gameManager").GetComponent<EnemyManager>() as EnemyManager;
