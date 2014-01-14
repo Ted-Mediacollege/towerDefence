@@ -126,7 +126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.1757021, y: 21.9943199, z: 0}
+  m_LocalPosition: {x: 12.1757021, y: 32.8744774, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -154,7 +154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.658653259, y: 2.79928589, z: 0}
+  m_LocalPosition: {x: 13.1559877, y: -45.5519562, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -165,7 +165,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.658653259, y: 2.79928589, z: 0}
+  m_LocalPosition: {x: -8.22381401, y: -45.5519562, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -176,7 +176,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.658653259, y: 2.79928589, z: 0}
+  m_LocalPosition: {x: 34.3713303, y: -45.5519562, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -210,6 +210,7 @@ MonoBehaviour:
   - {fileID: 400008}
   - {fileID: 400006}
   - {fileID: 400010}
+  livePoints: 10
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,10 +222,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015b0ee6d3b24cb45a497b3a1233efdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoom: 2
-  size: 100
+  zoom: 3.20000005
+  size: 120
+  centerX: 60
+  centerY: 0
   native_width: 1280
   native_height: 720
+  iconPlayer: {fileID: 2800000, guid: 9793e5d7f6477044198edcbd2695996e, type: 3}
+  iconStart: {fileID: 2800000, guid: c2ee046c130e528489709d93f41b0d8d, type: 3}
+  iconEnd: {fileID: 2800000, guid: d38a5991f81e0ca47ad3de071c8883f3, type: 3}
+  iconEnemy: {fileID: 2800000, guid: 7abe15efdc6e9a548a8c351746fcd51f, type: 3}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
