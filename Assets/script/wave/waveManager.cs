@@ -95,14 +95,15 @@ public class waveManager : MonoBehaviour {
 						spawing = false;
 						waiting = false;
 						paused = true;
-						//GOING IN PAUSED MODE
+						//PAUSED MODE
+						Debug.Log("[WAVE]: paused mode");
 					} else {
 						if(wavedata.Count > 1) {
 							spawing = false;
 							waiting = true;
-							//waiting
+							Debug.Log("[WAVE]: waiting...");
 						} else {
-							//done
+							Debug.Log("[WAVE]: Done");
 						}
 					}
 				} else {
@@ -123,6 +124,8 @@ public class waveManager : MonoBehaviour {
 							}
 						}
 					}
+
+					Debug.Log("[WAVE]: Spawning: " + wavedata[0].time);
 				}
 			} else if(waiting) {
 				if(wavedata[0].delay < 0F) {
