@@ -17,6 +17,7 @@ GameObject:
   - 114: {fileID: 11400006}
   - 58: {fileID: 5800002}
   - 114: {fileID: 11400010}
+  - 114: {fileID: 11400012}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -116,7 +117,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .47218132, y: -.0214624405, z: 0}
+  m_LocalPosition: {x: .362056255, y: .000562667847, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -250,7 +251,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cba4f3387142a3e4f8d35f412d8c52b6, type: 3}
   m_Name: 
@@ -258,7 +259,24 @@ MonoBehaviour:
   particles:
   - {fileID: 100000, guid: 08c6815ac45e5684f88d6db8b7ac0c02, type: 2}
   spawnPoint: {fileID: 400006}
-  spawnTime: 1
+  spawnTime: .100000001
+--- !u!114 &11400012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9402c82c852b84b9e86baa69d9ebc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - {fileID: 100000, guid: 08c6815ac45e5684f88d6db8b7ac0c02, type: 2}
+  spawnPoint: {fileID: 400006}
+  spawnTime: 0
+  spawnTimeRandom: 1
+  spawnDisplacement: .600000024
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
