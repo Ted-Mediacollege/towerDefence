@@ -1,27 +1,10 @@
 ﻿<Properties>
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\Enemy.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\particleSystem\Particle.cs">
     <Files>
-      <File FileName="Assets\script\Enemy.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\particleSystem\ParticleSpawner.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\CameraFollow1.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\items\TowerBullets\TowerBullet.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\player\ItemManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\CameraFollow.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\Enemy.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\particleSystem\Particle.cs" Line="1" Column="1" />
-=======
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\managers\EnemyManager.cs">
-    <Files>
-      <File FileName="Assets\script\managers\EnemyManager.cs" Line="58" Column="18" />
-      <File FileName="Assets\script\ui\inGame\minimap.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\items\TowerBullets\TowerBullet.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\player\ItemManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\CameraFollow.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\CameraFollow1.cs" Line="1" Column="1" />
->>>>>>> 9582e6f57dca538f90492682836dbba2a6852bb1
+      <File FileName="Assets\script\particleSystem\Particle.cs" Line="65" Column="14" />
+      <File FileName="Assets\script\utils\movement.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\utils\math.cs" Line="4" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -5,9 +5,12 @@ public class ParticleSpawner : MonoBehaviour {
 
 	[SerializeField]
 	private GameObject[] particles;
-
+	[SerializeField]
+	private Transform spawnPoint;
 	[SerializeField]
 	private float spawnTime;
+
+
 
 	private float timeCount;
 
@@ -27,6 +30,6 @@ public class ParticleSpawner : MonoBehaviour {
 	}
 
 	void Spawn(){
-		Debug.Log("Spawn Spawn " );
+		GameObject.Instantiate(particles[0],spawnPoint.position,Quaternion.identity);
 	}
 }
