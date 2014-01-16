@@ -15,6 +15,11 @@ public class Particle : MonoBehaviour {
 	private int state = 0;
 	private float deltaAlpha;
 	private float speed;
+	private float startSpeed;
+	private float deltaSpeed = 1.5f;
+
+	[SerializeField]
+	private float waveSpeed = 0.005f;
 	
 	private void Start () {
 		img = GetComponent<SpriteRenderer>();
@@ -25,17 +30,18 @@ public class Particle : MonoBehaviour {
 		transform.localScale = new Vector3(scaleX,scaleY,1);
 		deltaAlpha = Delta[state]/Scale;
 		speed = 0.02f;
+		startSpeed = speed;
 	}
 	
 	private void FixedUpdate () {
 		if(speed>0){
-			speed -= 0.0001f;
+			speed -= (0.02f/(90/deltaSpeed));
 		}
 		float angleDelta;
 		if(transform.eulerAngles.z>90){
-			angleDelta=1.5f;
+			angleDelta=deltaSpeed;
 		}else if(transform.eulerAngles.z<90){
-			angleDelta=-1.5f;
+			angleDelta=-deltaSpeed;
 		}else{
 			angleDelta=0;
 		}
@@ -59,16 +65,16 @@ public class Particle : MonoBehaviour {
 		transform.localScale = new Vector3(scaleX,scaleY,1);
 		img.color = new Color(1f,1f,1f,1f);
 
-
+		SinMove();
 	}
-	float sn = 0;
+	float waveAngle = 0;
 	void SinMove(){
-		sn++;
-		if(sn>360){
-			sn = 0;
+		waveAngle+=30;
+		if(waveAngle>360){
+			waveAngle = 0;
 		}
-		//sinPos = math.angleToPoint(sn);
-		//transform.Translate(sinPos.x,sinPos.y,0);
+		Vector2 sinPos = movement.AngleToDirection(waveAngle)*waveSpeed;
+		transform.Translate(sinPos.x,sinPos.y,0);
 	}
 
 }

@@ -59,8 +59,9 @@ MonoBehaviour:
   scaleY: .0500000007
   randomScale: .0299999993
   Delta:
-  - .00100000005
-  - -.00100000005
+  - 2
+  - -.00200000009
+  waveSpeed: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -158,16 +158,13 @@ public class ItemManager : MonoBehaviour {
 		if(transform.localScale.x>0){
 			gunRotation.eulerAngles = new Vector3(gunRotation.eulerAngles.x,
 			                                      gunRotation.eulerAngles.y,
-			                                      gunRotation.eulerAngles.z - 90);
+			                                      gunRotation.eulerAngles.z - 90-transform.localEulerAngles.z);
 		}else{
 			gunRotation.eulerAngles = new Vector3(gunRotation.eulerAngles.x,
 			                                      gunRotation.eulerAngles.y,
-			                                      gunRotation.eulerAngles.z + 90);
-			gunRotation.eulerAngles = new Vector3(gunRotation.eulerAngles.x,
-			                                      gunRotation.eulerAngles.y,
-			                                      -gunRotation.eulerAngles.z);
+			                                      -(gunRotation.eulerAngles.z + 90)+transform.localEulerAngles.z);
 		}
-		gun.transform.rotation = gunRotation;
+		gun.transform.localRotation = gunRotation;
 		
 		if(itemLenght>currentItem){
 			Collider2D uiHit = Physics2D.OverlapPoint(uiRay.origin
