@@ -51,10 +51,10 @@ public class Player4 : MonoBehaviour {
 				}
 			}
 		}else{
-			if(transform.localRotation.eulerAngles.z>178.5){
-				transform.Rotate(0,0,1);
-			}else if(transform.localRotation.eulerAngles.z<181.5){
-				transform.Rotate(0,0,-1);
+			if(transform.localRotation.eulerAngles.z>180&&transform.localRotation.eulerAngles.z<358){
+				transform.Rotate(0,0,1.9f);
+			}else if(transform.localRotation.eulerAngles.z>2&&transform.localRotation.eulerAngles.z<180) {
+				transform.Rotate(0,0,-1.9f);
 			}
 		}
 	}

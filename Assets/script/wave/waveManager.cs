@@ -103,7 +103,7 @@ public class waveManager : MonoBehaviour {
 							waiting = true;
 							Debug.Log("[WAVE]: waiting...");
 						} else {
-							Debug.Log("[WAVE]: Done");
+							//Debug.Log("[WAVE]: Done");
 						}
 					}
 				} else {
@@ -125,7 +125,7 @@ public class waveManager : MonoBehaviour {
 						}
 					}
 
-					Debug.Log("[WAVE]: Spawning: " + wavedata[0].time);
+					//Debug.Log("[WAVE]: Spawning: " + wavedata[0].time);
 				}
 			} else if(waiting) {
 				if(wavedata[0].delay < 0F) {

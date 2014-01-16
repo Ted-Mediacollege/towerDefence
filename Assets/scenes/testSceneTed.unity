@@ -3701,7 +3701,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 1
   m_SortingLayerID: 1294392665
-  m_Sprite: {fileID: 21300002, guid: d21ade896093a7d4aa6592a9b9cff922, type: 3}
+  m_Sprite: {fileID: 21300002, guid: e60ab61cdac8ba2409c21762ef10e6e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &829201567
 Transform:
@@ -7446,6 +7446,20 @@ Prefab:
       propertyPath: uiCam
       value: 
       objectReference: {fileID: 1354633711}
+    - target: {fileID: 11400014, guid: eb916f1871a8e55428dbad018cbf004e, type: 2}
+      propertyPath: maxRotateAngle
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: eb916f1871a8e55428dbad018cbf004e, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e60ab61cdac8ba2409c21762ef10e6e7,
+        type: 3}
+    - target: {fileID: 21200002, guid: eb916f1871a8e55428dbad018cbf004e, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300002, guid: e60ab61cdac8ba2409c21762ef10e6e7,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb916f1871a8e55428dbad018cbf004e, type: 2}
   m_RootGameObject: {fileID: 1749855476}
@@ -8539,7 +8553,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 1294392665
-  m_Sprite: {fileID: 21300000, guid: d21ade896093a7d4aa6592a9b9cff922, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e60ab61cdac8ba2409c21762ef10e6e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!58 &1749855479
 CircleCollider2D:
