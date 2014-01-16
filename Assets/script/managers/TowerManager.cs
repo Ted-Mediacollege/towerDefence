@@ -24,5 +24,9 @@ public class TowerManager : MonoBehaviour {
 		newTower.transform.parent = towerHolder.transform;
 		towers.Add(newTower);
 	}
+	
+	public void SellTower(GameObject tower){
+		GameObject.Destroy(tower);
+	}
 
 }

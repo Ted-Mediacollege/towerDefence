@@ -75,6 +75,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100008
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400008}
+  m_Layer: 0
+  m_Name: bulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -109,7 +124,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.221851349, y: -.234573364, z: -.000630696653}
   m_LocalScale: {x: 1, y: 1, z: .0833333358}
-  m_Children: []
+  m_Children:
+  - {fileID: 400008}
   m_Father: {fileID: 400000}
 --- !u!4 &400006
 Transform:
@@ -122,6 +138,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
+--- !u!4 &400008
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .63414526, y: .627769947, z: .00756835984}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400004}
 --- !u!50 &5000000
 Rigidbody2D:
   m_ObjectHideFlags: 1
@@ -198,9 +225,12 @@ MonoBehaviour:
   shootTime: 10
   lineColor1: {r: 0, g: 1, b: 1, a: .360784322}
   lineColor2: {r: 0, g: .958621025, b: 1, a: 0}
+  lineColorTower1: {r: 1, g: .921568632, b: .0156862754, a: 1}
+  lineColorTower2: {r: 1, g: 0, b: 0, a: 1}
   linewidth1: .100000001
   linewidth2: .100000001
   gun: {fileID: 100004}
+  gunBulletSpawn: {fileID: 400008}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1402,7 +1432,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 1294392665
-  m_Sprite: {fileID: 21300000, guid: d21ade896093a7d4aa6592a9b9cff922, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e60ab61cdac8ba2409c21762ef10e6e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200002
 SpriteRenderer:
@@ -1425,7 +1455,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 1
   m_SortingLayerID: 1294392665
-  m_Sprite: {fileID: 21300002, guid: d21ade896093a7d4aa6592a9b9cff922, type: 3}
+  m_Sprite: {fileID: 21300002, guid: e60ab61cdac8ba2409c21762ef10e6e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

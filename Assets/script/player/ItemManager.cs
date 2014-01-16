@@ -31,6 +31,10 @@ public class ItemManager : MonoBehaviour {
 	[SerializeField]
 	private Color lineColor2 = Color.red;
 	[SerializeField]
+	private Color lineColorTower1 = Color.yellow;
+	[SerializeField]
+	private Color lineColorTower2 = Color.red;
+	[SerializeField]
 	private float linewidth1 = 0.1f;
 	[SerializeField]
 	private float linewidth2 = 0.1f;
@@ -42,6 +46,8 @@ public class ItemManager : MonoBehaviour {
 	//gun
 	[SerializeField]
 	private GameObject gun;
+	[SerializeField]
+	private Transform gunBulletSpawn;
 	
 	private int currentItem = 0;
 	
@@ -169,7 +175,7 @@ public class ItemManager : MonoBehaviour {
 		if(itemLenght>currentItem){
 			Collider2D uiHit = Physics2D.OverlapPoint(uiRay.origin
 			                                          ,1 << LayerMask.NameToLayer("UI"));
-			
+			// ui click
 			if(uiHit&&click){   
 				for (int i = 0;i<itemLenght;i++){
 					if(buttonList[i].GetComponent<Collider2D>() == uiHit){
@@ -178,6 +184,7 @@ public class ItemManager : MonoBehaviour {
 						break;
 					}
 				}
+			// game mouse click
 			}else{
 				itemType currentItemType = items[currentItem].GetComponent<Item>().type;
 				switch(currentItemType){
@@ -185,29 +192,45 @@ public class ItemManager : MonoBehaviour {
 					
 					//cast aim ray
 					Vector2 mousedirection = mousePos2D-gunPos2D;
-					RaycastHit2D aimRay = Physics2D.Raycast(gunPos2D,mousedirection,5,1 << LayerMask.NameToLayer("Level"));
+					RaycastHit2D aimRay = Physics2D.Raycast(gunPos2D
+															,mousedirection
+															,5
+					                                        ,1 << LayerMask.NameToLayer("Level") | 1 << LayerMask.NameToLayer("Towers")
+					);
 					if(aimRay.collider==null){
 						//draw aim line if no wall found
 						lineRenderer.enabled = true;
 						lineRenderer.SetPosition(0, gun.transform.position);
 						Vector2 aim = mousedirection.normalized*5 + gunPos2D;
 						lineRenderer.SetPosition(1, new Vector3(aim.x,aim.y,0));
-						break;
+						lineRenderer.SetColors(lineColor1, lineColor2);
 					}else{
-						//draw aim line if wall found
-						lineRenderer.enabled = true;
-						lineRenderer.SetPosition(0, gun.transform.position);
-						lineRenderer.SetPosition(1, aimRay.point);
-					}
-					
-					//spawn tower
-					if (click){                      
-						Collider2D mouseCircle = Physics2D.OverlapCircle(aimRay.point
-						                                                 ,towerSpawnDistace
-						                                                 ,1 << LayerMask.NameToLayer("Towers"));
-						if(mouseCircle!=null){
+						if (aimRay.collider.transform.gameObject.layer == LayerMask.NameToLayer("Towers")) {
+							//draw aim line if tower found
+							lineRenderer.enabled = true;
+							lineRenderer.SetPosition(0, gun.transform.position);
+							lineRenderer.SetPosition(1, aimRay.point);
+							lineRenderer.SetColors(lineColorTower1, lineColorTower2);
+							//sell tower
+							if (click){   
+								towerMngr.SellTower(aimRay.collider.transform.gameObject);
+							}
 						}else{
-							towerMngr.LoadTower(aimRay.point,items[currentItem],aimRay.normal);
+							//draw aim line if wall found
+							lineRenderer.enabled = true;
+							lineRenderer.SetPosition(0, gun.transform.position);
+							lineRenderer.SetPosition(1, aimRay.point);
+							lineRenderer.SetColors(lineColor1, lineColor2);
+						   //spawn tower
+						   if (click){                      
+								Collider2D mouseCircle = Physics2D.OverlapCircle(aimRay.point
+								                                                 ,towerSpawnDistace
+								                                                 ,1 << LayerMask.NameToLayer("Towers"));
+								if(mouseCircle!=null){
+								}else{
+									towerMngr.LoadTower(aimRay.point,items[currentItem],aimRay.normal);
+								}
+							}
 						}
 					}
 					break;
@@ -217,8 +240,8 @@ public class ItemManager : MonoBehaviour {
 					if (firing&&shootTimer==0){
 						shootTimer = shootTime;
 						GameObject bul = GameObject.Instantiate( items[currentItem]
-						                                        ,gun.transform.position 
-						                                        ,movement.RotateToPoint(transform,mousePosition)) as GameObject;
+						                                        ,gunBulletSpawn.position 
+						                                        ,movement.RotateToPoint(gun.transform,mousePosition)) as GameObject;
 						bul.transform.parent = bulletHolder.transform;
 					}
 					break;
