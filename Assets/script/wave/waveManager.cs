@@ -18,21 +18,23 @@ public class waveManager : MonoBehaviour {
 
 	private EnemyManager enemyMngr;
 
+	[SerializeField]
+	private TextAsset xmlFile;
+
 	void Start () {
 		enemyMngr = GameObject.Find("gameManager").GetComponent<EnemyManager>() as EnemyManager;
 
 		//LOAD WAVE DATA
 		xmldata = loadXML();
-
 		//LOAD DATA FOR LEVEL
 		setupLevel();
 	}
 
 	xmlData loadXML() {
 		XmlSerializer serializer = new XmlSerializer(typeof(xmlData));
-		using(var stream = new FileStream(Application.dataPath + "/xmlfiles/waves.xml", FileMode.Open)) {
-			return serializer.Deserialize(stream) as xmlData;
-		}
+		StringReader xmlstring = new StringReader(xmlFile.text);
+		XmlTextReader xmlReader = new XmlTextReader(xmlstring);
+		return serializer.Deserialize(xmlReader) as xmlData;
 	}
 		
 	void setupLevel () {

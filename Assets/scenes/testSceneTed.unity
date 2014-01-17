@@ -1023,6 +1023,7 @@ MonoBehaviour:
   spawing: 0
   waiting: 0
   paused: 0
+  xmlFile: {fileID: 4900000, guid: b704ea190f971ab4b97be79ff74c7717, type: 3}
 --- !u!4 &261140997
 Transform:
   m_ObjectHideFlags: 0
