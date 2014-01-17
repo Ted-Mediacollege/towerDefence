@@ -23,6 +23,9 @@ public class Tower : Item {
 
 	public GameObject gun;
 
+	public int sellPrice = 30;
+	public int buyPrice = 50;
+
 	void Start () {
 		enemyMngr = GameObject.Find("gameManager").GetComponent<EnemyManager>() as EnemyManager;
 

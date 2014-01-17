@@ -42,6 +42,12 @@ public class ItemManager : MonoBehaviour {
 	//tower
 	private float towerSpawnDistace = 0.3f;
 	private TowerManager towerMngr;
+	//tower text
+	[SerializeField]
+	private GameObject towerSellTextPrefab;
+	private GameObject towerSellTextHolder;
+	private MeshRenderer towerSellTextRender;
+	private TextMesh towerSellText;
 
 	//gun
 	[SerializeField]
@@ -76,6 +82,18 @@ public class ItemManager : MonoBehaviour {
 		lineRenderer.material = new Material (Shader.Find("Particles/Additive"));
 		lineRenderer.enabled = false;
 		lineRenderer.sortingLayerName = "player";
+
+		//create tower sell text 
+		towerSellTextHolder = GameObject.Instantiate(towerSellTextPrefab,transform.position,Quaternion.identity) as GameObject;
+		//towerSellTextHolder.name = "towerSellText";
+		towerSellTextRender = towerSellTextHolder.GetComponent<MeshRenderer>();
+		towerSellText = towerSellTextHolder.GetComponent<TextMesh>();
+		towerSellTextRender.sortingLayerName = "ui";
+		//towerSellText.font = TowerSellFont;
+		//towerSellTextRender.material = towerSellTextMaterial;
+		towerSellText.text = "TowerSellText";
+		towerSellTextHolder.SetActive(false);
+
 	}
 	
 	public void CreateButton( int i){
@@ -198,6 +216,8 @@ public class ItemManager : MonoBehaviour {
 					                                        ,1 << LayerMask.NameToLayer("Level") | 1 << LayerMask.NameToLayer("Towers")
 					);
 					if(aimRay.collider==null){
+						//remove tower sell text
+						towerSellTextHolder.SetActive(false);
 						//draw aim line if no wall found
 						lineRenderer.enabled = true;
 						lineRenderer.SetPosition(0, gun.transform.position);
@@ -211,11 +231,17 @@ public class ItemManager : MonoBehaviour {
 							lineRenderer.SetPosition(0, gun.transform.position);
 							lineRenderer.SetPosition(1, aimRay.point);
 							lineRenderer.SetColors(lineColorTower1, lineColorTower2);
+							//tower sell text
+							towerSellTextHolder.SetActive(true);
+							towerSellText.text = "sell: "+aimRay.collider.transform.gameObject.GetComponent<Tower>().sellPrice;
+							towerSellTextHolder.transform.position = new Vector3(aimRay.point.x,aimRay.point.y,0);
 							//sell tower
 							if (click){   
 								towerMngr.SellTower(aimRay.collider.transform.gameObject);
 							}
 						}else{
+							//remove tower sell text
+							towerSellTextHolder.SetActive(false);
 							//draw aim line if wall found
 							lineRenderer.enabled = true;
 							lineRenderer.SetPosition(0, gun.transform.position);

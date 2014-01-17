@@ -1444,6 +1444,22 @@ Prefab:
       propertyPath: lineColorTower2.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: eb916f1871a8e55428dbad018cbf004e, type: 2}
+      propertyPath: TowerSellFont
+      value: 
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 11400002, guid: eb916f1871a8e55428dbad018cbf004e, type: 2}
+      propertyPath: towerSellTextMaterial
+      value: 
+      objectReference: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 11400002, guid: eb916f1871a8e55428dbad018cbf004e, type: 2}
+      propertyPath: towerSellTextHolder
+      value: 
+      objectReference: {fileID: 100000, guid: 838597d19a5df1543b9f89f1a74e64b3, type: 2}
+    - target: {fileID: 11400002, guid: eb916f1871a8e55428dbad018cbf004e, type: 2}
+      propertyPath: towerSellTextPrefab
+      value: 
+      objectReference: {fileID: 100000, guid: 838597d19a5df1543b9f89f1a74e64b3, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb916f1871a8e55428dbad018cbf004e, type: 2}
   m_RootGameObject: {fileID: 1749855476}
@@ -1809,6 +1825,8 @@ MonoBehaviour:
   shootTime: 10
   BulletSpawnDCenter: 3
   gun: {fileID: 1917982425}
+  sellPrice: 30
+  buyPrice: 50
   targetAimAstimationPresition: 20
 --- !u!58 &468199839
 CircleCollider2D:
@@ -8671,6 +8689,7 @@ MonoBehaviour:
   lineColorTower2: {r: 1, g: .972413778, b: 0, a: 0}
   linewidth1: .100000001
   linewidth2: .100000001
+  towerSellTextPrefab: {fileID: 100000, guid: 838597d19a5df1543b9f89f1a74e64b3, type: 2}
   gun: {fileID: 829201565}
   gunBulletSpawn: {fileID: 1577479726}
 --- !u!114 &1749855483
