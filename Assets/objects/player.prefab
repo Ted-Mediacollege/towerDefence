@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.14557838, y: 4.97910309, z: 0}
+  m_LocalPosition: {x: -14.4267654, y: 22.1681767, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 12}
   m_Children:
   - {fileID: 400002}
@@ -215,9 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemHolder: {fileID: 0}
   items:
-  - {fileID: 100000, guid: f64c648bb1871c14d8c325b196eabfb7, type: 2}
-  - {fileID: 100000, guid: 68e2188aef7e50b47848fcf1d2b13872, type: 2}
-  - {fileID: 100000, guid: be4bf2ee13f8dc84d9c8fdcd53df1531, type: 2}
+  - {fileID: 100004, guid: db0d37edf35df6b45b4596f59b686fb2, type: 2}
   - {fileID: 100000, guid: 61d3fa2cc62d8964d8587d72c586b443, type: 2}
   - {fileID: 100002, guid: 5d5068920623b304ca6ecb60f62a4b7d, type: 2}
   - {fileID: 100000, guid: f64c648bb1871c14d8c325b196eabfb7, type: 2}
@@ -225,8 +223,8 @@ MonoBehaviour:
   shootTime: 10
   lineColor1: {r: 0, g: 1, b: 1, a: .360784322}
   lineColor2: {r: 0, g: .958621025, b: 1, a: 0}
-  lineColorTower1: {r: 1, g: .921568632, b: .0156862754, a: .360784322}
-  lineColorTower2: {r: 1, g: .931034565, b: 0, a: 0}
+  lineColorTower1: {r: 1, g: 1, b: 0, a: .525490224}
+  lineColorTower2: {r: 1, g: .886274517, b: 0, a: 0}
   linewidth1: .100000001
   linewidth2: .100000001
   towerSellTextPrefab: {fileID: 100000, guid: 838597d19a5df1543b9f89f1a74e64b3, type: 2}

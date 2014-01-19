@@ -1,0 +1,342 @@
+fileFormatVersion: 2
+guid: ee1eb0200d6200d44a0eaf9f93fba3e3
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: freeze_droid_schieten_loop_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 238
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 238
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_2
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 238
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 220
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_4
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 220
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_5
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 220
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 202
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_7
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 202
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_8
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 202
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 184
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_10
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 184
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_11
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 184
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 166
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_13
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 166
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_14
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 166
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 148
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_16
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 148
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_17
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 148
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 130
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_19
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 130
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_20
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 130
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_22
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 112
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_23
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 112
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 94
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_25
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 94
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_26
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 94
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 76
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_28
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 76
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_29
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 76
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 58
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_31
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 58
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: freeze_droid_schieten_loop_32
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 58
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 
