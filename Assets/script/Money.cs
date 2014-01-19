@@ -5,8 +5,10 @@ public class Money : MonoBehaviour
 {
 	private int amount = 1;
 	private GameObject p;
+	private GameManager gameMngr;
 
 	void Start () {
+		gameMngr = GameObject.Find("gameManager").GetComponent<GameManager>() as GameManager;
 		p = GameObject.Find("player");
 	}
 
@@ -26,7 +28,7 @@ public class Money : MonoBehaviour
 	}
 
 	void pickUp() {
-		//todo: add amount to money
+		gameMngr.ChangeMoney(50);
 		GameObject.Destroy(gameObject);
 	}
 }

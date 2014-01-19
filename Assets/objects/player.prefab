@@ -86,7 +86,7 @@ GameObject:
   m_Layer: 0
   m_Name: bulletSpawn
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -145,7 +145,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .63414526, y: .627769947, z: .00756835984}
+  m_LocalPosition: {x: -.454190969, y: -.00657463074, z: .00756835984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -225,10 +225,11 @@ MonoBehaviour:
   shootTime: 10
   lineColor1: {r: 0, g: 1, b: 1, a: .360784322}
   lineColor2: {r: 0, g: .958621025, b: 1, a: 0}
-  lineColorTower1: {r: 1, g: .921568632, b: .0156862754, a: 1}
-  lineColorTower2: {r: 1, g: 0, b: 0, a: 1}
+  lineColorTower1: {r: 1, g: .921568632, b: .0156862754, a: .360784322}
+  lineColorTower2: {r: 1, g: .931034565, b: 0, a: 0}
   linewidth1: .100000001
   linewidth2: .100000001
+  towerSellTextPrefab: {fileID: 100000, guid: 838597d19a5df1543b9f89f1a74e64b3, type: 2}
   gun: {fileID: 100004}
   gunBulletSpawn: {fileID: 400008}
 --- !u!114 &11400004

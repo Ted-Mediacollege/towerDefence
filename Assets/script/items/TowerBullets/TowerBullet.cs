@@ -11,7 +11,9 @@ public class TowerBullet : Bullet {
 		if(col.gameObject.tag!=gameObject.tag 
 		   && col.gameObject.tag!="tower"
 		   && col.gameObject.name!="player" ){
-			col.GetComponent<Enemy>().Hit(damage);
+			if(col.gameObject.tag=="enemy"){
+				col.GetComponent<Enemy>().Hit(damage);
+			}
 			GameObject.Destroy(gameObject);
 		}
 	}

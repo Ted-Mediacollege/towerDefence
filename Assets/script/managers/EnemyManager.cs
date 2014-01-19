@@ -12,11 +12,11 @@ public class EnemyManager : MonoBehaviour {
 	private GameObject test;
 	private GameObject enemy1;
 	private GameObject moneyobject;
-
-	[SerializeField]
-	private int livePoints = 10;
+	
+	private GameManager gameMngr;
 
 	private void Start(){
+		gameMngr = gameObject.GetComponent<GameManager>() as GameManager;
 		enemies = new List<GameObject>();
 		enemieHolder = GameObject.Find("enemies");
 		enemy1 = Resources.Load("enemy") as GameObject;
@@ -57,12 +57,7 @@ public class EnemyManager : MonoBehaviour {
 	public void removeEnemy(GameObject enemy, bool reachedEnd = false){
 		enemies.Remove(enemy);
 		if(reachedEnd){
-			livePoints--;
-			if(livePoints<0){
-				Debug.Log("life: "+livePoints+" gameOver");
-			}else{
-				Debug.Log("life: "+livePoints);
-			}
+			gameMngr.ChangeLife(-1);
 		} else {
 			GameObject money = (GameObject)GameObject.Instantiate(moneyobject, enemy.transform.position, Quaternion.identity);
 		}

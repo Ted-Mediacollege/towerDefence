@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraFollow1 : MonoBehaviour
 {
-	public GameObject cameraTarget;
+	private GameObject cameraTarget;
 	
 	public float smoothTime = 0.1f;
 	public bool cameraFollowX = true;
@@ -19,6 +19,10 @@ public class CameraFollow1 : MonoBehaviour
 	public float minXpos;
 	public float maxYpos;
 	public float minYpos;
+	
+	void Start(){
+		cameraTarget = GameObject.Find("player");
+	}
 	
 	void LateUpdate()
 	{

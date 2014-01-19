@@ -20,6 +20,9 @@ public class waveManager : MonoBehaviour {
 
 	[SerializeField]
 	private TextAsset xmlFile;
+	
+	[SerializeField]
+	private TextMesh WaveTimeDisplay;
 
 	void Start () {
 		enemyMngr = GameObject.Find("gameManager").GetComponent<EnemyManager>() as EnemyManager;
@@ -128,12 +131,14 @@ public class waveManager : MonoBehaviour {
 					}
 
 					//Debug.Log("[WAVE]: Spawning: " + wavedata[0].time);
+					WaveTimeDisplay.text = "Spawning: " + wavedata[0].time.ToString();
 				}
 			} else if(waiting) {
 				if(wavedata[0].delay < 0F) {
 					wavedata.RemoveAt(0);
 					nextWave();
 				} else {
+					WaveTimeDisplay.text = "Waiting: "+ wavedata[0].delay.ToString();
 					wavedata[0].delay -= Time.deltaTime;
 				}
 			}

@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 1
-  iconS: {fileID: 21300012, guid: 0a2e79a32be2ce047ae992d65f15f02f, type: 3}
+  iconS: {fileID: 21300002, guid: 0a2e79a32be2ce047ae992d65f15f02f, type: 3}
   maxAngularVelocity: 300
   maxRotForce: 10000
   agroDistance: 5
@@ -104,6 +104,8 @@ MonoBehaviour:
   shootTime: 10
   BulletSpawnDCenter: 3
   gun: {fileID: 100002}
+  sellPrice: 30
+  buyPrice: 50
   targetAimAstimationPresition: 20
 --- !u!212 &21200000
 SpriteRenderer:
