@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21200002}
   - 58: {fileID: 5800000}
   - 114: {fileID: 11400000}
+  - 95: {fileID: 9500002}
   m_Layer: 9
   m_Name: TowerCannon
   m_TagString: tower
@@ -58,7 +59,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106829}
-  m_LocalPosition: {x: .0070848465, y: .189999998, z: 0}
+  m_LocalPosition: {x: .0070848465, y: .219999999, z: 0}
   m_LocalScale: {x: .190972969, y: .190972939, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -69,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0158651955, y: .32533142, z: 0}
+  m_LocalPosition: {x: -.0158615112, y: .176841736, z: 0}
   m_LocalScale: {x: 5.23634338, y: 5.23634386, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -80,8 +81,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.57506037, y: 4.82618093, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -.714524627, w: .699610353}
+  m_LocalPosition: {x: -16.8076401, y: 21.0887089, z: 0}
   m_LocalScale: {x: .25, y: .25, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -122,6 +123,20 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f5786e28cf8ead74db80db4b110afc8d, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 0
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
+--- !u!95 &9500002
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da2e5075f861d81479e9da9199942cd6, type: 2}
   m_CullingMode: 0
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
