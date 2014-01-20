@@ -1,26 +1,8 @@
 ﻿<Properties>
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\particleSystem\Particle.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\xmlfiles\waves.xml">
     <Files>
-      <File FileName="Assets\script\particleSystem\Particle.cs" Line="65" Column="14" />
-      <File FileName="Assets\script\utils\movement.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\utils\math.cs" Line="4" Column="3" />
-=======
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\wave\waveManager.cs">
-    <Files>
-      <File FileName="Assets\script\wave\waveManager.cs" Line="27" Column="3" />
-      <File FileName="Assets\script\Money.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\managers\EnemyManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\ui\inGame\minimap.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\items\TowerBullets\TowerBullet.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\player\ItemManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\CameraFollow.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\CameraFollow1.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\Enemy.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\utils\movement.cs" Line="1" Column="1" />
->>>>>>> 2351eb592e95d103b48e11573e9b1642c33908dc
+      <File FileName="Assets\xmlfiles\waves.xml" Line="15" Column="50" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

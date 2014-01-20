@@ -14,13 +14,6 @@ public class Player4 : MonoBehaviour {
 		Rotate();
 	}
 	
-	private void Update(){
-		bool jump = Input.GetButtonDown("Jump");
-		if(jump){
-			rigidbody2D.AddForce( movement.ForceAndAngleToDirection(dashForce,transform.rotation.eulerAngles.z));
-		}
-	}
-	
 	private float fixPos(float p) {
 		if(p != 0){
 			return p * drag;

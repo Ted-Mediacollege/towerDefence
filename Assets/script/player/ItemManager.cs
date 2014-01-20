@@ -151,7 +151,7 @@ public class ItemManager : MonoBehaviour {
 	}
 	
 	void Update(){
-		float scrol = -Input.GetAxis("Mouse ScrollWheel");
+		float scrol = Input.GetAxis("Mouse ScrollWheel");
 		if(scrol!=0){
 			if(scrol>0){
 				if(currentItem<itemLenght-1){
@@ -167,6 +167,11 @@ public class ItemManager : MonoBehaviour {
 		if(shootTimer>0){
 			shootTimer--;
 		}
+		
+		if(Input.GetKey(KeyCode.Alpha1)) { currentItem = 3; }
+		if(Input.GetKey(KeyCode.Alpha2)) { currentItem = 2; }
+		if(Input.GetKey(KeyCode.Alpha3)) { currentItem = 1; }
+		if(Input.GetKey(KeyCode.Alpha4)) { currentItem = 0; }
 		
 		//get input and mouse position
 		bool click = Input.GetMouseButtonDown(0);
