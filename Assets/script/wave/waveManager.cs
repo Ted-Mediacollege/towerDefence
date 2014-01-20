@@ -15,6 +15,8 @@ public class waveManager : MonoBehaviour {
 	public bool spawing;
 	public bool waiting;
 	public bool paused;
+	public bool deadwait;
+	public bool done;
 
 	private EnemyManager enemyMngr;
 
@@ -65,6 +67,7 @@ public class waveManager : MonoBehaviour {
 			wd.time = waves[i].time;
 			wd.timeTotal = waves[i].time;
 			wd.delay = waves[i].delay;
+			wd.dead = waves[i].dead;
 			wd.spawn = wd.total / wd.timeTotal;
 
 			wavedata.Add(wd);
@@ -97,18 +100,20 @@ public class waveManager : MonoBehaviour {
 			if(spawing) {
 				if(wavedata[0].time < 0F) {
 					if(wavedata[0].delay < 0F) {
-						spawing = false;
-						waiting = false;
-						paused = true;
-						//PAUSED MODE
-						Debug.Log("[WAVE]: paused mode");
+						//PAUSED
+						setStates(true, false, false, false);
 					} else {
 						if(wavedata.Count > 1) {
-							spawing = false;
-							waiting = true;
-							Debug.Log("[WAVE]: waiting...");
+							if(wavedata[0].dead) {
+								//DEADWAIT
+								setStates(false, false, false, true);
+							} else {
+								//DELAY WAIT
+								setStates(false, false, true, false);
+							}
 						} else {
-							//Debug.Log("[WAVE]: Done");
+							//DONE 
+							done = true;
 						}
 					}
 				} else {
@@ -129,25 +134,31 @@ public class waveManager : MonoBehaviour {
 							}
 						}
 					}
-
-					//Debug.Log("[WAVE]: Spawning: " + wavedata[0].time);
-					WaveTimeDisplay.text = "Spawning: " + wavedata[0].time.ToString();
 				}
 			} else if(waiting) {
 				if(wavedata[0].delay < 0F) {
 					wavedata.RemoveAt(0);
 					nextWave();
 				} else {
-					WaveTimeDisplay.text = "Waiting: "+ wavedata[0].delay.ToString();
 					wavedata[0].delay -= Time.deltaTime;
+				}
+			} else if(deadwait) {
+				if(enemyMngr.enemies.Count < 1) {
+					setStates(false, false, true, false);
 				}
 			}
 		}
 	}
 
+	void setStates(bool pau, bool spa, bool wai, bool dea) {
+		paused = pau;
+		spawing = spa;
+		waiting = wai;
+		deadwait = dea;
+	}
+
 	void nextWave() {
-		spawing = true;
-		waiting = false;
+		setStates(false, true, false, false);
 	}
 
 	void spawnNextEnemy() {

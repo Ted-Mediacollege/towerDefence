@@ -12,6 +12,9 @@ public class xmlWave {
 
 	[XmlAttribute("delay")]
 	public int delay;
+
+	[XmlAttribute("dead")]
+	public bool dead;
 	
 	[XmlArray("enemies")]
 	[XmlArrayItem("enemy")]

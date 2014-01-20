@@ -9,6 +9,7 @@ public class waveData {
 	public int left = 0;
 	public float floatleft = 0;
 	public float spawn = 0;
+	public bool dead = false;
 
 	public List<waveDataQueue> enemies = new List<waveDataQueue>();
 }
