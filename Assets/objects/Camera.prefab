@@ -46,9 +46,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400004}
   - 20: {fileID: 2000002}
-  - 124: {fileID: 12400002}
-  - 92: {fileID: 9200002}
-  - 81: {fileID: 8100002}
   m_Layer: 0
   m_Name: cameraBack
   m_TagString: Untagged
@@ -65,9 +62,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400006}
   - 20: {fileID: 2000004}
-  - 124: {fileID: 12400004}
-  - 92: {fileID: 9200004}
-  - 81: {fileID: 8100004}
   m_Layer: 0
   m_Name: cameraBack3DParalex
   m_TagString: Untagged
@@ -216,40 +210,12 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
---- !u!81 &8100002
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100004}
-  m_Enabled: 1
---- !u!81 &8100004
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
-  m_Enabled: 1
 --- !u!92 &9200000
 Behaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 1
---- !u!92 &9200002
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100004}
-  m_Enabled: 1
---- !u!92 &9200004
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
   m_Enabled: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -294,20 +260,6 @@ Behaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 1
---- !u!124 &12400002
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100004}
-  m_Enabled: 1
---- !u!124 &12400004
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
   m_Enabled: 1
 --- !u!212 &21200000
 SpriteRenderer:
