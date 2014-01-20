@@ -44,6 +44,7 @@ GameObject:
   - 212: {fileID: 21200002}
   - 58: {fileID: 5800000}
   - 114: {fileID: 11400000}
+  - 95: {fileID: 9500002}
   m_Layer: 9
   m_Name: TowerFreez
   m_TagString: tower
@@ -80,8 +81,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.8446865, y: 24.0362778, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -.803712845, w: .595017433}
+  m_LocalPosition: {x: -15.4523783, y: 24.2591019, z: 0}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -126,6 +127,20 @@ Animator:
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!95 &9500002
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1dc03418dcfacf24dac6d417bbb4e1bd, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 0
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,7 +157,7 @@ MonoBehaviour:
   maxAngularVelocity: 300
   maxRotForce: 10000
   agroDistance: 5
-  bullet: {fileID: 100000, guid: 3ae86f799a86c814bb21bd22f10871d9, type: 2}
+  bullet: {fileID: 100000, guid: d4f3079c281fb6d42a5a0fc6bf58d41c, type: 2}
   shootTime: 10
   BulletSpawnDCenter: 3
   gun: {fileID: 100000}

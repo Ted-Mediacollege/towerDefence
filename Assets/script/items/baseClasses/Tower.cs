@@ -26,18 +26,49 @@ public class Tower : Item {
 	public int sellPrice = 30;
 	public int buyPrice = 50;
 
+	private Animator gunAnimCtrl;
+	private Animator animCtrl;
+
+	private enum BuildPhase{
+		Building,
+		Done,
+		DeBuilding
+	}
+
+	private BuildPhase buildPhase;
+
 	void Start () {
 		enemyMngr = GameObject.Find("gameManager").GetComponent<EnemyManager>() as EnemyManager;
 
 		bulletHolder = GameObject.Find("bullets");
+
+		Transform gnT = gun.transform.FindChild("gunArt");
+		if(gnT!=null){
+			GameObject gn = gnT.gameObject;
+			gunAnimCtrl = gun.transform.FindChild("gunArt").GetComponent<Animator>();
+		}
+		animCtrl = transform.GetComponent<Animator>();
+		if(animCtrl!=null){
+			animCtrl.SetTrigger("build");
+			buildPhase = BuildPhase.Building;
+			gun.SetActive(false);
+		}
 	}
 
 	private void FixedUpdate(){
-		targetFound = false;
-		GetTarget();
-		Rotate();
-		checkTargetAim();
-		Shoot();
+		if(buildPhase == BuildPhase.Done){
+			targetFound = false;
+			GetTarget();
+			Rotate();
+			checkTargetAim();
+			Shoot();
+		}
+	}
+
+	public void BuildDone(){
+		Debug.Log("BuildDone");
+		buildPhase = BuildPhase.Done;
+		gun.SetActive(true);
 	}
 
 	private void GetTarget(){
@@ -70,8 +101,10 @@ public class Tower : Item {
 		}
 	}
 
-	public virtual void Animate(){
-
+	public void GunAnimate(){
+		if(gunAnimCtrl!=null){
+			gunAnimCtrl.SetTrigger("shoot");
+		}
 	}
 
 	public virtual void Rotate(){
@@ -121,7 +154,7 @@ public class Tower : Item {
 			                                        ,gun.transform.rotation) as GameObject;
 			bul.transform.parent = bulletHolder.transform;
 
-			Animate();
+			GunAnimate();
 		}
 	}
 }
