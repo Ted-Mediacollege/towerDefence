@@ -91,7 +91,7 @@ public class ItemManager : MonoBehaviour {
 		towerSellText = towerSellTextHolder.GetComponent<TextMesh>();
 		towerSellTextRender.sortingLayerName = "ui";
 		//towerSellText.font = TowerSellFont;
-		//towerSellTextRender.material = towerSellTextMaterial;
+                                                         		//towerSellTextRender.material = towerSellTextMaterial;
 		towerSellText.text = "TowerSellText";
 		towerSellTextHolder.SetActive(false);
 
@@ -239,6 +239,7 @@ public class ItemManager : MonoBehaviour {
 							lineRenderer.SetPosition(1, aimRay.point);
 							lineRenderer.SetColors(lineColorTower1, lineColorTower2);
 							//tower sell text
+							towerSellText.color = new Color(1F, 1F, 1F);
 							towerSellTextHolder.SetActive(true);
 							towerSellText.text = "sell: "+towerSellPrice.ToString();
 							towerSellTextHolder.transform.position = new Vector3(aimRay.point.x,aimRay.point.y,0);
@@ -249,6 +250,11 @@ public class ItemManager : MonoBehaviour {
 							}
 						}else{
 							int towerBuyPrice = items[currentItem].GetComponent<Tower>().buyPrice;
+							if(gameMngr.CheckMoney(towerBuyPrice)) {
+								towerSellText.color = new Color(1F, 1F, 1F);
+							} else {
+								towerSellText.color = new Color(1F, 0F, 0F);
+							}
 							//remove tower sell text
 							//towerSellTextHolder.SetActive(false);
 							//draw aim line if wall found

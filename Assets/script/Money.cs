@@ -28,7 +28,7 @@ public class Money : MonoBehaviour
 	}
 
 	void pickUp() {
-		gameMngr.ChangeMoney(50);
+		gameMngr.ChangeMoney(10);
 		GameObject.Destroy(gameObject);
 	}
 }

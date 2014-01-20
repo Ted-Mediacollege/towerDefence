@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour {
 	private int livePoints = 10;
 	
 	[SerializeField]
-	private int money = 2000;
+	private int money = 25;
 	
 	[SerializeField]
 	private TextMesh livePointDisplay;
