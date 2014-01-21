@@ -11,7 +11,11 @@ public class GameManager : MonoBehaviour {
 	[SerializeField]
 	private TextMesh livePointDisplay;
 	[SerializeField]
+	private GameObject holderLivePointDisplay;
+	[SerializeField]
 	private TextMesh moneyDisplay;
+	[SerializeField]
+	private GameObject holderMoneyDisplay;
 	
 	private void Start(){
 		livePointDisplay.text = "life: "+livePoints.ToString();

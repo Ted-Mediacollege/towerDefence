@@ -18,8 +18,7 @@ public class waveManager : MonoBehaviour {
 	public bool deadwait;
 	public bool done;
 	public int waveNumber = 0;
-
-
+	public int waveMax = 0;
 
 	private EnemyManager enemyMngr;
 
@@ -93,6 +92,8 @@ public class waveManager : MonoBehaviour {
 		waiting = false;
 		paused = true;
 
+		waveMax = wavedata.Count;
+
 		nextText(true);
 	}
 
@@ -107,7 +108,11 @@ public class waveManager : MonoBehaviour {
 	}
 
 	void displayWaveAnounce() {
-		waveAnounce.text = "WAVE " + waveNumber;
+		if(waveNumber == waveMax) {
+			waveAnounce.text = "FINAL WAVE";
+		} else {
+			waveAnounce.text = "WAVE " + waveNumber;
+		}
 		waveAnounceHolder.SetActive(true);
 		anounceTimer = 3F;
 	}
@@ -137,8 +142,10 @@ public class waveManager : MonoBehaviour {
 							setStates(false, false, true, false);
 							waveDelayTextHolder.SetActive(true);
 						}
-					} else {
+					} else if(enemyMngr.enemies.Count < 1) {
 						//DONE 
+						waveAnounce.text = "DIT IS EEN WIN MENU";
+						waveAnounceHolder.SetActive(true);
 						done = true;
 					}
 				} else {
@@ -183,9 +190,8 @@ public class waveManager : MonoBehaviour {
 			}
 		} else {
 			if(Input.GetKey(KeyCode.G)) {
-				wavedata.RemoveAt(0);
+				if(waveNumber != 0) { wavedata.RemoveAt(0); }
 				nextWave();
-			} else {
 			}
 		}
 	}
