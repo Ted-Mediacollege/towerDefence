@@ -1,25 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ParticleAmbient : MonoBehaviour {
+public class ParticleBackgroundSpawner : MonoBehaviour {
 
 	[SerializeField]
 	private GameObject[] particles;
 
 	private GameObject bubbleHolder;
 	private float spawn;
+	private float spawning;
 
 	void Start () {
 		spawn = 1F;
+		spawning = Random.Range(0, 100);
 	}
 
 	void Update () {
 		spawn -= Time.deltaTime;
+		spawning += Time.deltaTime;
+		if(spawning > 1000) { spawning -= 1000; }
 
 		if(spawn < 0F)
 		{
-			spawnParticle();
-			spawn = 1F;
+			if(Mathf.PerlinNoise(0, spawning) > 0.5F) {
+				spawnParticle();
+			}
+			spawn = 0.4F;
 		}
 	}
 
