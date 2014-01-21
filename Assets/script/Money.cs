@@ -16,9 +16,9 @@ public class Money : MonoBehaviour
 		float dis = Vector3.Distance(p.transform.position, transform.position); 
 		if(dis < 0.5F) {
 			pickUp();
-		} else if(dis < 8) {
+		} else if(dis < 4) {
 			Vector3 newpos = transform.position;
-			Vector2 change = movement.ForceAndAngleToDirection(0.1F / dis, movement.angleToPoint(transform, p.transform.position));
+			Vector2 change = movement.ForceAndAngleToDirection(0.1F / (dis * 1.5F), movement.angleToPoint(transform, p.transform.position));
 
 			newpos.x += change.x;
 			newpos.y += change.y;
@@ -28,7 +28,7 @@ public class Money : MonoBehaviour
 	}
 
 	void pickUp() {
-		gameMngr.ChangeMoney(10);
+		gameMngr.ChangeMoney(5);
 		GameObject.Destroy(gameObject);
 	}
 }
