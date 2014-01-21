@@ -26,6 +26,7 @@ public class TowerManager : MonoBehaviour {
 	}
 	
 	public void SellTower(GameObject tower){
+		towers.Remove(tower);
 		GameObject.Destroy(tower);
 	}
 

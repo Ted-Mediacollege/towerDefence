@@ -37,6 +37,10 @@ public class ItemManager : MonoBehaviour {
 	[SerializeField]
 	private Color lineColorTower2 = Color.red;
 	[SerializeField]
+	private Color lineColorTower3 = Color.yellow;
+	[SerializeField]
+	private Color lineColorTower4 = Color.red;
+	[SerializeField]
 	private float linewidth1 = 0.1f;
 	[SerializeField]
 	private float linewidth2 = 0.1f;
@@ -56,6 +60,11 @@ public class ItemManager : MonoBehaviour {
 	private GameObject gun;
 	[SerializeField]
 	private Transform gunBulletSpawn;
+
+	[SerializeField]
+	private GameObject noIcon;
+
+	private GameObject noIconHolder;
 	
 	void Awake () {
 		buttonList = new List<GameObject>();
@@ -91,10 +100,12 @@ public class ItemManager : MonoBehaviour {
 		towerSellText = towerSellTextHolder.GetComponent<TextMesh>();
 		towerSellTextRender.sortingLayerName = "ui";
 		//towerSellText.font = TowerSellFont;
-                                                         		//towerSellTextRender.material = towerSellTextMaterial;
 		towerSellText.text = "TowerSellText";
 		towerSellTextHolder.SetActive(false);
 
+		//create noIcon
+		noIconHolder = GameObject.Instantiate(noIcon,transform.position,Quaternion.identity) as GameObject;
+		noIconHolder.SetActive(false);
 	}
 	
 	public void CreateButton( int i){
@@ -222,7 +233,8 @@ public class ItemManager : MonoBehaviour {
 					                                        ,1 << LayerMask.NameToLayer("Level") | 1 << LayerMask.NameToLayer("Towers")
 					);
 					if(aimRay.collider==null){
-						//remove tower sell text
+						//remove tower sell text en noIcon
+						noIconHolder.SetActive(false);
 						towerSellTextHolder.SetActive(false);
 						//draw aim line if no wall found
 						lineRenderer.enabled = true;
@@ -231,8 +243,10 @@ public class ItemManager : MonoBehaviour {
 						lineRenderer.SetPosition(1, new Vector3(aim.x,aim.y,0));
 						lineRenderer.SetColors(lineColor1, lineColor2);
 					}else{
-						if (aimRay.collider.transform.gameObject.layer == LayerMask.NameToLayer("Towers")) {
+						if (aimRay.collider.transform.gameObject.layer == LayerMask.NameToLayer("Towers")&&aimRay.collider.transform.gameObject.GetComponent<Tower>().buildPhase==Tower.BuildPhase.Done) {
 							int towerSellPrice = aimRay.collider.transform.gameObject.GetComponent<Tower>().sellPrice;
+							//remove no icon 
+							noIconHolder.SetActive(false);
 							//draw aim line if tower found
 							lineRenderer.enabled = true;
 							lineRenderer.SetPosition(0, gun.transform.position);
@@ -244,11 +258,27 @@ public class ItemManager : MonoBehaviour {
 							towerSellText.text = "sell: "+towerSellPrice.ToString();
 							towerSellTextHolder.transform.position = new Vector3(aimRay.point.x,aimRay.point.y,0);
 							//sell tower
-							if (click){   
-								towerMngr.SellTower(aimRay.collider.transform.gameObject);
+							if (click){  
+								aimRay.collider.transform.gameObject.GetComponent<Tower>().DeBuild();
 								gameMngr.ChangeMoney(towerSellPrice);
 							}
+						}else if(aimRay.collider.transform.gameObject.layer == LayerMask.NameToLayer("Towers")&&aimRay.collider.transform.gameObject.GetComponent<Tower>().buildPhase!=Tower.BuildPhase.Done){
+							// if aim at building tower
+							towerSellTextHolder.SetActive(false);
+							lineRenderer.enabled = true;
+							lineRenderer.SetPosition(0, gun.transform.position);
+							lineRenderer.SetPosition(1, aimRay.point);
+							lineRenderer.SetColors(lineColorTower3, lineColorTower4);
+
+							//
+							noIconHolder.SetActive(true);
+							noIconHolder.transform.position = aimRay.point;
+
+							
 						}else{
+							//remove no icon 
+							noIconHolder.SetActive(false);
+
 							int towerBuyPrice = items[currentItem].GetComponent<Tower>().buyPrice;
 							if(gameMngr.CheckMoney(towerBuyPrice)) {
 								towerSellText.color = new Color(1F, 1F, 1F);
@@ -267,20 +297,34 @@ public class ItemManager : MonoBehaviour {
 							towerSellText.text = "buy: "+towerBuyPrice.ToString();
 							towerSellTextHolder.transform.position = new Vector3(aimRay.point.x,aimRay.point.y,0);
 						   //spawn tower
-							if (click){ 
-								Collider2D mouseCircle = Physics2D.OverlapCircle(aimRay.point
-								                                                 ,towerSpawnDistace
-								                                                 ,1 << LayerMask.NameToLayer("Towers"));
-								if(mouseCircle==null&&gameMngr.CheckMoney(towerBuyPrice)){
+							Collider2D mouseCircle = Physics2D.OverlapCircle(aimRay.point
+							                                                 ,towerSpawnDistace
+							                                                 ,1 << LayerMask.NameToLayer("Towers"));
+							if(mouseCircle==null&&gameMngr.CheckMoney(towerBuyPrice)){
+								if (click){ 
 									gameMngr.ChangeMoney(-50);
 									towerMngr.LoadTower(aimRay.point,items[currentItem],aimRay.normal);
 								}
+								break;
+							}
+							if(mouseCircle&&gameMngr.CheckMoney(towerBuyPrice)){
+								// if aim at building tower
+								towerSellTextHolder.SetActive(false);
+								lineRenderer.enabled = true;
+								lineRenderer.SetPosition(0, gun.transform.position);
+								lineRenderer.SetPosition(1, aimRay.point);
+								lineRenderer.SetColors(lineColorTower3, lineColorTower4);
+								
+								//
+								noIconHolder.SetActive(true);
+								noIconHolder.transform.position = aimRay.point;
 							}
 						}
 					}
 					break;
 				case itemType.Bullet:
 					//fire bullet
+					towerSellTextHolder.SetActive(false);
 					lineRenderer.enabled = false;
 					if (firing&&shootTimer==0){
 						shootTimer = shootTime;

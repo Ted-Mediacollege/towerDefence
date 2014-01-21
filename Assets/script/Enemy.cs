@@ -20,23 +20,48 @@ public class Enemy : MonoBehaviour {
 
 	private Healt healt;
 
+	[SerializeField]
+	private float freezSlowDown = 0.5f;
+	[SerializeField]
+	private float deFreezSpeed = 0.02f;
+
+	private float currentFreezSlowDown = 1;
+	internal bool freezHit;
+
 	private void Awake(){
 		healt = new Healt(startHealt);
 	}
 
 	private void Start () {
-
-
 		pathMngr = GameObject.Find("pathManager").GetComponent<PathManager>() as PathManager;
 		enemyMngr = GameObject.Find("gameManager").GetComponent<EnemyManager>() as EnemyManager;
 		getTarget();
 		transform.rotation =  movement.RotateToPoint(transform,target);
 	}
 
+	public void FreezHit(){
+		currentFreezSlowDown = freezSlowDown;
+	}
+
 	private void FixedUpdate(){
+		FreezRestore();
+		TargetMove();
+		Drag();
+		RotateToPoint();
+		//transform.rotation =  Quaternion.Euler(new Vector3(0, 0, movement.RotateToPoint(transform,target)));
+
+	}
+
+	private void FreezRestore(){
+		if(currentFreezSlowDown<1){
+			currentFreezSlowDown += deFreezSpeed;
+		}
+	}
+
+	private void TargetMove(){
 		float distanceToTarget = Vector3.Distance(transform.position,target);
 		if(pathFound){
-
+			
 			if(DistPointReached>distanceToTarget){
 				ProgressInPath++;
 				if(ProgressInPath>path.Length-1){
@@ -51,12 +76,8 @@ public class Enemy : MonoBehaviour {
 				enemyMngr.removeEnemy(transform.gameObject,true);
 			}
 		}
-
-		rigidbody2D.AddForce( movement.ForceAndAngleToDirection(moveForce,transform.rotation.eulerAngles.z));
-		Drag();
-		RotateToPoint();
-		//transform.rotation =  Quaternion.Euler(new Vector3(0, 0, movement.RotateToPoint(transform,target)));
-
+		
+		rigidbody2D.AddForce( movement.ForceAndAngleToDirection(moveForce*currentFreezSlowDown,transform.rotation.eulerAngles.z));
 	}
 
 	private void getTarget(){

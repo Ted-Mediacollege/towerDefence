@@ -92,10 +92,10 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: towerFreezDeBuild
-  m_Speed: .200000003
+  m_Speed: -.200000003
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 4d2186efce4ae704fa5e51bb74a9fb8f, type: 2}
+  - {fileID: 7400000, guid: c2462a1a9c479c94fb7da40bd55635f6, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 276, y: -180, z: 0}
   m_IKOnFeet: 0
@@ -112,7 +112,7 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: 825c4082bfe89394e8093f9638adbd0f, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 276, y: -72, z: 0}
+  m_Position: {x: 276, y: -60, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -147,23 +147,17 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110264052}
-      second:
-      - {fileID: 110188623}
+      first: {fileID: 0}
+      second: []
     data:
       first: {fileID: 110241656}
       second:
       - {fileID: 110100000}
       - {fileID: 110136377}
     data:
-      first: {fileID: 0}
-      second: []
-    data:
-      first: {fileID: 0}
-      second: []
-    data:
-      first: {fileID: 0}
-      second: []
+      first: {fileID: 110264052}
+      second:
+      - {fileID: 110188623}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

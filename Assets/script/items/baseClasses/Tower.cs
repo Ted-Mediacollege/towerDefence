@@ -29,13 +29,13 @@ public class Tower : Item {
 	private Animator gunAnimCtrl;
 	private Animator animCtrl;
 
-	private enum BuildPhase{
+	internal enum BuildPhase{
 		Building,
 		Done,
 		DeBuilding
 	}
 
-	private BuildPhase buildPhase;
+	internal BuildPhase buildPhase;
 
 	void Start () {
 		enemyMngr = GameObject.Find("gameManager").GetComponent<EnemyManager>() as EnemyManager;
@@ -66,9 +66,18 @@ public class Tower : Item {
 	}
 
 	public void BuildDone(){
-		Debug.Log("BuildDone");
 		buildPhase = BuildPhase.Done;
 		gun.SetActive(true);
+	}
+
+	public void DeBuild(){
+		buildPhase = BuildPhase.DeBuilding;
+		gun.SetActive(false);
+		animCtrl.SetTrigger("deBuild");
+	}
+
+	public void DeBuildDone(){
+		GameObject.Find("gameManager").GetComponent<TowerManager>().SellTower(gameObject);
 	}
 
 	private void GetTarget(){
