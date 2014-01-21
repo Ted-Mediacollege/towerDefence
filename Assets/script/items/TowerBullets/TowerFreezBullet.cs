@@ -17,7 +17,6 @@ public class TowerFreezBullet : Bullet {
 		if(col.gameObject.tag!=gameObject.tag 
 		   && col.gameObject.tag!="tower"
 		   && col.gameObject.name!="player" ){
-			if(col.gameObject.tag=="enemy"){
 				Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position,explosionRange);
 				//draw range
 				if(drawExplosionRange){
@@ -30,7 +29,6 @@ public class TowerFreezBullet : Bullet {
 					}
 				}
 				GameObject.Destroy(gameObject);
-			}
 		}
 	}
 }

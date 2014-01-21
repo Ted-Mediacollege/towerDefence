@@ -20,13 +20,14 @@ public class Enemy : MonoBehaviour {
 
 	private Healt healt;
 
+	
 	[SerializeField]
 	private float freezSlowDown = 0.5f;
 	[SerializeField]
-	private float deFreezSpeed = 0.02f;
-
+	private float deFreezSpeed = 0.005f;
 	private float currentFreezSlowDown = 1;
 	internal bool freezHit;
+	private SpriteRenderer sprite;
 
 	private void Awake(){
 		healt = new Healt(startHealt);
@@ -37,10 +38,12 @@ public class Enemy : MonoBehaviour {
 		enemyMngr = GameObject.Find("gameManager").GetComponent<EnemyManager>() as EnemyManager;
 		getTarget();
 		transform.rotation =  movement.RotateToPoint(transform,target);
+		sprite = gameObject.GetComponent<SpriteRenderer>();
 	}
 
 	public void FreezHit(){
 		currentFreezSlowDown = freezSlowDown;
+		sprite.color = new Color(currentFreezSlowDown,currentFreezSlowDown,1);
 	}
 
 	private void FixedUpdate(){
@@ -55,6 +58,7 @@ public class Enemy : MonoBehaviour {
 	private void FreezRestore(){
 		if(currentFreezSlowDown<1){
 			currentFreezSlowDown += deFreezSpeed;
+			sprite.color = new Color(currentFreezSlowDown,currentFreezSlowDown,1);
 		}
 	}
 

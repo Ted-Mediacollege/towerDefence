@@ -318,6 +318,7 @@ public class ItemManager : MonoBehaviour {
 								//
 								noIconHolder.SetActive(true);
 								noIconHolder.transform.position = aimRay.point;
+								break;
 							}
 						}
 					}

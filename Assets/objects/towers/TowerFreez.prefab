@@ -81,9 +81,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_LocalRotation: {x: 0, y: 0, z: .591388762, w: .80638665}
-  m_LocalPosition: {x: -14.0442972, y: 19.796442, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -.720151067, w: .693817377}
+  m_LocalPosition: {x: -16.5762825, y: 19.998064, z: 0}
+  m_LocalScale: {x: .449999988, y: .449999988, z: 1}
   m_Children:
   - {fileID: 400000}
   m_Father: {fileID: 0}
@@ -156,9 +156,9 @@ MonoBehaviour:
   iconS: {fileID: 21300008, guid: dfc8394fe97c53d4ab0632eefaef47a2, type: 3}
   maxAngularVelocity: 300
   maxRotForce: 10000
-  agroDistance: 5
+  agroDistance: 3.5
   bullet: {fileID: 100000, guid: d4f3079c281fb6d42a5a0fc6bf58d41c, type: 2}
-  shootTime: 10
+  shootTime: 50
   BulletSpawnDCenter: 3
   gun: {fileID: 100000}
   sellPrice: 30

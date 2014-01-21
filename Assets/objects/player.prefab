@@ -225,11 +225,14 @@ MonoBehaviour:
   lineColor2: {r: 0, g: .958621025, b: 1, a: 0}
   lineColorTower1: {r: 1, g: 1, b: 0, a: .525490224}
   lineColorTower2: {r: 1, g: .886274517, b: 0, a: 0}
+  lineColorTower3: {r: 1, g: 0, b: 0, a: .458823532}
+  lineColorTower4: {r: 1, g: 0, b: 0, a: 0}
   linewidth1: .100000001
   linewidth2: .100000001
   towerSellTextPrefab: {fileID: 100000, guid: 838597d19a5df1543b9f89f1a74e64b3, type: 2}
   gun: {fileID: 100004}
   gunBulletSpawn: {fileID: 400008}
+  noIcon: {fileID: 100000, guid: a0577d30e5b78d548a80492b03449137, type: 2}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1428,8 +1431,8 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayer: 4
+  m_SortingOrder: 10
   m_SortingLayerID: 1294392665
   m_Sprite: {fileID: 21300000, guid: e60ab61cdac8ba2409c21762ef10e6e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1451,8 +1454,8 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingLayer: 4
+  m_SortingOrder: 11
   m_SortingLayerID: 1294392665
   m_Sprite: {fileID: 21300002, guid: e60ab61cdac8ba2409c21762ef10e6e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -82,7 +82,7 @@ MonoBehaviour:
   maxRotateForce: 2
   startHealt: 100
   freezSlowDown: .300000012
-  deFreezSpeed: .0199999996
+  deFreezSpeed: .00200000009
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

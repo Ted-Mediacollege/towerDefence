@@ -16,18 +16,22 @@ public class TowerCannonBall : Bullet {
 	}
 	
 	private void OnTriggerEnter2D(Collider2D col){
-		Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position,explosionRange);
-		//draw range
-		if(drawExplosionRange){
-			Debug.DrawLine(transform.position,new Vector3(transform.position.x+explosionRange,transform.position.y,0));
+		if(col.gameObject.tag!=gameObject.tag 
+		   && col.gameObject.tag!="tower"
+		   && col.gameObject.name!="player" ){
+				Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position,explosionRange);
+				//draw range
+				if(drawExplosionRange){
+					Debug.DrawLine(transform.position,new Vector3(transform.position.x+explosionRange,transform.position.y,0));
+				}
+		
+				for(int i = 0;i<hits.Length;i++){
+					if(hits[i].tag=="enemy"){
+						hits[i].GetComponent<Enemy>().Hit(damage);
+					}
+				}
+				GameObject.Destroy(gameObject);
 		}
-
-		for(int i = 0;i<hits.Length;i++){
-			if(hits[i].tag=="enemy"){
-				hits[i].GetComponent<Enemy>().Hit(damage);
-			}
-		}
-		GameObject.Destroy(gameObject);
 	}
 }
 
