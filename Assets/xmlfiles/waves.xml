@@ -15,7 +15,7 @@
 			</waves>
 		</level>
 		
-		<level id="1" >
+		<level id="-1" >
 			<waves>
 				<wave id="0" time="2000" delay="20" dead="true">
 					<enemies>
@@ -26,6 +26,27 @@
 				</wave>
 			</waves>
 		</level>
+		<level id="1" >
+			<waves>
+				<wave id="0" time="10" delay="-1" dead="true">
+					<enemies>
+						<enemy name="default" amount="10" spawnpoint="Spawn2" />
+					</enemies>
+				</wave>
+				<wave id="1" time="10" delay="-1" dead="true">
+					<enemies>
+						<enemy name="default" amount="10" spawnpoint="Spawn" />
+					</enemies>
+				</wave>
+				<wave id="3" time="10" delay="5" dead="false">
+					<enemies>
+						<enemy name="default" amount="10" spawnpoint="Spawn" />
+						<enemy name="default" amount="10" spawnpoint="Spawn2" />
+					</enemies>
+				</wave>
+			</waves>
+		</level>
+		
 		
 	</levels>
 </data>
