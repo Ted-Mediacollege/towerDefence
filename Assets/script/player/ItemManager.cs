@@ -92,6 +92,7 @@ public class ItemManager : MonoBehaviour {
 		lineRenderer.material = new Material (Shader.Find("Particles/Additive"));
 		lineRenderer.enabled = false;
 		lineRenderer.sortingLayerName = "player";
+		lineRenderer.sortingOrder = 11;
 
 		//create tower sell text 
 		towerSellTextHolder = GameObject.Instantiate(towerSellTextPrefab,transform.position,Quaternion.identity) as GameObject;
