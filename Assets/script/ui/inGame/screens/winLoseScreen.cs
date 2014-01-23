@@ -5,6 +5,7 @@ public enum GameStatus{
 	Playing,
 	GameOver,
 	Won,
+	Pause
 }
 
 public class winLoseScreen : MonoBehaviour {
@@ -17,6 +18,16 @@ public class winLoseScreen : MonoBehaviour {
 
 	void Start(){
 		gameStatus = GameStatus.Playing;
+	}
+	
+	void Update(){
+		if(Input.GetKeyDown(KeyCode.Escape)) { 
+			if(gameStatus == GameStatus.Playing){
+				gameStatus = GameStatus.Pause;
+			}else if(gameStatus == GameStatus.Pause){
+				gameStatus = GameStatus.Playing;
+			}
+		}
 	}
 
 	void OnGUI(){
@@ -38,9 +49,21 @@ public class winLoseScreen : MonoBehaviour {
 			break;
 		case GameStatus.Won:
 			GUI.Box(new Rect((1280/2)-250,(720/2)-200,500,400), "Win");
-			GUI.TextField(new Rect((1280/2)-50,(720/2)-100,100,80),"SCORE: 0");
-			if(GUI.Button(new Rect((1280/2)-100+120,450,200,60), "Next")) {
+			//GUI.TextField(new Rect((1280/2)-50,(720/2)-100,100,80),"SCORE: 0");
+			if(GUI.Button(new Rect((1280/2)-80+120,450,160,60), "Main Menu")) {
+				Application.LoadLevel("MainMenu");
+			}
+			if(GUI.Button(new Rect((1280/2)-80+0,450,160,60), "Restart")) {
+				Application.LoadLevel(Application.loadedLevelName);
+			}
+			if(GUI.Button(new Rect((1280/2)-80-120,450,160,60), "Next")) {
 				Application.LoadLevel(nextLevelName);
+			}
+			break;
+		case GameStatus.Pause:
+			GUI.Box(new Rect((1280/2)-250,(720/2)-200,500,400), "Menu");
+			if(GUI.Button(new Rect((1280/2)-100+120,450,200,60), "Main Menu")) {
+				Application.LoadLevel("MainMenu");
 			}
 			if(GUI.Button(new Rect((1280/2)-100-120,450,200,60), "Restart")) {
 				Application.LoadLevel(Application.loadedLevelName);

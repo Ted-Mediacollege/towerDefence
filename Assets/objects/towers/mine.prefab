@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 2
-  iconS: {fileID: 21300000, guid: 53cb8fce208f0e84f87d96b3eda2abb3, type: 3}
+  iconS: {fileID: 21300010, guid: dfc8394fe97c53d4ab0632eefaef47a2, type: 3}
   pushForce: 800
   damage: 70
   explosionRange: 6

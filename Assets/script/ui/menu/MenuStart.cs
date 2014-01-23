@@ -38,6 +38,9 @@ public class MenuStart : MonoBehaviour {
 	private Vector3 startPos = new Vector3(0,0,0);
 
 	public GUISkin style;
+	
+	//textures
+	public Texture2D creditsImage;
 
 	void Start(){
 		current_width = Screen.width;
@@ -115,12 +118,7 @@ public class MenuStart : MonoBehaviour {
 			switchScreen(Vector3.Scale( posMenuStart,menuPosScale));
 			menuPosTarget = posMenuStart;
 		}
-		GUI.TextArea(new Rect(300,200,680,320)
-		             ,"R1\n"+
-		             "R2\n"+
-		             "R3\n"+
-		             "R4\n"
-		);
+		GUI.DrawTexture(new Rect(400,100,550,550),creditsImage);
 
 		// instructions menu
 		GUI.matrix = Matrix4x4.TRS ( levelMenuDisplaysment-Vector3.Scale( menuPosScale,posMenuInstruct),Quaternion.identity,  new Vector3 (rx, ry, 1));
