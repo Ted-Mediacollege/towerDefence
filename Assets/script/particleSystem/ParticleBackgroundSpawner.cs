@@ -12,7 +12,7 @@ public class ParticleBackgroundSpawner : MonoBehaviour {
 
 	void Start () {
 		spawn = 1F;
-		spawning = Random.Range(0, 100);
+		spawning = Random.Range(0, 1000);
 	}
 
 	void Update () {
@@ -22,7 +22,7 @@ public class ParticleBackgroundSpawner : MonoBehaviour {
 
 		if(spawn < 0F)
 		{
-			if(Mathf.PerlinNoise(0, spawning) > 0.5F) {
+			if(Mathf.PerlinNoise(0, spawning / 2F) > 0.5F) {
 				spawnParticle();
 			}
 			spawn = 0.4F;

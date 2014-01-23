@@ -4,12 +4,32 @@
 			<waves>
 				<wave id="0" time="10" delay="-1" dead="true">
 					<enemies>
-						<enemy name="default" amount="14" spawnpoint="Spawn" />
+						<enemy name="default" amount="22" spawnpoint="SpawnLeft" />
 					</enemies>
 				</wave>
-				<wave id="1" time="10" delay="-1" dead="false">
+				<wave id="1" time="10" delay="-1" dead="true">
 					<enemies>
-						<enemy name="default" amount="22" spawnpoint="Spawn" />
+						<enemy name="default" amount="22" spawnpoint="SpawnRight" />
+					</enemies>
+				</wave>
+				<wave id="2" time="20" delay="5" dead="false">
+					<enemies>
+						<enemy name="default" amount="22" spawnpoint="SpawnLeft" />
+						<enemy name="default" amount="22" spawnpoint="SpawnRight" />
+					</enemies>
+				</wave>
+				<wave id="3" time="10" delay="5" dead="false">
+					<enemies>
+						<enemy name="enemyStar" amount="22" spawnpoint="SpawnLeft" />
+						<enemy name="enemyStar" amount="22" spawnpoint="SpawnRight" />
+					</enemies>
+				</wave>
+				<wave id="4" time="40" delay="-1" dead="true">
+					<enemies>
+						<enemy name="default" amount="50" spawnpoint="SpawnLeft" />
+						<enemy name="default" amount="50" spawnpoint="SpawnRight" />
+						<enemy name="enemyStar" amount="10" spawnpoint="SpawnLeft" />
+						<enemy name="enemyStar" amount="10" spawnpoint="SpawnRight" />
 					</enemies>
 				</wave>
 			</waves>
