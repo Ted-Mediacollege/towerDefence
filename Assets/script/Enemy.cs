@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour {
 	private float currentFreezSlowDown = 1;
 	internal bool freezHit;
 	private SpriteRenderer sprite;
+	
+	public GameObject[] deadSpawnObjects;
 
 	private void Awake(){
 		healt = new Healt(startHealt);
@@ -77,7 +79,7 @@ public class Enemy : MonoBehaviour {
 		}else{
 			if(DistPointReached>distanceToTarget){
 				// enemy reached end
-				enemyMngr.removeEnemy(transform.gameObject,true);
+				Dead(true);
 			}
 		}
 		
@@ -158,10 +160,16 @@ public class Enemy : MonoBehaviour {
 	public void Hit(int damage){
 		healt.ChangeHealt(-damage);
 		if(healt.dead){
-			enemyMngr.removeEnemy(transform.gameObject);
+			Dead();
 		}
 	}
-
+	
+	private void Dead(bool reachedEnd = false){
+		for(int i = 0 ; i < deadSpawnObjects.Length;i++){
+			GameObject.Instantiate(deadSpawnObjects[i],transform.position,Quaternion.identity);
+		}
+		enemyMngr.removeEnemy(transform.gameObject,reachedEnd);
+	}
 	/*private void OnTriggerEnter2D(Collider2D col){
 		if((itemType)col.gameObject.GetComponent<Item>().type == itemType.Bullet){
 			healt.ChangeHealt(-10);

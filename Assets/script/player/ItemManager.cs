@@ -130,7 +130,7 @@ public class ItemManager : MonoBehaviour {
 		
 		//position button
 		button.transform.parent = itemHolder.transform;
-		button.transform.position = itemHolder.transform.position+topRight+itemDisplasment+new Vector3(-0.32f+i*-0.64f,-0.32f,0);
+		button.transform.position = itemHolder.transform.position+topRight+itemDisplasment+new Vector3(-0.32f+i*-0.72f,-0.32f,0);
 		button.layer = LayerMask.NameToLayer("UI");
 		
 		buttonList.Add (button);
@@ -149,12 +149,14 @@ public class ItemManager : MonoBehaviour {
 	void FixedUpdate(){
 		for ( int i = 0; i < itemLenght; i++){
 			if(buttonList[i].GetComponent<ItemButton>().on){
-				if(buttonList[i].GetComponent<ItemButton>().colorScale<1)
-					buttonList[i].GetComponent<ItemButton>().colorScale+=0.1f;
-			}else{
 				if(buttonList[i].GetComponent<ItemButton>().colorScale>0)
 					buttonList[i].GetComponent<ItemButton>().colorScale-=0.1f;
+			}else{
+				if(buttonList[i].GetComponent<ItemButton>().colorScale<1)
+					buttonList[i].GetComponent<ItemButton>().colorScale+=0.1f;
 			}
+			float colorScale = buttonList[i].GetComponent<ItemButton>().colorScale/8;
+			buttonList[i].transform.localScale = new Vector3(1+(0.125f-colorScale),1+(0.125f-colorScale),1);
 		}
 
 		for ( int i = 0; i < itemLenght; i++){
@@ -180,10 +182,10 @@ public class ItemManager : MonoBehaviour {
 			shootTimer--;
 		}
 		
-		if(Input.GetKey(KeyCode.Alpha1)) { currentItem = 3; }
-		if(Input.GetKey(KeyCode.Alpha2)) { currentItem = 2; }
-		if(Input.GetKey(KeyCode.Alpha3)) { currentItem = 1; }
-		if(Input.GetKey(KeyCode.Alpha4)) { currentItem = 0; }
+		if(Input.GetKey(KeyCode.Alpha1)) { currentItem = 3; setItem(currentItem);}
+		if(Input.GetKey(KeyCode.Alpha2)) { currentItem = 2; setItem(currentItem);}
+		if(Input.GetKey(KeyCode.Alpha3)) { currentItem = 1; setItem(currentItem);}
+		if(Input.GetKey(KeyCode.Alpha4)) { currentItem = 0; setItem(currentItem);}
 		
 		//get input and mouse position
 		bool click = Input.GetMouseButtonDown(0);

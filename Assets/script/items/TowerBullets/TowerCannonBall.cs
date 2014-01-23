@@ -11,6 +11,9 @@ public class TowerCannonBall : Bullet {
 	[SerializeField]
 	private bool drawExplosionRange = false;
 	
+	[SerializeField]
+	private GameObject[] explosion;
+	
 	private void FixedUpdate(){
 		transform.localPosition = transform.position + velocity;
 	}
@@ -30,6 +33,10 @@ public class TowerCannonBall : Bullet {
 						hits[i].GetComponent<Enemy>().Hit(damage);
 					}
 				}
+				for(int i = 0 ; i < explosion.Length;i++){
+					GameObject.Instantiate(explosion[i],transform.position,Quaternion.identity);
+				}
+				
 				GameObject.Destroy(gameObject);
 		}
 	}
