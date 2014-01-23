@@ -21,6 +21,7 @@ public class waveManager : MonoBehaviour {
 	public int waveMax = 0;
 
 	private EnemyManager enemyMngr;
+	private GameManager gameMngr;
 	private minimap map;
 
 	[SerializeField]
@@ -40,6 +41,7 @@ public class waveManager : MonoBehaviour {
 	public GameObject waveDelayTextHolder;
 
 	void Start () {
+		gameMngr = gameObject.GetComponent<GameManager>() as GameManager;
 		enemyMngr = GameObject.Find("gameManager").GetComponent<EnemyManager>() as EnemyManager;
 		map = GameObject.Find("gameManager").GetComponent<minimap>() as minimap;
 
@@ -164,8 +166,8 @@ public class waveManager : MonoBehaviour {
 						}
 					} else if(enemyMngr.enemies.Count < 1) {
 						//DONE 
-						waveAnounce.text = "DIT IS EEN WIN MENU";
-						waveAnounceHolder.SetActive(true);
+						gameMngr.GameWon();
+						waveTextHolder.SetActive(false);
 						done = true;
 					}
 				} else {

@@ -7,7 +7,7 @@ public enum GameStatus{
 	Won,
 }
 
-public class winScreen : MonoBehaviour {
+public class winLoseScreen : MonoBehaviour {
 
 	private float native_width  = 1280;
 	private float native_height  = 720;

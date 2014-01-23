@@ -16,18 +16,34 @@ public class GameManager : MonoBehaviour {
 	private TextMesh moneyDisplay;
 	[SerializeField]
 	private GameObject holderMoneyDisplay;
+
+	private winLoseScreen winLose;
 	
 	private void Start(){
 		livePointDisplay.text = "life: "+livePoints.ToString();
 		moneyDisplay.text = "money: "+money.ToString();
+		winLose = gameObject.GetComponent<winLoseScreen>() as winLoseScreen;
 	}
 	
 	public void ChangeLife ( int c) {
 		livePoints+=c;
 		if(livePoints<0){
-			livePointDisplay.text = "life: "+livePoints.ToString()+" gameOver";
+			//livePointDisplay.text = "life: "+livePoints.ToString()+" gameOver";
+			GameOver();
 		}else{
 			livePointDisplay.text = "life: "+livePoints.ToString();
+		}
+	}
+
+	public void GameOver(){
+		if(winLose.gameStatus == GameStatus.Playing){
+			winLose.gameStatus = GameStatus.GameOver;
+		}
+	}
+
+	public void GameWon(){
+		if(winLose.gameStatus == GameStatus.Playing){
+			winLose.gameStatus = GameStatus.Won;
 		}
 	}
 	

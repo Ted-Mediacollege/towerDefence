@@ -18,11 +18,11 @@ MonoBehaviour:
       m_Background: {fileID: 2800000, guid: 95f1a2ec9b4f242e182abe667a100a4e, type: 3}
       m_TextColor: {r: 1, g: .517241359, b: 0, a: 1}
     m_Hover:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Background: {fileID: 2800000, guid: 95f1a2ec9b4f242e182abe667a100a4e, type: 3}
+      m_TextColor: {r: 1, g: .41568628, b: 0, a: 1}
     m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Background: {fileID: 2800000, guid: 95f1a2ec9b4f242e182abe667a100a4e, type: 3}
+      m_TextColor: {r: 1, g: .41568628, b: 0, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
@@ -74,13 +74,13 @@ MonoBehaviour:
   m_button:
     m_Name: button
     m_Normal:
-      m_Background: {fileID: 2800000, guid: c3d033b5b74fd804d84283631f3c1001, type: 3}
+      m_Background: {fileID: 2800000, guid: 53cb8fce208f0e84f87d96b3eda2abb3, type: 3}
       m_TextColor: {r: 1, g: .413793087, b: 0, a: 1}
     m_Hover:
-      m_Background: {fileID: 2800000, guid: e2524c87fe81a0e41bbb589597414741, type: 3}
+      m_Background: {fileID: 2800000, guid: c0b4ea1b366bd9b4596a53d22054eb96, type: 3}
       m_TextColor: {r: 1, g: .41568628, b: 0, a: 1}
     m_Active:
-      m_Background: {fileID: 2800000, guid: e2524c87fe81a0e41bbb589597414741, type: 3}
+      m_Background: {fileID: 2800000, guid: c0b4ea1b366bd9b4596a53d22054eb96, type: 3}
       m_TextColor: {r: 1, g: .564705908, b: 0, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
@@ -310,14 +310,14 @@ MonoBehaviour:
   m_textArea:
     m_Name: textarea
     m_Normal:
-      m_Background: {fileID: 2800000, guid: 2e9f0aa7e187f8745bfb44a999aabe6d, type: 3}
+      m_Background: {fileID: 2800000, guid: 95f1a2ec9b4f242e182abe667a100a4e, type: 3}
       m_TextColor: {r: .397058845, g: .875253439, b: 1, a: 1}
     m_Hover:
-      m_Background: {fileID: 0}
+      m_Background: {fileID: 2800000, guid: 95f1a2ec9b4f242e182abe667a100a4e, type: 3}
       m_TextColor: {r: .345588207, g: .837525249, b: 1, a: 1}
     m_Active:
-      m_Background: {fileID: 0}
-      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+      m_Background: {fileID: 2800000, guid: 95f1a2ec9b4f242e182abe667a100a4e, type: 3}
+      m_TextColor: {r: 0, g: 1, b: .958620787, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
