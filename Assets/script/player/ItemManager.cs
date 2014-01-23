@@ -305,7 +305,7 @@ public class ItemManager : MonoBehaviour {
 							                                                 ,1 << LayerMask.NameToLayer("Towers"));
 							if(mouseCircle==null&&gameMngr.CheckMoney(towerBuyPrice)){
 								if (click){ 
-									gameMngr.ChangeMoney(-50);
+									gameMngr.ChangeMoney(towerBuyPrice);
 									towerMngr.LoadTower(aimRay.point,items[currentItem],aimRay.normal);
 								}
 								break;
@@ -331,6 +331,28 @@ public class ItemManager : MonoBehaviour {
 					towerSellTextHolder.SetActive(false);
 					lineRenderer.enabled = false;
 					if (firing&&shootTimer==0){
+						shootTimer = shootTime;
+						GameObject bul = GameObject.Instantiate( items[currentItem]
+						                                        ,gunBulletSpawn.position 
+						                                        ,movement.RotateToPoint(gun.transform,mousePosition)) as GameObject;
+						bul.transform.parent = bulletHolder.transform;
+					}
+					break;
+				case itemType.Mine:
+					//buy mine bullet
+					towerSellTextHolder.SetActive(false);
+					lineRenderer.enabled = false;
+					if (firing&&shootTimer==0){
+						int minePrice = items[currentItem].GetComponent<Mine>().buyPrice;
+						if(gameMngr.CheckMoney(minePrice)){
+							if (click){ 
+								gameMngr.ChangeMoney(-minePrice);
+								GameObject.Instantiate( items[currentItem]
+								                                        ,gunBulletSpawn.position 
+								                                        ,movement.RotateToPoint(gun.transform,mousePosition));
+							}
+							break;
+						}
 						shootTimer = shootTime;
 						GameObject bul = GameObject.Instantiate( items[currentItem]
 						                                        ,gunBulletSpawn.position 

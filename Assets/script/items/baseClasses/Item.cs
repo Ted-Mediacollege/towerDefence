@@ -3,7 +3,8 @@ using System.Collections;
 
 public enum itemType{
 	Bullet,
-	Tower
+	Tower,
+	Mine
 }
 
 public class Item : MonoBehaviour {
