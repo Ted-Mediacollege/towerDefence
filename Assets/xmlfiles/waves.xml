@@ -12,13 +12,13 @@
 						<enemy name="default" amount="22" spawnpoint="SpawnRight" />
 					</enemies>
 				</wave>
-				<wave id="2" time="20" delay="5" dead="false">
+				<wave id="2" time="20" delay="25" dead="false">
 					<enemies>
 						<enemy name="default" amount="22" spawnpoint="SpawnLeft" />
 						<enemy name="default" amount="22" spawnpoint="SpawnRight" />
 					</enemies>
 				</wave>
-				<wave id="3" time="10" delay="5" dead="false">
+				<wave id="3" time="10" delay="25" dead="false">
 					<enemies>
 						<enemy name="enemyStar" amount="22" spawnpoint="SpawnLeft" />
 						<enemy name="enemyStar" amount="22" spawnpoint="SpawnRight" />
@@ -34,6 +34,78 @@
 				</wave>
 			</waves>
 		</level>
+		<level id="1" >
+			<waves>
+				<wave id="0" time="15" delay="-1" dead="true">
+					<enemies>
+						<enemy name="default" amount="30" spawnpoint="SpawnLeft" />
+					</enemies>
+				</wave>
+				<wave id="1" time="15" delay="-1" dead="true">
+					<enemies>
+						<enemy name="default" amount="30" spawnpoint="SpawnRight" />
+					</enemies>
+				</wave>
+				<wave id="2" time="30" delay="-1" dead="false">
+					<enemies>
+						<enemy name="default" amount="30" spawnpoint="SpawnLeft" />
+						<enemy name="default" amount="30" spawnpoint="SpawnRight" />
+						<enemy name="enemyStar" amount="5" spawnpoint="SpawnLeft" />
+						<enemy name="enemyStar" amount="5" spawnpoint="SpawnRight" />
+					</enemies>
+				</wave>
+				<wave id="3" time="60" delay="35" dead="false">
+					<enemies>
+						<enemy name="default" amount="60" spawnpoint="SpawnLeft" />
+						<enemy name="default" amount="60" spawnpoint="SpawnRight" />
+						<enemy name="enemyStar" amount="10" spawnpoint="SpawnLeft" />
+						<enemy name="enemyStar" amount="10" spawnpoint="SpawnRight" />
+					</enemies>
+				</wave>
+				<wave id="4" time="55" delay="35" dead="false">
+					<enemies>
+						<enemy name="default" amount="80" spawnpoint="SpawnLeft" />
+						<enemy name="default" amount="80" spawnpoint="SpawnRight" />
+						<enemy name="enemyStar" amount="15" spawnpoint="SpawnLeft" />
+						<enemy name="enemyStar" amount="15" spawnpoint="SpawnRight" />
+					</enemies>
+				</wave>
+			</waves>
+		</level>
+		<level id="2" >
+			<waves>
+				<wave id="0" time="15" delay="-1" dead="true">
+					<enemies>
+						<enemy name="default" amount="36" spawnpoint="SpawnTop" />
+					</enemies>
+				</wave>
+				<wave id="1" time="15" delay="-1" dead="true">
+					<enemies>
+						<enemy name="default" amount="36" spawnpoint="SpawnDown" />
+					</enemies>
+				</wave>
+				<wave id="2" time="30" delay="-1" dead="true">
+					<enemies>
+						<enemy name="default" amount="50" spawnpoint="SpawnRight" />
+					</enemies>
+				</wave>
+				<wave id="3" time="60" delay="25" dead="false">
+					<enemies>
+						<enemy name="default" amount="40" spawnpoint="SpawnTop" />
+						<enemy name="default" amount="40" spawnpoint="SpawnDown" />
+						<enemy name="enemyStar" amount="40" spawnpoint="SpawnRight" />
+					</enemies>
+				</wave>
+				<wave id="4" time="80" delay="25" dead="false">
+					<enemies>
+						<enemy name="default" amount="70" spawnpoint="SpawnTop" />
+						<enemy name="default" amount="70" spawnpoint="SpawnDown" />
+						<enemy name="enemyStar" amount="70" spawnpoint="SpawnRight" />
+					</enemies>
+				</wave>
+			</waves>
+		</level>
+		
 		
 		<level id="-1" >
 			<waves>
@@ -46,29 +118,5 @@
 				</wave>
 			</waves>
 		</level>
-		<level id="1" >
-			<waves>
-				<wave id="0" time="10" delay="-1" dead="true">
-					<enemies>
-						<enemy name="enemyStar" amount="5" spawnpoint="Spawn2" />
-						<enemy name="default" amount="5" spawnpoint="Spawn2" />
-					</enemies>
-				</wave>
-				<wave id="1" time="10" delay="-1" dead="true">
-					<enemies>
-						<enemy name="default" amount="10" spawnpoint="Spawn" />
-						<enemy name="enemyStar" amount="5" spawnpoint="Spawn" />
-					</enemies>
-				</wave>
-				<wave id="3" time="10" delay="5" dead="false">
-					<enemies>
-						<enemy name="default" amount="10" spawnpoint="Spawn" />
-						<enemy name="default" amount="10" spawnpoint="Spawn2" />
-					</enemies>
-				</wave>
-			</waves>
-		</level>
-		
-		
 	</levels>
 </data>
