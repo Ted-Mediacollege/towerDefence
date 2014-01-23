@@ -12,4 +12,5 @@ public class waveData {
 	public bool dead = false;
 
 	public List<waveDataQueue> enemies = new List<waveDataQueue>();
+	public List<string> spawninglist = new List<string>();
 }

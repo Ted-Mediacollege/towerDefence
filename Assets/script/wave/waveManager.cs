@@ -21,6 +21,7 @@ public class waveManager : MonoBehaviour {
 	public int waveMax = 0;
 
 	private EnemyManager enemyMngr;
+	private minimap map;
 
 	[SerializeField]
 	private TextAsset xmlFile;
@@ -40,6 +41,8 @@ public class waveManager : MonoBehaviour {
 
 	void Start () {
 		enemyMngr = GameObject.Find("gameManager").GetComponent<EnemyManager>() as EnemyManager;
+		map = GameObject.Find("gameManager").GetComponent<minimap>() as minimap;
+
 		waveTextHolder.SetActive(false);
 		waveAnounceHolder.SetActive(false);
 		waveDelayTextHolder.SetActive(false);
@@ -72,6 +75,20 @@ public class waveManager : MonoBehaviour {
 				wdq.name = waves[i].enemies[j].name;
 				wdq.spawnpoint = waves[i].enemies[j].spawnpoint;
 				wd.enemies.Add(wdq);
+				
+				if(wd.spawninglist.Count < 1) {
+					wd.spawninglist.Add(wdq.spawnpoint);
+				} else {
+					for(int l = 0; l < wd.spawninglist.Count; l++) {
+						if(wd.spawninglist[l] == wdq.spawnpoint) {
+							break;
+						}
+
+						if(l == wd.spawninglist.Count - 1) {
+							wd.spawninglist.Add(wdq.spawnpoint);
+						}
+					}
+				}
 
 				wd.total += wdq.amount;
 			}
@@ -93,6 +110,8 @@ public class waveManager : MonoBehaviour {
 		paused = true;
 
 		waveMax = wavedata.Count;
+		
+		map.setBlinks(wavedata[0].spawninglist);
 
 		nextText(true);
 	}
@@ -135,6 +154,7 @@ public class waveManager : MonoBehaviour {
 							setStates(false, false, false, true);
 						} else if(wavedata[0].delay < 0F) {
 							//PAUSED
+							map.setBlinks(wavedata[1].spawninglist);
 							setStates(true, false, false, false);
 							nextText(false);
 						} else {
@@ -179,10 +199,12 @@ public class waveManager : MonoBehaviour {
 				if(enemyMngr.enemies.Count < 1) {
 					if(wavedata[0].delay < 0F) {
 						//PAUSED
+						map.setBlinks(wavedata[1].spawninglist);
 						setStates(true, false, false, false);
 						nextText(false);
 					} else {
 						//DELAY
+						map.setBlinks(wavedata[1].spawninglist);
 						setStates(false, false, true, false);
 						waveDelayTextHolder.SetActive(true);
 					}

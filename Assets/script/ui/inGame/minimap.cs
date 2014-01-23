@@ -1,9 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class minimap : MonoBehaviour {	
 	private GameObject player;
 	private EnemyManager enemymanager;
+
 	public float zoom = 2;
 	public int size = 100;
 	public float centerX = 0;
@@ -19,13 +21,22 @@ public class minimap : MonoBehaviour {
 	public Texture2D iconStart;
 	public Texture2D iconEnd;
 	public Texture2D iconEnemy;
+	public Texture2D iconWarn;
 
-
+	private List<string> blinkList = new List<string>();
+	private float blink = 0F;
 	
 	void Start () {
 		player = GameObject.Find("player");
 		enemymanager = GameObject.Find("gameManager").GetComponent<EnemyManager>() as EnemyManager;
 		texture = new Texture2D(20, 20);
+	}
+
+	void Update() {
+		blink -= Time.deltaTime;
+		if(blink < 0F) {
+			blink += 2F;
+		}
 	}
 	
 	void OnGUI() {
@@ -62,7 +73,7 @@ public class minimap : MonoBehaviour {
 		drawStartAndEnd();
 		drawPlayer(worldToMapCoord(player.transform.position));
 	}
-	
+
 	Vector3 worldToMapCoord(Vector3 worldCoord) {
 		Vector3 mapCoord = new Vector3(size,size,0);
 		
@@ -72,9 +83,22 @@ public class minimap : MonoBehaviour {
 		return mapCoord;
 	}
 
+	public void setBlinks(List<string> spawning) {
+		blinkList = spawning;
+	}
+
 	void drawStartAndEnd() {
 		for(int i = 0; i < enemymanager.SpawnPoints.Length; i++) {
 			Vector3 ipos = worldToMapCoord(enemymanager.SpawnPoints[i].transform.position);
+
+			if(blink < 1F) {
+				for(int j = 0; j < blinkList.Count; j++) {
+					if(blinkList[j] == enemymanager.SpawnPoints[i].name) {
+						GUI.DrawTexture(new Rect(ipos.x + (size * zooming) - 12 - (12 * zooming), -ipos.y + (size * zooming) - 12 - (12 * zooming), 48 * zooming, 48 * zooming), iconWarn);
+					}
+				}
+			}
+
 			GUI.DrawTexture(new Rect(ipos.x + (size * zooming) - 12, -ipos.y + (size * zooming) - 12, 24 * zooming, 24 * zooming), iconStart);
 		}
 		for(int j = 0; j < enemymanager.EndPoints.Length; j++) {
