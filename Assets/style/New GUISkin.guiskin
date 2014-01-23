@@ -15,7 +15,7 @@ MonoBehaviour:
   m_box:
     m_Name: box
     m_Normal:
-      m_Background: {fileID: 2800000, guid: d62ab463fc5e22f4a90911ab73defda5, type: 3}
+      m_Background: {fileID: 2800000, guid: 95f1a2ec9b4f242e182abe667a100a4e, type: 3}
       m_TextColor: {r: 1, g: .517241359, b: 0, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -74,14 +74,14 @@ MonoBehaviour:
   m_button:
     m_Name: button
     m_Normal:
-      m_Background: {fileID: 2800000, guid: cefe3831f18482e408e5fd387296a521, type: 3}
+      m_Background: {fileID: 2800000, guid: c3d033b5b74fd804d84283631f3c1001, type: 3}
       m_TextColor: {r: 1, g: .413793087, b: 0, a: 1}
     m_Hover:
       m_Background: {fileID: 2800000, guid: e2524c87fe81a0e41bbb589597414741, type: 3}
-      m_TextColor: {r: .676470578, g: .964300156, b: 1, a: 1}
+      m_TextColor: {r: 1, g: .41568628, b: 0, a: 1}
     m_Active:
       m_Background: {fileID: 2800000, guid: e2524c87fe81a0e41bbb589597414741, type: 3}
-      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+      m_TextColor: {r: 1, g: .564705908, b: 0, a: 1}
     m_Focused:
       m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}

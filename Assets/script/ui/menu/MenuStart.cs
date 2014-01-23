@@ -23,6 +23,8 @@ public class MenuStart : MonoBehaviour {
 	public Vector3 posMenuStart = new Vector3(0,0,0);
 	public Vector3 posMenuLevel = new Vector3(1280,0,0);
 	public Vector3 posMenuCredits = new Vector3(1280,0,0);
+	public Vector3 posMenuInstruct = new Vector3(200,1480,0);
+	public Vector3 posMenuSettings = new Vector3(-200,-200,0);
 	private Vector3 menuPosScale;
 	private Vector3 menuPosTarget;
 
@@ -77,12 +79,22 @@ public class MenuStart : MonoBehaviour {
 		//start menu
 		GUI.matrix = Matrix4x4.TRS ( levelMenuDisplaysment,Quaternion.identity,  new Vector3 (rx, ry, 1));
 		//GUI.Box(new Rect((1280/2)-250,(720/2)-200,500,400), "Menu");
-		if(GUI.Button(new Rect((1280/2)-80-400,(720/2)-80,160,60), "Level Menu")) {
+		if(GUI.Button(new Rect((1280/2)-80-400,(720/2)-80,160,60), "Levels")) {
 			switchScreen(Vector3.Scale( posMenuLevel,menuPosScale));
 			menuPosTarget = posMenuLevel;
 		}
-		if(GUI.Button(new Rect((1280/2)-80-400,(720/2)+0,160,60), "Credit Menu")) {
+		if(GUI.Button(new Rect((1280/2)-80-400,(720/2)+0,160,60), "Credits")) {
 			switchScreen(Vector3.Scale( posMenuCredits,menuPosScale));
+			menuPosTarget = posMenuCredits;
+		}
+
+		if(GUI.Button(new Rect((1280/2)-80-400,(720/2)+80,160,60), "Instructions")) {
+			switchScreen(Vector3.Scale( posMenuInstruct,menuPosScale));
+			menuPosTarget = posMenuCredits;
+		}
+
+		if(GUI.Button(new Rect((1280/2)-80-400,(720/2)+160,160,60), "Settings")) {
+			switchScreen(Vector3.Scale( posMenuSettings,menuPosScale));
 			menuPosTarget = posMenuCredits;
 		}
 
@@ -109,7 +121,20 @@ public class MenuStart : MonoBehaviour {
 		             "R3\n"+
 		             "R4\n"
 		);
-		
+
+		// instructions menu
+		GUI.matrix = Matrix4x4.TRS ( levelMenuDisplaysment-Vector3.Scale( menuPosScale,posMenuInstruct),Quaternion.identity,  new Vector3 (rx, ry, 1));
+		if(GUI.Button(new Rect(100,600,100,60), "Back")) {
+			switchScreen(Vector3.Scale( posMenuStart,menuPosScale));
+			menuPosTarget = posMenuStart;
+		}
+
+		// settings menu
+		GUI.matrix = Matrix4x4.TRS ( levelMenuDisplaysment-Vector3.Scale( menuPosScale,posMenuSettings),Quaternion.identity,  new Vector3 (rx, ry, 1));
+		if(GUI.Button(new Rect(100,600,100,60), "Back")) {
+			switchScreen(Vector3.Scale( posMenuStart,menuPosScale));
+			menuPosTarget = posMenuStart;
+		}
 		
 		
 		

@@ -11,6 +11,7 @@ public class EnemyManager : MonoBehaviour {
 	private int timer;
 	private GameObject test;
 	private GameObject enemy1;
+	private GameObject enemyStar;
 	private GameObject moneyobject;
 	
 	private GameManager gameMngr;
@@ -20,6 +21,7 @@ public class EnemyManager : MonoBehaviour {
 		enemies = new List<GameObject>();
 		enemieHolder = GameObject.Find("enemies");
 		enemy1 = Resources.Load("enemy") as GameObject;
+		enemyStar = Resources.Load("enemyStar") as GameObject;
 		moneyobject = Resources.Load("money") as GameObject;
 	}
 
@@ -45,8 +47,14 @@ public class EnemyManager : MonoBehaviour {
 				Vector3 spawn = (Vector3)SpawnPoints[i].transform.position;
 				spawn.x += -1 + Random.Range(0.0F,2.0F);
 				spawn.y += -1 + Random.Range(0.0F,2.0F);
-
-				GameObject newEnemy = (GameObject)GameObject.Instantiate(enemy1, spawn, Quaternion.identity);
+				GameObject newEnemy;
+				if(enemytype == "enemy"){
+					newEnemy = (GameObject)GameObject.Instantiate(enemy1, spawn, Quaternion.identity);
+				}else if(enemytype == "enemyStar"){
+					newEnemy = (GameObject)GameObject.Instantiate(enemyStar, spawn, Quaternion.identity);
+				}else{
+					newEnemy = (GameObject)GameObject.Instantiate(enemy1, spawn, Quaternion.identity);
+				}
 				newEnemy.transform.parent = enemieHolder.transform;
 				enemies.Add(newEnemy);
 				break;

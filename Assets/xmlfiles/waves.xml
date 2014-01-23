@@ -30,12 +30,14 @@
 			<waves>
 				<wave id="0" time="10" delay="-1" dead="true">
 					<enemies>
-						<enemy name="default" amount="10" spawnpoint="Spawn2" />
+						<enemy name="enemyStar" amount="5" spawnpoint="Spawn2" />
+						<enemy name="default" amount="5" spawnpoint="Spawn2" />
 					</enemies>
 				</wave>
 				<wave id="1" time="10" delay="-1" dead="true">
 					<enemies>
 						<enemy name="default" amount="10" spawnpoint="Spawn" />
+						<enemy name="enemyStar" amount="5" spawnpoint="Spawn" />
 					</enemies>
 				</wave>
 				<wave id="3" time="10" delay="5" dead="false">
