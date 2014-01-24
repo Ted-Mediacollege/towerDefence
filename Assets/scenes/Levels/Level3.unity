@@ -10057,7 +10057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livePoints: 10
-  money: 500
+  money: 700
   livePointDisplay: {fileID: 1629380446}
   holderLivePointDisplay: {fileID: 1629380444}
   moneyDisplay: {fileID: 210720365}

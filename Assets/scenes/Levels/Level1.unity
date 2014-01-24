@@ -1548,7 +1548,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 78817445}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: bulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 1177953632, guid: 0000000000000000d000000000000000, type: 0}
@@ -1575,7 +1575,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 122529639}
   - 212: {fileID: 122529640}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4128,7 +4128,7 @@ GameObject:
   - 198: {fileID: 384804084}
   - 199: {fileID: 384804083}
   - 114: {fileID: 384804082}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6535,7 +6535,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 778747653}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.4952545, y: -4.18948364, z: 10}
+  m_LocalPosition: {x: -17.7154541, y: -4.18948364, z: 10}
   m_LocalScale: {x: .0799999982, y: .0799999982, z: .0399999991}
   m_Children: []
   m_Father: {fileID: 856040160}
@@ -7511,6 +7511,7 @@ MonoBehaviour:
   iconEnd: {fileID: 2800000, guid: ad0eb56572afc9f48937a6523c88f0c8, type: 3}
   iconEnemy: {fileID: 2800000, guid: 50e9fb24e66851f42aee0c4e9d8a115e, type: 3}
   iconWarn: {fileID: 2800000, guid: d2f7972532b0e0047943942249039631, type: 3}
+  mapborder: {fileID: 0}
 --- !u!114 &1050018467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7551,7 +7552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livePoints: 10
-  money: 400
+  money: 600
   livePointDisplay: {fileID: 1629380446}
   holderLivePointDisplay: {fileID: 1629380444}
   moneyDisplay: {fileID: 210720365}
@@ -8845,7 +8846,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1440610362}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: bubbleSpawn
   m_TagString: Untagged
   m_Icon: {fileID: -195793285, guid: 0000000000000000d000000000000000, type: 0}
@@ -10003,7 +10004,7 @@ GameObject:
   - 114: {fileID: 1749855487}
   - 114: {fileID: 1749855486}
   - 114: {fileID: 1749855485}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -10110,6 +10111,7 @@ MonoBehaviour:
   - {fileID: 100004, guid: db0d37edf35df6b45b4596f59b686fb2, type: 2}
   - {fileID: 100000, guid: 61d3fa2cc62d8964d8587d72c586b443, type: 2}
   - {fileID: 100002, guid: 5d5068920623b304ca6ecb60f62a4b7d, type: 2}
+  - {fileID: 100000, guid: dafee55ed00bd5c4682881bb27ed95f4, type: 2}
   - {fileID: 100000, guid: f64c648bb1871c14d8c325b196eabfb7, type: 2}
   uiCam: {fileID: 856040163}
   shootTime: 10

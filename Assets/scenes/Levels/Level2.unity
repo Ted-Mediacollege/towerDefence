@@ -7846,6 +7846,7 @@ MonoBehaviour:
   iconEnd: {fileID: 2800000, guid: ad0eb56572afc9f48937a6523c88f0c8, type: 3}
   iconEnemy: {fileID: 2800000, guid: 50e9fb24e66851f42aee0c4e9d8a115e, type: 3}
   iconWarn: {fileID: 2800000, guid: d2f7972532b0e0047943942249039631, type: 3}
+  mapborder: {fileID: 0}
 --- !u!114 &1050018467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7886,7 +7887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livePoints: 10
-  money: 600
+  money: 700
   livePointDisplay: {fileID: 1629380446}
   holderLivePointDisplay: {fileID: 1629380444}
   moneyDisplay: {fileID: 210720365}

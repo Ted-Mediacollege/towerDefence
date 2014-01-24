@@ -12377,7 +12377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livePoints: 10
-  money: 500
+  money: 1000
   livePointDisplay: {fileID: 1629380446}
   holderLivePointDisplay: {fileID: 1629380444}
   moneyDisplay: {fileID: 210720365}
@@ -18647,10 +18647,13 @@ Transform:
   - {fileID: 1501650565}
   - {fileID: 1946350464}
   - {fileID: 2126256255}
+  - {fileID: 692345790}
   - {fileID: 384726634}
   - {fileID: 1637576049}
   - {fileID: 472667899}
   - {fileID: 323381132}
+  - {fileID: 286193217}
+  - {fileID: 1335761145}
   - {fileID: 1860871351}
   - {fileID: 397232809}
   - {fileID: 2043797891}
@@ -18665,24 +18668,21 @@ Transform:
   - {fileID: 1858009516}
   - {fileID: 1313402979}
   - {fileID: 1743251806}
+  - {fileID: 173927518}
   - {fileID: 366878478}
   - {fileID: 199364050}
   - {fileID: 1253945710}
   - {fileID: 1705032135}
+  - {fileID: 561160327}
   - {fileID: 1840355923}
   - {fileID: 240895073}
   - {fileID: 2140132902}
+  - {fileID: 1277060557}
   - {fileID: 63814696}
   - {fileID: 1009472461}
   - {fileID: 951677075}
   - {fileID: 963562784}
   - {fileID: 1156931327}
-  - {fileID: 561160327}
-  - {fileID: 286193217}
-  - {fileID: 1335761145}
-  - {fileID: 692345790}
-  - {fileID: 1277060557}
-  - {fileID: 173927518}
   - {fileID: 672840968}
   - {fileID: 1920936441}
   - {fileID: 1212371036}
