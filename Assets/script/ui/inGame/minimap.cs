@@ -70,7 +70,7 @@ public class minimap : MonoBehaviour {
 		for(int i = 0; i < count; i++) {
 
 			Vector3 enemycoord = worldToMapCoord(enemymanager.enemies[i].transform.position);
-			GUI.DrawTexture(new Rect(borderoffset + enemycoord.x + (size * zooming) - 6, -enemycoord.y + borderoffset + (size * zooming) - 6, 12 * zooming, 12 * zooming), iconEnemy);
+			drawTexture(new Rect(borderoffset + enemycoord.x + (size * zooming) - 6, -enemycoord.y + borderoffset + (size * zooming) - 6, 12 * zooming, 12 * zooming), iconEnemy);
 		}
 
 		drawStartAndEnd();
@@ -88,6 +88,12 @@ public class minimap : MonoBehaviour {
 		return mapCoord;
 	}
 
+	void drawTexture(Rect rect, Texture image) {
+		if(rect.x > 0 && rect.y > 0 && rect.x + rect.width < 260 * zooming && rect.y + rect.height < 260 * zooming) {
+			GUI.DrawTexture(rect, image);
+		}
+	}
+
 	public void setBlinks(List<string> spawning) {
 		blinkList = spawning;
 	}
@@ -99,20 +105,20 @@ public class minimap : MonoBehaviour {
 			if(blink < 1F) {
 				for(int j = 0; j < blinkList.Count; j++) {
 					if(blinkList[j] == enemymanager.SpawnPoints[i].name) {
-						GUI.DrawTexture(new Rect(ipos.x + borderoffset + (size * zooming) - 12 - (12 * zooming), -ipos.y + borderoffset + (size * zooming) - 12 - (12 * zooming), 48 * zooming, 48 * zooming), iconWarn);
+						drawTexture(new Rect(ipos.x + borderoffset + (size * zooming) - 12 - (12 * zooming), -ipos.y + borderoffset + (size * zooming) - 12 - (12 * zooming), 48 * zooming, 48 * zooming), iconWarn);
 					}
 				}
 			}
 
-			GUI.DrawTexture(new Rect(ipos.x + borderoffset + (size * zooming) - 12, -ipos.y + borderoffset + (size * zooming) - 12, 24 * zooming, 24 * zooming), iconStart);
+			drawTexture(new Rect(ipos.x + borderoffset + (size * zooming) - 12, -ipos.y + borderoffset + (size * zooming) - 12, 24 * zooming, 24 * zooming), iconStart);
 		}
 		for(int j = 0; j < enemymanager.EndPoints.Length; j++) {
 			Vector3 jpos = worldToMapCoord(enemymanager.EndPoints[j].transform.position);
-			GUI.DrawTexture(new Rect(jpos.x + borderoffset + (size * zooming) - 12, -jpos.y + borderoffset + (size * zooming) - 12, 24 * zooming, 24 * zooming), iconEnd);
+			drawTexture(new Rect(jpos.x + borderoffset + (size * zooming) - 12, -jpos.y + borderoffset + (size * zooming) - 12, 24 * zooming, 24 * zooming), iconEnd);
 		}
 	}
 
 	void drawPlayer(Vector3 playercoord) {
-		GUI.DrawTexture(new Rect(playercoord.x + borderoffset + (size * zooming) - 12, -playercoord.y + borderoffset + (size * zooming) - 12, 24 * zooming, 24 * zooming), iconPlayer);
+		drawTexture(new Rect(playercoord.x + borderoffset + (size * zooming) - 12, -playercoord.y + borderoffset + (size * zooming) - 12, 24 * zooming, 24 * zooming), iconPlayer);
 	}
 }
