@@ -107,7 +107,33 @@
 		</level>
 		<level id="3" >
 			<waves>
-				<wave id="0" time="60" delay="-1" dead="true">
+				<wave id="0" time="25" delay="-1" dead="true">
+					<enemies>
+						<enemy name="default" amount="40" spawnpoint="SpawnLeft" />
+						<enemy name="default" amount="10" spawnpoint="SpawnMid" />
+					</enemies>
+				</wave>
+				<wave id="1" time="32" delay="-1" dead="true">
+					<enemies>
+						<enemy name="default" amount="50" spawnpoint="SpawnRight" />
+						<enemy name="default" amount="20" spawnpoint="SpawnMid" />
+					</enemies>
+				</wave>
+				<wave id="2" time="60" delay="10" dead="true">
+					<enemies>
+						<enemy name="default" amount="40" spawnpoint="SpawnLeft" />
+						<enemy name="default" amount="40" spawnpoint="SpawnMid" />
+						<enemy name="default" amount="40" spawnpoint="SpawnRight" />
+					</enemies>
+				</wave>
+				<wave id="3" time="60" delay="10" dead="true">
+					<enemies>
+						<enemy name="default" amount="50" spawnpoint="SpawnLeft" />
+						<enemy name="default" amount="50" spawnpoint="SpawnMid" />
+						<enemy name="default" amount="50" spawnpoint="SpawnRight" />
+					</enemies>
+				</wave>
+				<wave id="4" time="60" delay="10" dead="true">
 					<enemies>
 						<enemy name="default" amount="60" spawnpoint="SpawnLeft" />
 						<enemy name="default" amount="60" spawnpoint="SpawnMid" />
