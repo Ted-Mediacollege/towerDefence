@@ -15,17 +15,23 @@ public class winLoseScreen : MonoBehaviour {
 	public GameStatus gameStatus;
 	public GUISkin skin;
 	public string nextLevelName;
+	private ItemManager itemMngr;
 
 	void Start(){
 		gameStatus = GameStatus.Playing;
+		itemMngr = GameObject.Find("player").GetComponent<ItemManager>();
 	}
 	
 	void Update(){
 		if(Input.GetKeyDown(KeyCode.Escape)) { 
 			if(gameStatus == GameStatus.Playing){
 				gameStatus = GameStatus.Pause;
+				Time.timeScale = 0;
+				itemMngr.enabled = false;
 			}else if(gameStatus == GameStatus.Pause){
 				gameStatus = GameStatus.Playing;
+				Time.timeScale = 1;
+				itemMngr.enabled = true;
 			}
 		}
 	}
@@ -37,7 +43,12 @@ public class winLoseScreen : MonoBehaviour {
 			float ry = Screen.height / native_height;
 			GUI.matrix = Matrix4x4.TRS ( new Vector3(0, 0, 0),Quaternion.identity,  new Vector3 (rx, ry, 1));
 		}
-
+		if(gameStatus==GameStatus.Won||gameStatus==GameStatus.GameOver){
+			if(Time.timeScale == 1){
+				Time.timeScale = 0;
+				itemMngr.enabled = false;
+			}
+		}
 		switch(gameStatus){
 		case GameStatus.Playing:
 			break;
