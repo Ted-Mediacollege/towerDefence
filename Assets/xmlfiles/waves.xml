@@ -105,6 +105,28 @@
 				</wave>
 			</waves>
 		</level>
+		<level id="3" >
+			<waves>
+				<wave id="0" time="60" delay="-1" dead="true">
+					<enemies>
+						<enemy name="default" amount="60" spawnpoint="SpawnLeft" />
+						<enemy name="default" amount="60" spawnpoint="SpawnMid" />
+						<enemy name="default" amount="60" spawnpoint="SpawnRight" />
+					</enemies>
+				</wave>
+			</waves>
+		</level>
+		<level id="4" >
+			<waves>
+				<wave id="0" time="60" delay="-1" dead="true">
+					<enemies>
+						<enemy name="default" amount="60" spawnpoint="SpawnLeft" />
+						<enemy name="default" amount="60" spawnpoint="SpawnMid" />
+						<enemy name="default" amount="60" spawnpoint="SpawnRight" />
+					</enemies>
+				</wave>
+			</waves>
+		</level>
 		
 		
 		<level id="-1" >
