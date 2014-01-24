@@ -182,10 +182,11 @@ public class ItemManager : MonoBehaviour {
 			shootTimer--;
 		}
 		
-		if(Input.GetKey(KeyCode.Alpha1)) { currentItem = 3; setItem(currentItem);}
-		if(Input.GetKey(KeyCode.Alpha2)) { currentItem = 2; setItem(currentItem);}
-		if(Input.GetKey(KeyCode.Alpha3)) { currentItem = 1; setItem(currentItem);}
-		if(Input.GetKey(KeyCode.Alpha4)) { currentItem = 0; setItem(currentItem);}
+		if(Input.GetKey(KeyCode.Alpha1)) { currentItem = 4; setItem(currentItem); }
+		if(Input.GetKey(KeyCode.Alpha2)) { currentItem = 3; setItem(currentItem); }
+		if(Input.GetKey(KeyCode.Alpha3)) { currentItem = 2; setItem(currentItem); }
+		if(Input.GetKey(KeyCode.Alpha4)) { currentItem = 1; setItem(currentItem); }
+		if(Input.GetKey(KeyCode.Alpha5)) { currentItem = 0; setItem(currentItem); }
 		
 		//get input and mouse position
 		bool click = Input.GetMouseButtonDown(0);

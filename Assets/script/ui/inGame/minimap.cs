@@ -10,6 +10,7 @@ public class minimap : MonoBehaviour {
 	public int size = 100;
 	public float centerX = 0;
 	public float centerY = 0;
+	private int borderoffset = 11;
 
 	private float zooming = 1;
 
@@ -22,6 +23,7 @@ public class minimap : MonoBehaviour {
 	public Texture2D iconEnd;
 	public Texture2D iconEnemy;
 	public Texture2D iconWarn;
+	public Texture2D mapborder;
 
 	private List<string> blinkList = new List<string>();
 	private float blink = 0F;
@@ -59,7 +61,8 @@ public class minimap : MonoBehaviour {
 
 		//minimap
 		GUI.color = new Color(0.85F, 0.77F, 0.54F, 1F);
-		GUI.DrawTexture(new Rect(0, 0, size * 2 * zooming, size * 2 * zooming), texture);
+		//GUI.color = new Color(0F, 0.48F, 0F, 1F);
+		GUI.DrawTexture(new Rect(0, 0, size * 2 * zooming + borderoffset, size * 2 * zooming + borderoffset), texture);
 
 		GUI.color = new Color(1F, 1F, 1F);
 
@@ -67,11 +70,13 @@ public class minimap : MonoBehaviour {
 		for(int i = 0; i < count; i++) {
 
 			Vector3 enemycoord = worldToMapCoord(enemymanager.enemies[i].transform.position);
-			GUI.DrawTexture(new Rect(enemycoord.x + (size * zooming) - 6, -enemycoord.y + (size * zooming) - 6, 12 * zooming, 12 * zooming), iconEnemy);
+			GUI.DrawTexture(new Rect(borderoffset + enemycoord.x + (size * zooming) - 6, -enemycoord.y + borderoffset + (size * zooming) - 6, 12 * zooming, 12 * zooming), iconEnemy);
 		}
 
 		drawStartAndEnd();
 		drawPlayer(worldToMapCoord(player.transform.position));
+
+		GUI.DrawTexture(new Rect(0, 0, 260 * zooming, 260 * zooming), mapborder);
 	}
 
 	Vector3 worldToMapCoord(Vector3 worldCoord) {
@@ -94,20 +99,20 @@ public class minimap : MonoBehaviour {
 			if(blink < 1F) {
 				for(int j = 0; j < blinkList.Count; j++) {
 					if(blinkList[j] == enemymanager.SpawnPoints[i].name) {
-						GUI.DrawTexture(new Rect(ipos.x + (size * zooming) - 12 - (12 * zooming), -ipos.y + (size * zooming) - 12 - (12 * zooming), 48 * zooming, 48 * zooming), iconWarn);
+						GUI.DrawTexture(new Rect(ipos.x + borderoffset + (size * zooming) - 12 - (12 * zooming), -ipos.y + borderoffset + (size * zooming) - 12 - (12 * zooming), 48 * zooming, 48 * zooming), iconWarn);
 					}
 				}
 			}
 
-			GUI.DrawTexture(new Rect(ipos.x + (size * zooming) - 12, -ipos.y + (size * zooming) - 12, 24 * zooming, 24 * zooming), iconStart);
+			GUI.DrawTexture(new Rect(ipos.x + borderoffset + (size * zooming) - 12, -ipos.y + borderoffset + (size * zooming) - 12, 24 * zooming, 24 * zooming), iconStart);
 		}
 		for(int j = 0; j < enemymanager.EndPoints.Length; j++) {
 			Vector3 jpos = worldToMapCoord(enemymanager.EndPoints[j].transform.position);
-			GUI.DrawTexture(new Rect(jpos.x + (size * zooming) - 12, -jpos.y + (size * zooming) - 12, 24 * zooming, 24 * zooming), iconEnd);
+			GUI.DrawTexture(new Rect(jpos.x + borderoffset + (size * zooming) - 12, -jpos.y + borderoffset + (size * zooming) - 12, 24 * zooming, 24 * zooming), iconEnd);
 		}
 	}
 
 	void drawPlayer(Vector3 playercoord) {
-		GUI.DrawTexture(new Rect(playercoord.x + (size * zooming) - 12, -playercoord.y + (size * zooming) - 12, 24 * zooming, 24 * zooming), iconPlayer);
+		GUI.DrawTexture(new Rect(playercoord.x + borderoffset + (size * zooming) - 12, -playercoord.y + borderoffset + (size * zooming) - 12, 24 * zooming, 24 * zooming), iconPlayer);
 	}
 }
