@@ -103,12 +103,12 @@ MonoBehaviour:
   pushForce: 800
   damage: 70
   explosionRange: 6
-  drawExplosionRange: 0
+  drawExplosionRange: 1
   explosion:
   - {fileID: 100000, guid: 65a2243bbc3b16d4a9c7ab370d33f3a7, type: 2}
   - {fileID: 100000, guid: e6edf1ba236e4cf4babb2d848bd046fb, type: 2}
-  sellPrice: 30
-  buyPrice: 50
+  sellPrice: 2
+  buyPrice: 25
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

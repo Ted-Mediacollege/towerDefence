@@ -162,8 +162,8 @@ MonoBehaviour:
   BulletSpawnDCenter: 3
   gun: {fileID: 100002}
   sellPrice: 40
-  buyPrice: 80
-  targetAimAstimationPresition: 20
+  buyPrice: 150
+  targetAimAstimationPresition: 60
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
