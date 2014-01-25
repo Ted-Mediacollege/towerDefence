@@ -96,8 +96,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.4267654, y: 22.1681767, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -.00172376563, w: .999998569}
+  m_LocalPosition: {x: 17.6284065, y: 15.3486338, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 12}
   m_Children:
   - {fileID: 400002}
@@ -221,7 +221,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: dafee55ed00bd5c4682881bb27ed95f4, type: 2}
   - {fileID: 100000, guid: f64c648bb1871c14d8c325b196eabfb7, type: 2}
   uiCam: {fileID: 0}
-  shootTime: 10
+  shootTime: .150000006
   lineColor1: {r: 0, g: 1, b: 1, a: .360784322}
   lineColor2: {r: 0, g: .958621025, b: 1, a: 0}
   lineColorTower1: {r: 1, g: 1, b: 0, a: .525490224}

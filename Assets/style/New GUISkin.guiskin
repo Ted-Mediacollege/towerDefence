@@ -49,10 +49,10 @@ MonoBehaviour:
       m_Top: 4
       m_Bottom: 4
     m_Padding:
-      m_Left: 4
-      m_Right: 4
-      m_Top: 4
-      m_Bottom: 4
+      m_Left: 20
+      m_Right: 10
+      m_Top: 20
+      m_Bottom: 10
     m_Overflow:
       m_Left: 0
       m_Right: 0

@@ -4,7 +4,7 @@ using System.Collections;
 public class BulletPlayer : Bullet {
 
 	private void Update(){
-		transform.localPosition = transform.position + velocity;
+		transform.localPosition = transform.position + (velocity*Time.deltaTime);
 	}
 	
 	private void OnTriggerEnter2D(Collider2D col){

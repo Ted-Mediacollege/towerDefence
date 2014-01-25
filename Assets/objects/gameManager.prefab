@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   m_Layer: 0
-  m_Name: Spawn
+  m_Name: SpawnMid
   m_TagString: Untagged
   m_Icon: {fileID: 664873902, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400008}
   m_Layer: 0
-  m_Name: End1
+  m_Name: EndLeft
   m_TagString: Untagged
   m_Icon: {fileID: -1794265156, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400010}
   m_Layer: 0
-  m_Name: End2
+  m_Name: EndRight
   m_TagString: Untagged
   m_Icon: {fileID: -1794265156, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -232,6 +232,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400028}
+  m_Layer: 0
+  m_Name: SpawnLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 664873902, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400030}
+  m_Layer: 0
+  m_Name: SpawnRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 664873902, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -239,7 +269,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: .000143913217}
-  m_LocalPosition: {x: 3.27751923, y: -6.93449593, z: 0}
+  m_LocalPosition: {x: -7.34729576, y: 13.1833763, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -254,9 +284,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400016}
+  - {fileID: 400010}
   - {fileID: 400008}
   - {fileID: 400000}
-  - {fileID: 400010}
+  - {fileID: 400030}
+  - {fileID: 400028}
   - {fileID: 400024}
   m_Father: {fileID: 0}
 --- !u!4 &400004
@@ -277,7 +309,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.4952545, y: -4.18948364, z: 10}
+  m_LocalPosition: {x: -19.2309265, y: -4.18948364, z: 10}
   m_LocalScale: {x: .0799999982, y: .0799999982, z: .0399999991}
   m_Children: []
   m_Father: {fileID: 400016}
@@ -288,7 +320,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.27244806, y: -38.1539688, z: 0}
+  m_LocalPosition: {x: -27.7311554, y: -48.1242828, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -299,7 +331,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.5661535, y: -37.8151016, z: 0}
+  m_LocalPosition: {x: 13.2938871, y: -48.2020226, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -399,6 +431,28 @@ Transform:
   m_LocalScale: {x: .0799999982, y: .0799999982, z: .0399999991}
   m_Children: []
   m_Father: {fileID: 400016}
+--- !u!4 &400028
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100028}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: .000144000005}
+  m_LocalPosition: {x: -27.3742256, y: 13.2531242, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400002}
+--- !u!4 &400030
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100030}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: .000144000005}
+  m_LocalPosition: {x: 13.1132956, y: 13.3380585, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400002}
 --- !u!20 &2000000
 Camera:
   m_ObjectHideFlags: 1
@@ -700,9 +754,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPoints:
   - {fileID: 400000}
+  - {fileID: 400030}
+  - {fileID: 400028}
   EndPoints:
-  - {fileID: 400008}
   - {fileID: 400010}
+  - {fileID: 400008}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -714,17 +770,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015b0ee6d3b24cb45a497b3a1233efdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoom: 3.20000005
+  zoom: 3.0999999
   size: 120
-  centerX: 60
-  centerY: 0
+  centerX: 20
+  centerY: 45
   native_width: 1280
   native_height: 720
   iconPlayer: {fileID: 2800000, guid: 35b9d758fef3e5144b624c744bb44509, type: 3}
   iconStart: {fileID: 2800000, guid: 52aceccd7823ee34488c8bfdc5379c65, type: 3}
-  iconEnd: {fileID: 2800000, guid: ad0eb56572afc9f48937a6523c88f0c8, type: 3}
+  iconEnd: {fileID: 2800000, guid: 68f84536bd48a7f4a8e59e5d3d414147, type: 3}
   iconEnemy: {fileID: 2800000, guid: 50e9fb24e66851f42aee0c4e9d8a115e, type: 3}
   iconWarn: {fileID: 2800000, guid: d2f7972532b0e0047943942249039631, type: 3}
+  mapborder: {fileID: 2800000, guid: f3ac41f4ae1db4448b8126620505a1d8, type: 3}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -747,7 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a13c5203ff09024e80a6e2dc98b7105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: 0
+  levelID: 3
   spawing: 0
   waiting: 0
   paused: 0
@@ -774,7 +831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livePoints: 10
-  money: 200
+  money: 1000
   livePointDisplay: {fileID: 10200002}
   holderLivePointDisplay: {fileID: 100022}
   moneyDisplay: {fileID: 10200004}
@@ -792,7 +849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStatus: 0
   skin: {fileID: 11400000, guid: 4081f74a089ac3f438e1fed7be172f9c, type: 2}
-  nextLevelName: Level2
+  nextLevelName: Level5
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

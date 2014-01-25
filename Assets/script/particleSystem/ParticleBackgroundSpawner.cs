@@ -31,6 +31,7 @@ public class ParticleBackgroundSpawner : MonoBehaviour {
 
 	void spawnParticle() {
 		GameObject buble = GameObject.Instantiate(particles[0], transform.position, new Quaternion(0,0,45,0)) as GameObject;
+		buble.transform.parent = gameObject.transform;
 	}
 	
 	/*

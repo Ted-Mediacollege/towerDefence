@@ -20,6 +20,7 @@ public class winLoseScreen : MonoBehaviour {
 	void Start(){
 		gameStatus = GameStatus.Playing;
 		itemMngr = GameObject.Find("player").GetComponent<ItemManager>();
+		Time.timeScale = 1;
 	}
 	
 	void Update(){
@@ -34,6 +35,21 @@ public class winLoseScreen : MonoBehaviour {
 				itemMngr.enabled = true;
 			}
 		}
+	}
+
+	void LoadMenu(){
+		Time.timeScale = 1;
+		Application.LoadLevel("MainMenu");
+	}
+
+	void Restart(){
+		Time.timeScale = 1;
+		Application.LoadLevel(Application.loadedLevelName);
+	}
+
+	void NextLevel(){
+		Time.timeScale = 1;
+		Application.LoadLevel(nextLevelName);
 	}
 
 	void OnGUI(){
@@ -54,30 +70,33 @@ public class winLoseScreen : MonoBehaviour {
 			break;
 		case GameStatus.GameOver:
 			GUI.Box(new Rect((1280/2)-250,(720/2)-200,500,400), "GameOver");
-			if(GUI.Button(new Rect((1280/2)-100,450,200,60), "Restart")) {
-				Application.LoadLevel(Application.loadedLevelName);
+			if(GUI.Button(new Rect((1280/2)-100+120,450,200,60), "Main Menu")) {
+				LoadMenu();
+			}
+			if(GUI.Button(new Rect((1280/2)-100-120,450,200,60), "Restart")) {
+				Restart();
 			}
 			break;
 		case GameStatus.Won:
 			GUI.Box(new Rect((1280/2)-250,(720/2)-200,500,400), "Win");
 			//GUI.TextField(new Rect((1280/2)-50,(720/2)-100,100,80),"SCORE: 0");
-			if(GUI.Button(new Rect((1280/2)-80+120,450,160,60), "Main Menu")) {
-				Application.LoadLevel("MainMenu");
+			if(GUI.Button(new Rect((1280/2)-80+145,450,140,60), "Main Menu")) {
+				LoadMenu();
 			}
-			if(GUI.Button(new Rect((1280/2)-80+0,450,160,60), "Restart")) {
-				Application.LoadLevel(Application.loadedLevelName);
+			if(GUI.Button(new Rect((1280/2)-80+0,450,140,60), "Restart")) {
+				Restart();
 			}
-			if(GUI.Button(new Rect((1280/2)-80-120,450,160,60), "Next")) {
-				Application.LoadLevel(nextLevelName);
+			if(GUI.Button(new Rect((1280/2)-80-145,450,140,60), "Next")) {
+				NextLevel();
 			}
 			break;
 		case GameStatus.Pause:
 			GUI.Box(new Rect((1280/2)-250,(720/2)-200,500,400), "Menu");
 			if(GUI.Button(new Rect((1280/2)-100+120,450,200,60), "Main Menu")) {
-				Application.LoadLevel("MainMenu");
+				LoadMenu();
 			}
 			if(GUI.Button(new Rect((1280/2)-100-120,450,200,60), "Restart")) {
-				Application.LoadLevel(Application.loadedLevelName);
+				Restart();
 			}
 			break;
 		}

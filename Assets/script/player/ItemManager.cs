@@ -19,8 +19,8 @@ public class ItemManager : MonoBehaviour {
 	
 	[SerializeField]
 	private Camera uiCam;
-	private int shootTimer = 0;
-	public int shootTime = 10;
+	private float shootTimer = 0;
+	public float shootTime = 10;
 	private GameObject bulletHolder;
 	private int currentItem = 0;
 	private GameManager gameMngr;
@@ -179,7 +179,7 @@ public class ItemManager : MonoBehaviour {
 			setItem(currentItem);
 		}
 		if(shootTimer>0){
-			shootTimer--;
+			shootTimer-=Time.deltaTime;
 		}
 		
 		if(Input.GetKey(KeyCode.Alpha1)) { currentItem = 4; setItem(currentItem); }
@@ -312,7 +312,7 @@ public class ItemManager : MonoBehaviour {
 								break;
 							}
 							if(mouseCircle&&gameMngr.CheckMoney(towerBuyPrice)){
-								// if aim at building tower
+								// if aim at ground close by tower
 								towerSellTextHolder.SetActive(false);
 								lineRenderer.enabled = true;
 								lineRenderer.SetPosition(0, gun.transform.position);
@@ -329,9 +329,10 @@ public class ItemManager : MonoBehaviour {
 					break;
 				case itemType.Bullet:
 					//fire bullet
+					noIconHolder.SetActive(false);
 					towerSellTextHolder.SetActive(false);
 					lineRenderer.enabled = false;
-					if (firing&&shootTimer==0){
+					if (firing&&shootTimer<=0){
 						shootTimer = shootTime;
 						GameObject bul = GameObject.Instantiate( items[currentItem]
 						                                        ,gunBulletSpawn.position 
@@ -348,7 +349,7 @@ public class ItemManager : MonoBehaviour {
 					towerSellTextHolder.transform.position = new Vector3((transform.position.x-0.6f),(transform.position.y+0.5f),0);
 					//buy mine bullet
 					lineRenderer.enabled = false;
-					if (firing&&shootTimer==0){
+					if (firing&&shootTimer<=0){
 						if(gameMngr.CheckMoney(minePrice)){
 							if (click){ 
 								gameMngr.ChangeMoney(-minePrice);
