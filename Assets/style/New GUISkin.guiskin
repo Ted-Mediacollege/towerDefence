@@ -344,10 +344,10 @@ MonoBehaviour:
       m_Top: 4
       m_Bottom: 4
     m_Padding:
-      m_Left: 20
+      m_Left: 10
       m_Right: 20
-      m_Top: 20
-      m_Bottom: 20
+      m_Top: 92
+      m_Bottom: 10
     m_Overflow:
       m_Left: 0
       m_Right: 0
@@ -356,7 +356,7 @@ MonoBehaviour:
     m_Font: {fileID: 0}
     m_FontSize: 0
     m_FontStyle: 0
-    m_Alignment: 4
+    m_Alignment: 1
     m_WordWrap: 1
     m_RichText: 0
     m_TextClipping: 1

@@ -96,9 +96,10 @@ public class MenuStart : MonoBehaviour {
 			menuPosTarget = posMenuCredits;
 		}
 
-		if(GUI.Button(new Rect((1280/2)-80-400,(720/2)+160,160,60), "Settings")) {
-			switchScreen(Vector3.Scale( posMenuSettings,menuPosScale));
-			menuPosTarget = posMenuCredits;
+		if(GUI.Button(new Rect((1280/2)-80-400,(720/2)+160,160,60), "Full Screen")) {
+			CameraUtils.ToggleFullscreen();
+			//switchScreen(Vector3.Scale( posMenuSettings,menuPosScale));
+			//menuPosTarget = posMenuCredits;
 		}
 
 		// level menu
@@ -122,6 +123,23 @@ public class MenuStart : MonoBehaviour {
 
 		// instructions menu
 		GUI.matrix = Matrix4x4.TRS ( levelMenuDisplaysment-Vector3.Scale( menuPosScale,posMenuInstruct),Quaternion.identity,  new Vector3 (rx, ry, 1));
+		GUI.TextArea(new Rect((1280/2)-400,100,800,550)
+		             ,"Instructions \n"+
+		             " \n"+
+		             " Use WASD or arrows to move.  \n"+
+		             " \n"+
+		             " Move the mouse to aim.\n"+
+		             " \n"+
+		             " Press T to pause the game.\n"+
+		             " \n"+
+		             " Use the right mouse button to shoot.\n"+
+		             " \n"+
+		             " There are 3 ways to switch items,\n"+
+		             " You can scroll the mouse wheel press 1 2 3 4 or 5 on the keyboard or you can click on an item. \n"+
+		             " \n"+
+		             " \n"+
+		             "");
+		
 		if(GUI.Button(new Rect(100,600,100,60), "Back")) {
 			switchScreen(Vector3.Scale( posMenuStart,menuPosScale));
 			menuPosTarget = posMenuStart;
@@ -134,10 +152,9 @@ public class MenuStart : MonoBehaviour {
 			menuPosTarget = posMenuStart;
 		}
 		
-		
-		
-		
-		
+		if(GUI.Button(new Rect((native_width/2)-80,200,160,60), "Full Screen")) {
+			CameraUtils.ToggleFullscreen();
+		}
 		
 		
 		

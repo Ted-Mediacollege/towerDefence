@@ -161,7 +161,7 @@ MonoBehaviour:
   shootTime: 30
   BulletSpawnDCenter: 3
   gun: {fileID: 100000}
-  sellPrice: 70
+  sellPrice: 140
   buyPrice: 180
   targetAimAstimationPresition: 60
 --- !u!212 &21200000

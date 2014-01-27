@@ -116,8 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   native_width: 1280
   native_height: 720
-  current_width: 640
-  current_height: 480
+  current_width: 1016
+  current_height: 571
   buttons:
   - xPos: 300
     yPos: 300
@@ -142,8 +142,8 @@ MonoBehaviour:
   posMenuStart: {x: 0, y: 0, z: 0}
   posMenuLevel: {x: -200, y: 820, z: 0}
   posMenuCredits: {x: 200, y: -820, z: 0}
-  posMenuInstruct: {x: 1480, y: -200, z: 0}
-  posMenuSettings: {x: -1480, y: 200, z: 0}
+  posMenuInstruct: {x: -1480, y: 200, z: 0}
+  posMenuSettings: {x: 1480, y: -200, z: 0}
   levelMenuDisplaysment: {x: NaN, y: NaN, z: NaN}
   speed: 800
   smooth: 800
