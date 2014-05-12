@@ -60,12 +60,15 @@ public class ItemManager : MonoBehaviour {
 	private GameObject gun;
 	[SerializeField]
 	private Transform gunBulletSpawn;
+	
+	private bool rButtonPressed;
 
 	[SerializeField]
 	private GameObject noIcon;
 
 	private GameObject noIconHolder;
 	
+	private Quaternion gunRotation;
 	void Awake () {
 		buttonList = new List<GameObject>();
 		towerMngr = GameObject.Find("gameManager").GetComponent<TowerManager>() as TowerManager;
@@ -164,6 +167,17 @@ public class ItemManager : MonoBehaviour {
 		}
 	}
 	
+	void OnGUI()
+	{
+		GUILayout.Box ("\n"+gunRotation.eulerAngles.z.ToString()
+		               +"\n L Hor:"+Input.GetAxisRaw("Horizontal")
+		               +"\n L Ver:"+Input.GetAxisRaw("Vertical")
+		               +"\n R Hor:"+Input.GetAxisRaw("RHorizontal")
+		               +"\n R Ver:"+Input.GetAxisRaw("RVertical")
+		               +"\n Rotation:"+new Vector3(0,0, movement.DirectionToAngle(new Vector2(Input.GetAxisRaw("RHorizontal"),Input.GetAxisRaw("RVertical"))))
+					);
+	}
+	
 	void Update(){
 		float scrol = Input.GetAxis("Mouse ScrollWheel");
 		if(scrol!=0){
@@ -189,8 +203,17 @@ public class ItemManager : MonoBehaviour {
 		if(Input.GetKey(KeyCode.Alpha5)) { currentItem = 0; setItem(currentItem); }
 		
 		//get input and mouse position
-		bool click = Input.GetMouseButtonDown(0);
-		bool firing = Input.GetMouseButton(0);
+		bool click;
+		if(Input.GetAxisRaw("RButton")<0.1f){
+			rButtonPressed = false;
+		}
+		if(Input.GetMouseButtonDown(0)||(!rButtonPressed&&Input.GetAxisRaw("RButton")>0.9f)){
+			click = true;
+			rButtonPressed = true;
+		}else{
+			click = false;	
+		}
+		bool firing = Input.GetMouseButton(0)||Input.GetAxisRaw("RButton")>0.9f;
 		Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		Ray uiRay = uiCam.ScreenPointToRay(Input.mousePosition);
 		Vector3 mousePosition = new Vector3(mouseRay.origin.x,mouseRay.origin.y,0);
@@ -199,17 +222,27 @@ public class ItemManager : MonoBehaviour {
 		Vector2 gunPos2D = new Vector2(gun.transform.position.x,gun.transform.position.y);
 
 		//rotate gun
-		Quaternion gunRotation = movement.RotateToPoint(gun.transform,mousePosition);
+		//Debug.Log(gunRotation);
+		#if UNITY_WEBPLAYER || UNITY_EDITOR
+		gunRotation = movement.RotateToPoint(gun.transform,mousePosition);
+		#elif UNITY_PSM
+		if((Input.GetAxisRaw("RHorizontal")>0.1f||Input.GetAxis("RHorizontal")<-0.19f)||
+		   Input.GetAxisRaw("RVertical")>0.1f||Input.GetAxis("RVertical")<-0.19f){
+		   //Debug.Log("helo");
+			gunRotation.eulerAngles = new Vector3(0,0,-90+ movement.DirectionToAngle(new Vector2(Input.GetAxis("RHorizontal"),Input.GetAxisRaw("RVertical"))));
+		}
+		#endif
+		Quaternion tempRot = new Quaternion();
 		if(transform.localScale.x>0){
-			gunRotation.eulerAngles = new Vector3(gunRotation.eulerAngles.x,
+			tempRot.eulerAngles = new Vector3(gunRotation.eulerAngles.x,
 			                                      gunRotation.eulerAngles.y,
 			                                      gunRotation.eulerAngles.z - 90-transform.localEulerAngles.z);
 		}else{
-			gunRotation.eulerAngles = new Vector3(gunRotation.eulerAngles.x,
+			tempRot.eulerAngles = new Vector3(gunRotation.eulerAngles.x,
 			                                      gunRotation.eulerAngles.y,
 			                                      -(gunRotation.eulerAngles.z + 90)+transform.localEulerAngles.z);
 		}
-		gun.transform.localRotation = gunRotation;
+		gun.transform.localRotation = tempRot;
 		
 		if(itemLenght>currentItem){
 			Collider2D uiHit = Physics2D.OverlapPoint(uiRay.origin

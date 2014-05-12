@@ -60,4 +60,8 @@ static class movement {
 		float dy = Mathf.Cos(angle*Mathf.PI/180);
 		return new Vector2(-dx,dy);
 	}
+	static public float DirectionToAngle(Vector2 direction){
+		float angle = (Mathf.Atan2(direction.x,direction.y)* 180.0f / Mathf.PI)-90.0f;
+		return angle;
+	}
 }

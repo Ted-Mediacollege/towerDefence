@@ -9,7 +9,10 @@ public class Player4 : MonoBehaviour {
 	public float rotateForce = 3;
 	public int maxRotateAngle = 30;
 	
+	private bool up,down,left,right;
+	
 	private void FixedUpdate () {
+		GetInpute();
 		Move();
 		Rotate();
 	}
@@ -22,10 +25,56 @@ public class Player4 : MonoBehaviour {
 		}
 	}
 	
+	private void GetInpute(){
+		#if UNITY_WEBPLAYER || UNITY_EDITOR
+		if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
+			up = true;
+		}else{
+			up = false;
+		}
+		if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
+			left = true;
+		}else{
+			left = false;
+		}
+		if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
+			down = true;
+		}else{
+			down = false;
+		}
+		if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
+			right = true;
+		}else{
+			right = false;
+		}
+		#elif UNITY_PSM
+		if(Input.GetAxisRaw("Vertical")>0.9f) {//up
+			up = true;
+		}else{
+			up = false;
+		}
+		/*if(Input.GetKey(KeyCode.JoystickButton9)) {//right
+			right = true;
+		}else{
+			right = false;
+		}*/
+		if(Input.GetAxisRaw("Vertical")<-0.9f) {//down
+			down = true;
+		}else{
+			down = false;
+		}
+		/*if(Input.GetKey(KeyCode.JoystickButton11)) {//left
+			left = true;
+		}else{
+			left = false;
+		}*/
+		#endif
+	}
+	
 	private void Rotate(){
 		float rotation = transform.localRotation.eulerAngles.z;
 		int xDirection = (int)transform.localScale.x;
-		if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
+		if(up) {
 			if(xDirection>0){
 				if(rotation>(360-maxRotateAngle)||rotation<180){
 					transform.Rotate(0,0,-2*xDirection);
@@ -33,7 +82,7 @@ public class Player4 : MonoBehaviour {
 			}else if(rotation<maxRotateAngle||rotation>180){
 				transform.Rotate(0,0,-2*xDirection);
 			}
-		}else if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
+		}else if(down) {
 			if(xDirection>0){
 				if(rotation<maxRotateAngle||rotation>180){
 					transform.Rotate(0,0,2*xDirection);
@@ -54,20 +103,19 @@ public class Player4 : MonoBehaviour {
 	
 	private void Move(){
 		float newX = 0, newY = 0;
-		
-		if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
+		/*if(up) {//up
 			rigidbody2D.AddForce(new Vector3(0, moveForce, 0));
 		}
-		if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
-			rigidbody2D.AddForce(new Vector3(-moveForce, 0, 0));
-		}
-		if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
-			rigidbody2D.AddForce(new Vector3(0, -moveForce, 0));
-		}
-		if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
+		if(right) {//right
 			rigidbody2D.AddForce(new Vector3(moveForce, 0, 0));
 		}
-		
+		if(down) {//down
+			rigidbody2D.AddForce(new Vector3(0, -moveForce, 0));
+		}
+		if(left) {//left
+			rigidbody2D.AddForce(new Vector3(-moveForce, 0, 0));
+		}*/
+		rigidbody2D.AddForce(new Vector3(Input.GetAxisRaw("Horizontal")*moveForce, Input.GetAxisRaw("Vertical")*moveForce, 0));
 		newX = fixPos(rigidbody2D.velocity.x);
 		newY = fixPos(rigidbody2D.velocity.y);
 		
@@ -86,6 +134,15 @@ public class Player4 : MonoBehaviour {
 		}
 		
 		rigidbody2D.velocity = new Vector2(newX, newY);
+	}
+	
+	void OnGUI()
+	{
+		#if UNITY_WEBPLAYER || UNITY_EDITOR
+		GUILayout.Box("UNITY_WEBPLAYER || UNITY_EDITOR is defined.");
+		#elif UNITY_PSM
+		GUILayout.Box("UNITY_PSM is defined.");
+		#endif
 	}
 }
 
