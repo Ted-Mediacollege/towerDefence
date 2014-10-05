@@ -179,7 +179,11 @@ public class ItemManager : MonoBehaviour {
 	}
 	
 	void Update(){
-		float scrol = Input.GetAxis("Mouse ScrollWheel");
+        if(shootTimer>0){
+			shootTimer-=Time.deltaTime;
+		}
+
+		float scrol = BuildTypeData.itemScroll;
 		if(scrol!=0){
 			if(scrol>0){
 				if(currentItem<itemLenght-1){
@@ -192,15 +196,14 @@ public class ItemManager : MonoBehaviour {
 			}
 			setItem(currentItem);
 		}
-		if(shootTimer>0){
-			shootTimer-=Time.deltaTime;
-		}
-		
-		if(Input.GetKey(KeyCode.Alpha1)) { currentItem = 4; setItem(currentItem); }
-		if(Input.GetKey(KeyCode.Alpha2)) { currentItem = 3; setItem(currentItem); }
-		if(Input.GetKey(KeyCode.Alpha3)) { currentItem = 2; setItem(currentItem); }
-		if(Input.GetKey(KeyCode.Alpha4)) { currentItem = 1; setItem(currentItem); }
-		if(Input.GetKey(KeyCode.Alpha5)) { currentItem = 0; setItem(currentItem); }
+
+		if(BuildTypeData.buildType == BuildType.PC){
+		    if(Input.GetKey(KeyCode.Alpha1)) { currentItem = 4; setItem(currentItem); }
+		    if(Input.GetKey(KeyCode.Alpha2)) { currentItem = 3; setItem(currentItem); }
+		    if(Input.GetKey(KeyCode.Alpha3)) { currentItem = 2; setItem(currentItem); }
+		    if(Input.GetKey(KeyCode.Alpha4)) { currentItem = 1; setItem(currentItem); }
+		    if(Input.GetKey(KeyCode.Alpha5)) { currentItem = 0; setItem(currentItem); }
+        }
 		
 		//get input and mouse position
 		bool click;
@@ -223,15 +226,15 @@ public class ItemManager : MonoBehaviour {
 
 		//rotate gun
 		//Debug.Log(gunRotation);
-		#if UNITY_WEBPLAYER || UNITY_EDITOR
-		gunRotation = movement.RotateToPoint(gun.transform,mousePosition);
-		#elif UNITY_PSM
-		if((Input.GetAxisRaw("RHorizontal")>0.1f||Input.GetAxis("RHorizontal")<-0.19f)||
-		   Input.GetAxisRaw("RVertical")>0.1f||Input.GetAxis("RVertical")<-0.19f){
-		   //Debug.Log("helo");
-			gunRotation.eulerAngles = new Vector3(0,0,-90+ movement.DirectionToAngle(new Vector2(Input.GetAxis("RHorizontal"),Input.GetAxisRaw("RVertical"))));
-		}
-		#endif
+        if (BuildTypeData.buildType == BuildType.PC) {
+            gunRotation = movement.RotateToPoint(gun.transform, mousePosition);
+        }else if (BuildTypeData.buildType == BuildType.VITA) {
+            if ((Input.GetAxisRaw("RHorizontal") > 0.1f || Input.GetAxis("RHorizontal") < -0.19f) ||
+                Input.GetAxisRaw("RVertical") > 0.1f || Input.GetAxis("RVertical") < -0.19f){
+                gunRotation.eulerAngles = new Vector3(0, 0, -90 + movement.DirectionToAngle(new Vector2(Input.GetAxis("RHorizontal"), Input.GetAxisRaw("RVertical"))));
+            }
+        }
+
 		Quaternion tempRot = new Quaternion();
 		if(transform.localScale.x>0){
 			tempRot.eulerAngles = new Vector3(gunRotation.eulerAngles.x,
@@ -263,7 +266,7 @@ public class ItemManager : MonoBehaviour {
 				case itemType.Tower:
 					
 					//cast aim ray
-					Vector2 mousedirection = mousePos2D-gunPos2D;
+					Vector2 mousedirection = movement.AngleToDirection(gunRotation.eulerAngles.z);
 					RaycastHit2D aimRay = Physics2D.Raycast(gunPos2D
 															,mousedirection
 															,5
@@ -368,8 +371,8 @@ public class ItemManager : MonoBehaviour {
 					if (firing&&shootTimer<=0){
 						shootTimer = shootTime;
 						GameObject bul = GameObject.Instantiate( items[currentItem]
-						                                        ,gunBulletSpawn.position 
-						                                        ,movement.RotateToPoint(gun.transform,mousePosition)) as GameObject;
+						                                        ,gunBulletSpawn.position
+                                                                ,gunRotation) as GameObject;
 						bul.transform.parent = bulletHolder.transform;
 					}
 					break;
@@ -387,8 +390,8 @@ public class ItemManager : MonoBehaviour {
 							if (click){ 
 								gameMngr.ChangeMoney(-minePrice);
 								GameObject.Instantiate( items[currentItem]
-								                                        ,gunBulletSpawn.position 
-								                                        ,movement.RotateToPoint(gun.transform,mousePosition));
+								                                        ,gunBulletSpawn.position
+                                                                        ,gunRotation);
 							}
 							break;
 						}

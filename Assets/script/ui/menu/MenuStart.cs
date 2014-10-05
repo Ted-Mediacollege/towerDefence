@@ -42,6 +42,10 @@ public class MenuStart : MonoBehaviour {
 	//textures
 	public Texture2D creditsImage;
 
+    void Awake(){
+        BuildTypeData.Init();
+    }
+
 	void Start(){
 		current_width = Screen.width;
 		current_height = Screen.height;

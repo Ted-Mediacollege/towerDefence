@@ -8742,6 +8742,101 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 684681461}
+--- !u!1 &1075056666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100008, guid: 97fd5bce0fbe8e04d868c2bf68627d4c, type: 2}
+  m_PrefabInternal: {fileID: 340358550}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1075056667}
+  - 82: {fileID: 1075056669}
+  - 81: {fileID: 1075056668}
+  m_Layer: 0
+  m_Name: music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1075056667
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400008, guid: 97fd5bce0fbe8e04d868c2bf68627d4c, type: 2}
+  m_PrefabInternal: {fileID: 340358550}
+  m_GameObject: {fileID: 1075056666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.6670551, y: 6.40521622, z: 10}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1877014786}
+--- !u!81 &1075056668
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8100002, guid: 97fd5bce0fbe8e04d868c2bf68627d4c,
+    type: 2}
+  m_PrefabInternal: {fileID: 340358550}
+  m_GameObject: {fileID: 1075056666}
+  m_Enabled: 0
+--- !u!82 &1075056669
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8200000, guid: 97fd5bce0fbe8e04d868c2bf68627d4c,
+    type: 2}
+  m_PrefabInternal: {fileID: 340358550}
+  m_GameObject: {fileID: 1075056666}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 2cf079c68e102734b86c69f4272807e7, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 14.0121183
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1081263465
 GameObject:
   m_ObjectHideFlags: 0
@@ -12442,7 +12537,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: dafee55ed00bd5c4682881bb27ed95f4, type: 2}
   - {fileID: 100000, guid: f64c648bb1871c14d8c325b196eabfb7, type: 2}
   uiCam: {fileID: 856040163}
-  shootTime: 10
+  shootTime: .150000006
   lineColor1: {r: 0, g: 1, b: 1, a: .360784322}
   lineColor2: {r: 0, g: .958621025, b: 1, a: 0}
   lineColorTower1: {r: 1, g: 1, b: 0, a: .525490224}
@@ -12988,6 +13083,7 @@ Transform:
   - {fileID: 1825920337}
   - {fileID: 69250660}
   - {fileID: 1364215691}
+  - {fileID: 1075056667}
   m_Father: {fileID: 0}
 --- !u!114 &1877014787
 MonoBehaviour:
@@ -13198,7 +13294,7 @@ MonoBehaviour:
   shootTime: 10
   BulletSpawnDCenter: 3
   gun: {fileID: 1492139781}
-  sellPrice: 30
+  sellPrice: 35
   buyPrice: 50
   targetAimAstimationPresition: 20
 --- !u!58 &1947291753

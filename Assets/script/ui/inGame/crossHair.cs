@@ -11,11 +11,10 @@ public class crossHair : MonoBehaviour {
 	}
 	void OnGUI()
 	{
-		#if UNITY_WEBPLAYER || UNITY_EDITOR
-		float xMin = Input.mousePosition.x - (crosshair.width / 4);
-		float yMin = Screen.height-Input.mousePosition.y - (crosshair.height / 4);
-		GUI.DrawTexture(new Rect(xMin, yMin, crosshair.width/2, crosshair.height/2), crosshair);
-		#elif UNITY_PSM
-		#endif
+        if (BuildTypeData.buildType == BuildType.PC) {
+            float xMin = Input.mousePosition.x - (crosshair.width / 4);
+		    float yMin = Screen.height-Input.mousePosition.y - (crosshair.height / 4);
+		    GUI.DrawTexture(new Rect(xMin, yMin, crosshair.width/2, crosshair.height/2), crosshair);
+        }
 	}
 }

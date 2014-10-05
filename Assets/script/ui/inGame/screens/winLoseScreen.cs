@@ -16,7 +16,7 @@ public class winLoseScreen : MonoBehaviour {
 	public GUISkin skin;
 	public string nextLevelName;
 	private ItemManager itemMngr;
-	
+
 	void Start(){
 		gameStatus = GameStatus.Playing;
 		itemMngr = GameObject.Find("player").GetComponent<ItemManager>();
@@ -36,7 +36,7 @@ public class winLoseScreen : MonoBehaviour {
 	}
 	
 	void Update(){
-		if(Input.GetKeyDown(KeyCode.T)) { 
+		if(Input.GetKeyDown(BuildTypeData.pauseKey)) { 
 			TogglePause();
 		}
 	}

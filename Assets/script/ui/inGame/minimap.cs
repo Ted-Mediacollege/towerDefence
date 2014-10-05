@@ -42,7 +42,7 @@ public class minimap : MonoBehaviour {
 	}
 	
 	void OnGUI() {
-		if(Input.GetKey(KeyCode.M)) {
+		if(Input.GetKey(BuildTypeData.mapKey)) {
 			zooming += 0.02F;
 			if(zooming > 2F) {
 				zooming = 2F;

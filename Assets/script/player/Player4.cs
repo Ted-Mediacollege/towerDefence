@@ -26,49 +26,49 @@ public class Player4 : MonoBehaviour {
 	}
 	
 	private void GetInpute(){
-		#if UNITY_WEBPLAYER || UNITY_EDITOR
-		if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
-			up = true;
-		}else{
-			up = false;
+		if(BuildTypeData.buildType == BuildType.PC){
+		    if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
+			    up = true;
+		    }else{
+			    up = false;
+		    }
+		    if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
+			    left = true;
+		    }else{
+			    left = false;
+		    }
+		    if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
+			    down = true;
+		    }else{
+			    down = false;
+		    }
+		    if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
+			    right = true;
+		    }else{
+			    right = false;
+		    }
+		}else if(BuildTypeData.buildType == BuildType.VITA){
+		    if(Input.GetAxisRaw("Vertical")>0.9f) {//up
+			    up = true;
+		    }else{
+			    up = false;
+		    }
+		    /*if(Input.GetKey(KeyCode.JoystickButton9)) {//right
+			    right = true;
+		    }else{
+			    right = false;
+		    }*/
+		    if(Input.GetAxisRaw("Vertical")<-0.9f) {//down
+			    down = true;
+		    }else{
+			    down = false;
+		    }
+		    /*if(Input.GetKey(KeyCode.JoystickButton11)) {//left
+			    left = true;
+		    }else{
+			    left = false;
+		    }*/
 		}
-		if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
-			left = true;
-		}else{
-			left = false;
-		}
-		if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
-			down = true;
-		}else{
-			down = false;
-		}
-		if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
-			right = true;
-		}else{
-			right = false;
-		}
-		#elif UNITY_PSM
-		if(Input.GetAxisRaw("Vertical")>0.9f) {//up
-			up = true;
-		}else{
-			up = false;
-		}
-		/*if(Input.GetKey(KeyCode.JoystickButton9)) {//right
-			right = true;
-		}else{
-			right = false;
-		}*/
-		if(Input.GetAxisRaw("Vertical")<-0.9f) {//down
-			down = true;
-		}else{
-			down = false;
-		}
-		/*if(Input.GetKey(KeyCode.JoystickButton11)) {//left
-			left = true;
-		}else{
-			left = false;
-		}*/
-		#endif
 	}
 	
 	private void Rotate(){
@@ -138,11 +138,11 @@ public class Player4 : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		#if UNITY_WEBPLAYER || UNITY_EDITOR
-		GUILayout.Box("UNITY_WEBPLAYER || UNITY_EDITOR is defined.");
-		#elif UNITY_PSM
-		GUILayout.Box("UNITY_PSM is defined.");
-		#endif
+		if(BuildTypeData.buildType == BuildType.PC){
+		    GUILayout.Box("BuildType PC");
+		}else if(BuildTypeData.buildType == BuildType.VITA){
+            GUILayout.Box("BuildType VITA");
+		}
 	}
 }
 
