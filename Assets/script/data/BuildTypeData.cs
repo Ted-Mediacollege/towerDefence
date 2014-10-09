@@ -8,10 +8,13 @@ enum BuildType{
 class BuildTypeData{
     
     #if UNITY_WEBPLAYER || UNITY_EDITOR
-    public const BuildType buildType = BuildType.PC;
+    private const BuildType buildType_ = BuildType.PC;
     #elif UNITY_PSM
-    public const BuildType buildType = BuildType.VITA;
+    private const BuildType buildType_ = BuildType.VITA;
     #endif
+    public static BuildType buildType{
+        get{return buildType_;}
+    }
 
     private static KeyCode pauseKey_;
     public static KeyCode pauseKey {
@@ -33,13 +36,15 @@ class BuildTypeData{
                 return Input.GetAxis("Mouse ScrollWheel");
             }else if(BuildTypeData.buildType == BuildType.VITA){
                 int count = 0;
-                if (Input.GetKey(KeyCode.JoystickButton9)){
-                    count++;
-                }
-                if (Input.GetKey(KeyCode.JoystickButton11)){
+                if (Input.GetKeyDown(KeyCode.JoystickButton9)){
                     count--;
                 }
+                if (Input.GetKeyDown(KeyCode.JoystickButton11)){
+                    count++;
+                }
                 return count;
+            }else{
+                return Input.GetAxis("Mouse ScrollWheel");
             }
         }
     }

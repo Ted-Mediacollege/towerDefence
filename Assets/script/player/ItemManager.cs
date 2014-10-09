@@ -167,7 +167,7 @@ public class ItemManager : MonoBehaviour {
 		}
 	}
 	
-	void OnGUI()
+	/*void OnGUI()
 	{
 		GUILayout.Box ("\n"+gunRotation.eulerAngles.z.ToString()
 		               +"\n L Hor:"+Input.GetAxisRaw("Horizontal")
@@ -176,7 +176,7 @@ public class ItemManager : MonoBehaviour {
 		               +"\n R Ver:"+Input.GetAxisRaw("RVertical")
 		               +"\n Rotation:"+new Vector3(0,0, movement.DirectionToAngle(new Vector2(Input.GetAxisRaw("RHorizontal"),Input.GetAxisRaw("RVertical"))))
 					);
-	}
+	}*/
 	
 	void Update(){
         if(shootTimer>0){
