@@ -136,14 +136,15 @@ public class Player4 : MonoBehaviour {
 		rigidbody2D.velocity = new Vector2(newX, newY);
 	}
 	
-	void OnGUI()
+	//buildtype Display
+	/*void OnGUI()
 	{
 		if(BuildTypeData.buildType == BuildType.PC){
 		    GUILayout.Box("BuildType PC");
 		}else if(BuildTypeData.buildType == BuildType.VITA){
             GUILayout.Box("BuildType VITA");
 		}
-	}
+	}*/
 }
 
 

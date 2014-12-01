@@ -103,6 +103,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1631775894}
+  m_RootOrder: 1
 --- !u!114 &682344692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,8 +117,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   native_width: 1280
   native_height: 720
-  current_width: 960
-  current_height: 540
+  current_width: 1266
+  current_height: 712
   buttons:
   - xPos: 300
     yPos: 300
@@ -233,9 +234,8 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!4 &691585777
 Transform:
   m_ObjectHideFlags: 0
@@ -247,6 +247,7 @@ Transform:
   m_LocalScale: {x: .0799999982, y: .0799999982, z: 1}
   m_Children: []
   m_Father: {fileID: 1631775894}
+  m_RootOrder: 2
 --- !u!1 &697545346
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,12 +259,12 @@ GameObject:
   - 132: {fileID: 697545348}
   - 114: {fileID: 697545347}
   m_Layer: 0
-  m_Name: GUI Text
+  m_Name: FPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &697545347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +311,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1 &987107197
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,6 +339,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1631775894}
+  m_RootOrder: 0
 --- !u!212 &987107199
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -355,9 +358,8 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5c503978c4f19a747bf54dcca8862a3c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1582626438
@@ -388,6 +390,7 @@ Transform:
   m_LocalScale: {x: .0799999982, y: .0799999982, z: 1}
   m_Children: []
   m_Father: {fileID: 1631775894}
+  m_RootOrder: 3
 --- !u!102 &1582626440
 TextMesh:
   serializedVersion: 3
@@ -427,9 +430,8 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
   m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!1 &1631775889
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,8 +499,11 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
   m_HDR: 0
   m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: .0219999999
 --- !u!4 &1631775894
 Transform:
   m_ObjectHideFlags: 0
@@ -514,3 +519,4 @@ Transform:
   - {fileID: 691585777}
   - {fileID: 1582626439}
   m_Father: {fileID: 0}
+  m_RootOrder: 1

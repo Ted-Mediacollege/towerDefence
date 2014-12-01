@@ -1,6 +1,9 @@
 fileFormatVersion: 2
 guid: d21ade896093a7d4aa6592a9b9cff922
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: boot3_0
+    21300002: boot3_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +38,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 1000
   alphaIsTransparency: 1
   textureType: 8
@@ -50,6 +54,7 @@ TextureImporter:
         height: 753
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: boot3_1
       rect:
         serializedVersion: 2
@@ -59,5 +64,6 @@ TextureImporter:
         height: 140
       alignment: 9
       pivot: {x: .879428744, y: .474958628}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
