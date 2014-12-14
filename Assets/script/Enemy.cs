@@ -166,7 +166,7 @@ public class Enemy : MonoBehaviour {
 	
 	private void Dead(bool reachedEnd = false){
 		for(int i = 0 ; i < deadSpawnObjects.Length;i++){
-			GameObject.Instantiate(deadSpawnObjects[i],transform.position,Quaternion.identity);
+			GameObject.Instantiate(deadSpawnObjects[i],transform.position,deadSpawnObjects[i].transform.rotation);
 		}
 		enemyMngr.removeEnemy(transform.gameObject,reachedEnd);
 	}
