@@ -13,7 +13,7 @@ TagManager:
   Builtin Layer 2: Ignore Raycast
   Builtin Layer 3: 
   Builtin Layer 4: Water
-  Builtin Layer 5: UI
+  Builtin Layer 5: 
   Builtin Layer 6: 
   Builtin Layer 7: 
   User Layer 8: Level
@@ -23,7 +23,7 @@ TagManager:
   User Layer 12: back
   User Layer 13: Mine
   User Layer 14: Player
-  User Layer 15: 
+  User Layer 15: subDefUI
   User Layer 16: 
   User Layer 17: 
   User Layer 18: 

@@ -35,12 +35,12 @@ class BuildTypeData{
             if(BuildTypeData.buildType == BuildType.PC){
                 return Input.GetAxis("Mouse ScrollWheel");
             }else if(BuildTypeData.buildType == BuildType.VITA){
-                int count = 0;
+                float count = 0;
                 if (Input.GetKeyDown(KeyCode.JoystickButton9)){
-                    count--;
+                    count-=1.0f;
                 }
                 if (Input.GetKeyDown(KeyCode.JoystickButton11)){
-                    count++;
+                    count+=1.0f;
                 }
                 return count;
             }else{

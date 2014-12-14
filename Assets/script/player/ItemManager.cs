@@ -60,8 +60,6 @@ public class ItemManager : MonoBehaviour {
 	private GameObject gun;
 	[SerializeField]
 	private Transform gunBulletSpawn;
-	
-	private bool rButtonPressed;
 
 	[SerializeField]
 	private GameObject noIcon;
@@ -134,7 +132,7 @@ public class ItemManager : MonoBehaviour {
 		//position button
 		button.transform.parent = itemHolder.transform;
 		button.transform.position = itemHolder.transform.position+topRight+itemDisplasment+new Vector3(-0.32f+i*-0.72f,-0.32f,0);
-		button.layer = LayerMask.NameToLayer("UI");
+		button.layer = LayerMask.NameToLayer(SubDefLayers.UI);
 		
 		buttonList.Add (button);
 	}
@@ -206,17 +204,12 @@ public class ItemManager : MonoBehaviour {
         }
 		
 		//get input and mouse position
-		bool click;
-		if(Input.GetAxisRaw("RButton")<0.1f){
-			rButtonPressed = false;
-		}
-		if(Input.GetMouseButtonDown(0)||(!rButtonPressed&&Input.GetAxisRaw("RButton")>0.9f)){
-			click = true;
-			rButtonPressed = true;
-		}else{
-			click = false;	
-		}
-		bool firing = Input.GetMouseButton(0)||Input.GetAxisRaw("RButton")>0.9f;
+		bool click = Input.GetMouseButtonDown(0);
+		bool screenTouch = Input.GetMouseButton(0);
+		//if(Input.GetAxisRaw("RButton")<0.1f){
+		//}
+		bool firing = false;
+		
 		Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		Ray uiRay = uiCam.ScreenPointToRay(Input.mousePosition);
 		Vector3 mousePosition = new Vector3(mouseRay.origin.x,mouseRay.origin.y,0);
@@ -228,10 +221,21 @@ public class ItemManager : MonoBehaviour {
 		//Debug.Log(gunRotation);
         if (BuildTypeData.buildType == BuildType.PC) {
             gunRotation = movement.RotateToPoint(gun.transform, mousePosition);
+			firing = Input.GetMouseButton(0);
         }else if (BuildTypeData.buildType == BuildType.VITA) {
-            if ((Input.GetAxisRaw("RHorizontal") > 0.1f || Input.GetAxis("RHorizontal") < -0.19f) ||
-                Input.GetAxisRaw("RVertical") > 0.1f || Input.GetAxis("RVertical") < -0.19f){
-                gunRotation.eulerAngles = new Vector3(0, 0, -90 + movement.DirectionToAngle(new Vector2(Input.GetAxis("RHorizontal"), Input.GetAxisRaw("RVertical"))));
+			firing = (Input.GetAxisRaw("RButton")>0.9f);
+			if(Input.GetAxisRaw("RButton")>0.9f){
+				click = true;
+			}else{
+				click = false;	
+			}
+			if(screenTouch){
+				gunRotation = movement.RotateToPoint(gun.transform, mousePosition);
+			}else{
+	            if ((Input.GetAxisRaw("RHorizontal") > 0.1f || Input.GetAxis("RHorizontal") < -0.19f) ||
+	                Input.GetAxisRaw("RVertical") > 0.1f || Input.GetAxis("RVertical") < -0.19f){
+	                gunRotation.eulerAngles = new Vector3(0, 0, -90 + movement.DirectionToAngle(new Vector2(Input.GetAxis("RHorizontal"), Input.GetAxisRaw("RVertical"))));
+	            }
             }
         }
 
@@ -249,9 +253,9 @@ public class ItemManager : MonoBehaviour {
 		
 		if(itemLenght>currentItem){
 			Collider2D uiHit = Physics2D.OverlapPoint(uiRay.origin
-			                                          ,1 << LayerMask.NameToLayer("UI"));
+			                                          ,1 << LayerMask.NameToLayer(SubDefLayers.UI));
 			// ui click
-			if(uiHit&&click){   
+			if(uiHit&&(click||screenTouch)){   
 				for (int i = 0;i<itemLenght;i++){
 					if(buttonList[i].GetComponent<Collider2D>() == uiHit){
 						currentItem = i;
@@ -313,7 +317,6 @@ public class ItemManager : MonoBehaviour {
 							//
 							noIconHolder.SetActive(true);
 							noIconHolder.transform.position = aimRay.point;
-
 							
 						}else{
 							//remove no icon 

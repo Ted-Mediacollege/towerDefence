@@ -75,7 +75,7 @@ MonoBehaviour:
   drawExplosionRange: 1
   explosion:
   - {fileID: 100000, guid: a11127c11aea2ce49b03ef6cacd4e4a0, type: 2}
-  - {fileID: 100000, guid: eb76567b2a9cff14dba5480b07d502e0, type: 2}
+  - {fileID: 100000, guid: 06064a0a6e7b1204a99ca9fff85db234, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
