@@ -213,7 +213,7 @@ public class waveManager : MonoBehaviour {
 				}
 			}
 		} else {
-			if(Input.GetKey(KeyCode.G)) {
+			if(Input.GetKey(KeyCode.G)||Input.GetKey(KeyCode.JoystickButton0)) {
 				if(waveNumber != 0) { wavedata.RemoveAt(0); }
 				nextWave();
 			}
@@ -237,11 +237,19 @@ public class waveManager : MonoBehaviour {
 
 	void nextText(bool first) {
 		waveTextHolder.SetActive(true);
+		#if UNITY_WEBPLAYER || UNITY_EDITOR
 		if(first) {
 			waveText.text = "Press G to start wave";
 		} else {
 			waveText.text = "Press G for next wave";
 		}
+		#elif UNITY_PSM
+		if(first) {
+			waveText.text = "Press X to start wave";
+		} else {
+			waveText.text = "Press X for next wave";
+		}
+		#endif
 	}
 
 	void spawnNextEnemy() {

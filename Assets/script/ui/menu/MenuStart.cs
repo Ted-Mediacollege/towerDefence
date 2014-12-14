@@ -38,9 +38,20 @@ public class MenuStart : MonoBehaviour {
 	private Vector3 startPos = new Vector3(0,0,0);
 
 	public GUISkin style;
+
+    //display texts
+    [SerializeField]
+    private GameObject titleText;
+    [SerializeField]
+    private GameObject loadingText;
+
 	
 	//textures
 	public Texture2D creditsImage;
+
+    void Awake(){
+        BuildTypeData.Init();
+    }
 
 	void Start(){
 		current_width = Screen.width;
@@ -106,6 +117,9 @@ public class MenuStart : MonoBehaviour {
 		GUI.matrix = Matrix4x4.TRS ( levelMenuDisplaysment-Vector3.Scale( menuPosScale,posMenuLevel),Quaternion.identity,  new Vector3 (rx, ry, 1));
 		foreach(guiButton but in buttons){
 			if(GUI.Button(new Rect(but.xPos,but.yPos,80,80), but.text)) {
+                GameObject.Destroy(gameObject);
+                titleText.SetActive(false);
+                loadingText.SetActive(true);
 				Application.LoadLevel(but.levelName);
 			}
 		}

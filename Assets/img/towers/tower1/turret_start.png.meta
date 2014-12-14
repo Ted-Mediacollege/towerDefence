@@ -1,6 +1,52 @@
 fileFormatVersion: 2
 guid: 963a1e782a916764496ce7d073d92a64
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: turret_start_0
+    21300002: turret_start_1
+    21300004: turret_start_2
+    21300006: turret_start_3
+    21300008: turret_start_4
+    21300010: turret_start_5
+    21300012: turret_start_6
+    21300014: turret_start_7
+    21300016: turret_start_8
+    21300018: turret_start_9
+    21300020: turret_start_10
+    21300022: turret_start_11
+    21300024: turret_start_12
+    21300026: turret_start_13
+    21300028: turret_start_14
+    21300030: turret_start_15
+    21300032: turret_start_16
+    21300034: turret_start_17
+    21300036: turret_start_18
+    21300038: turret_start_19
+    21300040: turret_start_20
+    21300042: turret_start_21
+    21300044: turret_start_22
+    21300046: turret_start_23
+    21300048: turret_start_24
+    21300050: turret_start_25
+    21300052: turret_start_26
+    21300054: turret_start_27
+    21300056: turret_start_28
+    21300058: turret_start_29
+    21300060: turret_start_30
+    21300062: turret_start_31
+    21300064: turret_start_32
+    21300066: turret_start_33
+    21300068: turret_start_34
+    21300070: turret_start_35
+    21300072: turret_start_36
+    21300074: turret_start_37
+    21300076: turret_start_38
+    21300078: turret_start_39
+    21300080: turret_start_40
+    21300082: turret_start_41
+    21300084: turret_start_42
+    21300086: turret_start_43
+    21300088: turret_start_44
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +81,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
@@ -50,6 +97,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_1
       rect:
         serializedVersion: 2
@@ -59,6 +107,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_2
       rect:
         serializedVersion: 2
@@ -68,6 +117,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_3
       rect:
         serializedVersion: 2
@@ -77,6 +127,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_4
       rect:
         serializedVersion: 2
@@ -86,6 +137,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_5
       rect:
         serializedVersion: 2
@@ -95,6 +147,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_6
       rect:
         serializedVersion: 2
@@ -104,6 +157,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_7
       rect:
         serializedVersion: 2
@@ -113,6 +167,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_8
       rect:
         serializedVersion: 2
@@ -122,6 +177,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_9
       rect:
         serializedVersion: 2
@@ -131,6 +187,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_10
       rect:
         serializedVersion: 2
@@ -140,6 +197,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_11
       rect:
         serializedVersion: 2
@@ -149,6 +207,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_12
       rect:
         serializedVersion: 2
@@ -158,6 +217,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_13
       rect:
         serializedVersion: 2
@@ -167,6 +227,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_14
       rect:
         serializedVersion: 2
@@ -176,6 +237,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_15
       rect:
         serializedVersion: 2
@@ -185,6 +247,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_16
       rect:
         serializedVersion: 2
@@ -194,6 +257,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_17
       rect:
         serializedVersion: 2
@@ -203,6 +267,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_18
       rect:
         serializedVersion: 2
@@ -212,6 +277,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_19
       rect:
         serializedVersion: 2
@@ -221,6 +287,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_20
       rect:
         serializedVersion: 2
@@ -230,6 +297,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_21
       rect:
         serializedVersion: 2
@@ -239,6 +307,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_22
       rect:
         serializedVersion: 2
@@ -248,6 +317,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_23
       rect:
         serializedVersion: 2
@@ -257,6 +327,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_24
       rect:
         serializedVersion: 2
@@ -266,6 +337,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_25
       rect:
         serializedVersion: 2
@@ -275,6 +347,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_26
       rect:
         serializedVersion: 2
@@ -284,6 +357,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_27
       rect:
         serializedVersion: 2
@@ -293,6 +367,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_28
       rect:
         serializedVersion: 2
@@ -302,6 +377,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_29
       rect:
         serializedVersion: 2
@@ -311,6 +387,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_30
       rect:
         serializedVersion: 2
@@ -320,6 +397,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_31
       rect:
         serializedVersion: 2
@@ -329,6 +407,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_32
       rect:
         serializedVersion: 2
@@ -338,6 +417,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_33
       rect:
         serializedVersion: 2
@@ -347,6 +427,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_34
       rect:
         serializedVersion: 2
@@ -356,6 +437,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_35
       rect:
         serializedVersion: 2
@@ -365,6 +447,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_36
       rect:
         serializedVersion: 2
@@ -374,6 +457,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_37
       rect:
         serializedVersion: 2
@@ -383,6 +467,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_38
       rect:
         serializedVersion: 2
@@ -392,6 +477,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_39
       rect:
         serializedVersion: 2
@@ -401,6 +487,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_40
       rect:
         serializedVersion: 2
@@ -410,6 +497,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_41
       rect:
         serializedVersion: 2
@@ -419,6 +507,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_42
       rect:
         serializedVersion: 2
@@ -428,6 +517,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_43
       rect:
         serializedVersion: 2
@@ -437,6 +527,7 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: turret_start_44
       rect:
         serializedVersion: 2
@@ -446,5 +537,6 @@ TextureImporter:
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

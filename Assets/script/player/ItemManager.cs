@@ -66,6 +66,7 @@ public class ItemManager : MonoBehaviour {
 
 	private GameObject noIconHolder;
 	
+	private Quaternion gunRotation;
 	void Awake () {
 		buttonList = new List<GameObject>();
 		towerMngr = GameObject.Find("gameManager").GetComponent<TowerManager>() as TowerManager;
@@ -131,7 +132,7 @@ public class ItemManager : MonoBehaviour {
 		//position button
 		button.transform.parent = itemHolder.transform;
 		button.transform.position = itemHolder.transform.position+topRight+itemDisplasment+new Vector3(-0.32f+i*-0.72f,-0.32f,0);
-		button.layer = LayerMask.NameToLayer("UI");
+		button.layer = LayerMask.NameToLayer(SubDefLayers.UI);
 		
 		buttonList.Add (button);
 	}
@@ -164,8 +165,23 @@ public class ItemManager : MonoBehaviour {
 		}
 	}
 	
+	/*void OnGUI()
+	{
+		GUILayout.Box ("\n"+gunRotation.eulerAngles.z.ToString()
+		               +"\n L Hor:"+Input.GetAxisRaw("Horizontal")
+		               +"\n L Ver:"+Input.GetAxisRaw("Vertical")
+		               +"\n R Hor:"+Input.GetAxisRaw("RHorizontal")
+		               +"\n R Ver:"+Input.GetAxisRaw("RVertical")
+		               +"\n Rotation:"+new Vector3(0,0, movement.DirectionToAngle(new Vector2(Input.GetAxisRaw("RHorizontal"),Input.GetAxisRaw("RVertical"))))
+					);
+	}*/
+	
 	void Update(){
-		float scrol = Input.GetAxis("Mouse ScrollWheel");
+        if(shootTimer>0){
+			shootTimer-=Time.deltaTime;
+		}
+
+		float scrol = BuildTypeData.itemScroll;
 		if(scrol!=0){
 			if(scrol>0){
 				if(currentItem<itemLenght-1){
@@ -178,19 +194,22 @@ public class ItemManager : MonoBehaviour {
 			}
 			setItem(currentItem);
 		}
-		if(shootTimer>0){
-			shootTimer-=Time.deltaTime;
-		}
-		
-		if(Input.GetKey(KeyCode.Alpha1)) { currentItem = 4; setItem(currentItem); }
-		if(Input.GetKey(KeyCode.Alpha2)) { currentItem = 3; setItem(currentItem); }
-		if(Input.GetKey(KeyCode.Alpha3)) { currentItem = 2; setItem(currentItem); }
-		if(Input.GetKey(KeyCode.Alpha4)) { currentItem = 1; setItem(currentItem); }
-		if(Input.GetKey(KeyCode.Alpha5)) { currentItem = 0; setItem(currentItem); }
+
+		if(BuildTypeData.buildType == BuildType.PC){
+		    if(Input.GetKey(KeyCode.Alpha1)) { currentItem = 4; setItem(currentItem); }
+		    if(Input.GetKey(KeyCode.Alpha2)) { currentItem = 3; setItem(currentItem); }
+		    if(Input.GetKey(KeyCode.Alpha3)) { currentItem = 2; setItem(currentItem); }
+		    if(Input.GetKey(KeyCode.Alpha4)) { currentItem = 1; setItem(currentItem); }
+		    if(Input.GetKey(KeyCode.Alpha5)) { currentItem = 0; setItem(currentItem); }
+        }
 		
 		//get input and mouse position
 		bool click = Input.GetMouseButtonDown(0);
-		bool firing = Input.GetMouseButton(0);
+		bool screenTouch = Input.GetMouseButton(0);
+		//if(Input.GetAxisRaw("RButton")<0.1f){
+		//}
+		bool firing = false;
+		
 		Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		Ray uiRay = uiCam.ScreenPointToRay(Input.mousePosition);
 		Vector3 mousePosition = new Vector3(mouseRay.origin.x,mouseRay.origin.y,0);
@@ -199,23 +218,44 @@ public class ItemManager : MonoBehaviour {
 		Vector2 gunPos2D = new Vector2(gun.transform.position.x,gun.transform.position.y);
 
 		//rotate gun
-		Quaternion gunRotation = movement.RotateToPoint(gun.transform,mousePosition);
+		//Debug.Log(gunRotation);
+        if (BuildTypeData.buildType == BuildType.PC) {
+            gunRotation = movement.RotateToPoint(gun.transform, mousePosition);
+			firing = Input.GetMouseButton(0);
+        }else if (BuildTypeData.buildType == BuildType.VITA) {
+			firing = (Input.GetAxisRaw("RButton")>0.9f);
+			if(Input.GetAxisRaw("RButton")>0.9f){
+				click = true;
+			}else{
+				click = false;	
+			}
+			if(screenTouch){
+				gunRotation = movement.RotateToPoint(gun.transform, mousePosition);
+			}else{
+	            if ((Input.GetAxisRaw("RHorizontal") > 0.1f || Input.GetAxis("RHorizontal") < -0.19f) ||
+	                Input.GetAxisRaw("RVertical") > 0.1f || Input.GetAxis("RVertical") < -0.19f){
+	                gunRotation.eulerAngles = new Vector3(0, 0, -90 + movement.DirectionToAngle(new Vector2(Input.GetAxis("RHorizontal"), Input.GetAxisRaw("RVertical"))));
+	            }
+            }
+        }
+
+		Quaternion tempRot = new Quaternion();
 		if(transform.localScale.x>0){
-			gunRotation.eulerAngles = new Vector3(gunRotation.eulerAngles.x,
+			tempRot.eulerAngles = new Vector3(gunRotation.eulerAngles.x,
 			                                      gunRotation.eulerAngles.y,
 			                                      gunRotation.eulerAngles.z - 90-transform.localEulerAngles.z);
 		}else{
-			gunRotation.eulerAngles = new Vector3(gunRotation.eulerAngles.x,
+			tempRot.eulerAngles = new Vector3(gunRotation.eulerAngles.x,
 			                                      gunRotation.eulerAngles.y,
 			                                      -(gunRotation.eulerAngles.z + 90)+transform.localEulerAngles.z);
 		}
-		gun.transform.localRotation = gunRotation;
+		gun.transform.localRotation = tempRot;
 		
 		if(itemLenght>currentItem){
 			Collider2D uiHit = Physics2D.OverlapPoint(uiRay.origin
-			                                          ,1 << LayerMask.NameToLayer("UI"));
+			                                          ,1 << LayerMask.NameToLayer(SubDefLayers.UI));
 			// ui click
-			if(uiHit&&click){   
+			if(uiHit&&(click||screenTouch)){   
 				for (int i = 0;i<itemLenght;i++){
 					if(buttonList[i].GetComponent<Collider2D>() == uiHit){
 						currentItem = i;
@@ -230,7 +270,7 @@ public class ItemManager : MonoBehaviour {
 				case itemType.Tower:
 					
 					//cast aim ray
-					Vector2 mousedirection = mousePos2D-gunPos2D;
+					Vector2 mousedirection = movement.AngleToDirection(gunRotation.eulerAngles.z);
 					RaycastHit2D aimRay = Physics2D.Raycast(gunPos2D
 															,mousedirection
 															,5
@@ -277,7 +317,6 @@ public class ItemManager : MonoBehaviour {
 							//
 							noIconHolder.SetActive(true);
 							noIconHolder.transform.position = aimRay.point;
-
 							
 						}else{
 							//remove no icon 
@@ -335,8 +374,8 @@ public class ItemManager : MonoBehaviour {
 					if (firing&&shootTimer<=0){
 						shootTimer = shootTime;
 						GameObject bul = GameObject.Instantiate( items[currentItem]
-						                                        ,gunBulletSpawn.position 
-						                                        ,movement.RotateToPoint(gun.transform,mousePosition)) as GameObject;
+						                                        ,gunBulletSpawn.position
+                                                                ,gunRotation) as GameObject;
 						bul.transform.parent = bulletHolder.transform;
 					}
 					break;
@@ -354,8 +393,8 @@ public class ItemManager : MonoBehaviour {
 							if (click){ 
 								gameMngr.ChangeMoney(-minePrice);
 								GameObject.Instantiate( items[currentItem]
-								                                        ,gunBulletSpawn.position 
-								                                        ,movement.RotateToPoint(gun.transform,mousePosition));
+								                                        ,gunBulletSpawn.position
+                                                                        ,gunRotation);
 							}
 							break;
 						}

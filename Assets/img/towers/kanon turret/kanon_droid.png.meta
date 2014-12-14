@@ -1,6 +1,61 @@
 fileFormatVersion: 2
 guid: 7ba7cb4a7a30d47478487511bdc289af
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: kanon_droid_0
+    21300002: kanon_droid_1
+    21300004: kanon_droid_2
+    21300006: kanon_droid_3
+    21300008: kanon_droid_4
+    21300010: kanon_droid_5
+    21300012: kanon_droid_6
+    21300014: kanon_droid_7
+    21300016: kanon_droid_8
+    21300018: kanon_droid_9
+    21300020: kanon_droid_10
+    21300022: kanon_droid_11
+    21300024: kanon_droid_12
+    21300026: kanon_droid_13
+    21300028: kanon_droid_14
+    21300030: kanon_droid_15
+    21300032: kanon_droid_16
+    21300034: kanon_droid_17
+    21300036: kanon_droid_18
+    21300038: kanon_droid_19
+    21300040: kanon_droid_20
+    21300042: kanon_droid_21
+    21300044: kanon_droid_22
+    21300046: kanon_droid_23
+    21300048: kanon_droid_24
+    21300050: kanon_droid_25
+    21300052: kanon_droid_26
+    21300054: kanon_droid_27
+    21300056: kanon_droid_28
+    21300058: kanon_droid_29
+    21300060: kanon_droid_30
+    21300062: kanon_droid_31
+    21300064: kanon_droid_32
+    21300066: kanon_droid_33
+    21300068: kanon_droid_34
+    21300070: kanon_droid_35
+    21300072: kanon_droid_36
+    21300074: kanon_droid_37
+    21300076: kanon_droid_38
+    21300078: kanon_droid_39
+    21300080: kanon_droid_40
+    21300082: kanon_droid_41
+    21300084: kanon_droid_42
+    21300086: kanon_droid_43
+    21300088: kanon_droid_44
+    21300090: kanon_droid_45
+    21300092: kanon_droid_46
+    21300094: kanon_droid_47
+    21300096: kanon_droid_48
+    21300098: kanon_droid_49
+    21300100: kanon_droid_50
+    21300102: kanon_droid_51
+    21300104: kanon_droid_52
+    21300106: kanon_droid_53
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +90,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
@@ -50,6 +106,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_1
       rect:
         serializedVersion: 2
@@ -59,6 +116,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_2
       rect:
         serializedVersion: 2
@@ -68,6 +126,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_3
       rect:
         serializedVersion: 2
@@ -77,6 +136,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_4
       rect:
         serializedVersion: 2
@@ -86,6 +146,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_5
       rect:
         serializedVersion: 2
@@ -95,6 +156,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_6
       rect:
         serializedVersion: 2
@@ -104,6 +166,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_7
       rect:
         serializedVersion: 2
@@ -113,6 +176,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_8
       rect:
         serializedVersion: 2
@@ -122,6 +186,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_9
       rect:
         serializedVersion: 2
@@ -131,6 +196,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_10
       rect:
         serializedVersion: 2
@@ -140,6 +206,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_11
       rect:
         serializedVersion: 2
@@ -149,6 +216,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_12
       rect:
         serializedVersion: 2
@@ -158,6 +226,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_13
       rect:
         serializedVersion: 2
@@ -167,6 +236,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_14
       rect:
         serializedVersion: 2
@@ -176,6 +246,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_15
       rect:
         serializedVersion: 2
@@ -185,6 +256,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_16
       rect:
         serializedVersion: 2
@@ -194,6 +266,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_17
       rect:
         serializedVersion: 2
@@ -203,6 +276,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_18
       rect:
         serializedVersion: 2
@@ -212,6 +286,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_19
       rect:
         serializedVersion: 2
@@ -221,6 +296,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_20
       rect:
         serializedVersion: 2
@@ -230,6 +306,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_21
       rect:
         serializedVersion: 2
@@ -239,6 +316,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_22
       rect:
         serializedVersion: 2
@@ -248,6 +326,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_23
       rect:
         serializedVersion: 2
@@ -257,6 +336,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_24
       rect:
         serializedVersion: 2
@@ -266,6 +346,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_25
       rect:
         serializedVersion: 2
@@ -275,6 +356,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_26
       rect:
         serializedVersion: 2
@@ -284,6 +366,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_27
       rect:
         serializedVersion: 2
@@ -293,6 +376,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_28
       rect:
         serializedVersion: 2
@@ -302,6 +386,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_29
       rect:
         serializedVersion: 2
@@ -311,6 +396,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_30
       rect:
         serializedVersion: 2
@@ -320,6 +406,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_31
       rect:
         serializedVersion: 2
@@ -329,6 +416,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_32
       rect:
         serializedVersion: 2
@@ -338,6 +426,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_33
       rect:
         serializedVersion: 2
@@ -347,6 +436,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_34
       rect:
         serializedVersion: 2
@@ -356,6 +446,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_35
       rect:
         serializedVersion: 2
@@ -365,6 +456,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_36
       rect:
         serializedVersion: 2
@@ -374,6 +466,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_37
       rect:
         serializedVersion: 2
@@ -383,6 +476,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_38
       rect:
         serializedVersion: 2
@@ -392,6 +486,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_39
       rect:
         serializedVersion: 2
@@ -401,6 +496,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_40
       rect:
         serializedVersion: 2
@@ -410,6 +506,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_41
       rect:
         serializedVersion: 2
@@ -419,6 +516,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_42
       rect:
         serializedVersion: 2
@@ -428,6 +526,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_43
       rect:
         serializedVersion: 2
@@ -437,6 +536,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_44
       rect:
         serializedVersion: 2
@@ -446,6 +546,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_45
       rect:
         serializedVersion: 2
@@ -455,6 +556,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_46
       rect:
         serializedVersion: 2
@@ -464,6 +566,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_47
       rect:
         serializedVersion: 2
@@ -473,6 +576,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_48
       rect:
         serializedVersion: 2
@@ -482,6 +586,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_49
       rect:
         serializedVersion: 2
@@ -491,6 +596,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_50
       rect:
         serializedVersion: 2
@@ -500,6 +606,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_51
       rect:
         serializedVersion: 2
@@ -509,6 +616,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_52
       rect:
         serializedVersion: 2
@@ -518,6 +626,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: kanon_droid_53
       rect:
         serializedVersion: 2
@@ -527,5 +636,6 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

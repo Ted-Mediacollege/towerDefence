@@ -27,6 +27,7 @@ public class minimap : MonoBehaviour {
 
 	private List<string> blinkList = new List<string>();
 	private float blink = 0F;
+    private bool drawMap;
 	
 	void Start () {
 		player = GameObject.Find("player");
@@ -39,44 +40,49 @@ public class minimap : MonoBehaviour {
 		if(blink < 0F) {
 			blink += 2F;
 		}
+        if (Input.GetKeyDown(KeyCode.JoystickButton3) || Input.GetKeyDown(KeyCode.N)){
+            drawMap = !drawMap;
+        }
 	}
 	
 	void OnGUI() {
-		if(Input.GetKey(KeyCode.M)) {
-			zooming += 0.02F;
-			if(zooming > 2F) {
-				zooming = 2F;
-			}
-		} else {
-			zooming -= 0.02F;
-			if(zooming < 1F) {
-				zooming = 1F;
-			}
-		}
+        if(drawMap){
+		    if(Input.GetKey(BuildTypeData.mapKey)) {
+			    zooming += 0.02F;
+			    if(zooming > 2F) {
+				    zooming = 2F;
+			    }
+		    } else {
+			    zooming -= 0.02F;
+			    if(zooming < 1F) {
+				    zooming = 1F;
+			    }
+		    }
 
-		//scale
-		float rx = Screen.width / native_width;
-		float ry = Screen.height / native_height;
-		GUI.matrix = Matrix4x4.TRS ( new Vector3(0, 0, 0),Quaternion.identity,  new Vector3 (rx, ry, 1));
+		    //scale
+		    float rx = Screen.width / native_width;
+		    float ry = Screen.height / native_height;
+		    GUI.matrix = Matrix4x4.TRS ( new Vector3(0, 0, 0),Quaternion.identity,  new Vector3 (rx, ry, 1));
 
-		//minimap
-		GUI.color = new Color(0.85F, 0.77F, 0.54F, 1F);
-		//GUI.color = new Color(0F, 0.48F, 0F, 1F);
-		GUI.DrawTexture(new Rect(0, 0, size * 2 * zooming + borderoffset, size * 2 * zooming + borderoffset), texture);
+		    //minimap
+		    GUI.color = new Color(0.85F, 0.77F, 0.54F, 1F);
+		    //GUI.color = new Color(0F, 0.48F, 0F, 1F);
+		    GUI.DrawTexture(new Rect(0, 0, size * 2 * zooming + borderoffset, size * 2 * zooming + borderoffset), texture);
 
-		GUI.color = new Color(1F, 1F, 1F);
+		    GUI.color = new Color(1F, 1F, 1F);
 
-		int count = enemymanager.enemies.Count;
-		for(int i = 0; i < count; i++) {
+		    int count = enemymanager.enemies.Count;
+		    for(int i = 0; i < count; i++) {
 
-			Vector3 enemycoord = worldToMapCoord(enemymanager.enemies[i].transform.position);
-			drawTexture(new Rect(borderoffset + enemycoord.x + (size * zooming) - 6, -enemycoord.y + borderoffset + (size * zooming) - 6, 12 * zooming, 12 * zooming), iconEnemy);
-		}
+			    Vector3 enemycoord = worldToMapCoord(enemymanager.enemies[i].transform.position);
+			    drawTexture(new Rect(borderoffset + enemycoord.x + (size * zooming) - 6, -enemycoord.y + borderoffset + (size * zooming) - 6, 12 * zooming, 12 * zooming), iconEnemy);
+		    }
 
-		drawStartAndEnd();
-		drawPlayer(worldToMapCoord(player.transform.position));
+		    drawStartAndEnd();
+		    drawPlayer(worldToMapCoord(player.transform.position));
 
-		GUI.DrawTexture(new Rect(0, 0, 260 * zooming, 260 * zooming), mapborder);
+		    GUI.DrawTexture(new Rect(0, 0, 260 * zooming, 260 * zooming), mapborder);
+        }
 	}
 
 	Vector3 worldToMapCoord(Vector3 worldCoord) {

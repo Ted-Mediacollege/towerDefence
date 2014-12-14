@@ -84,7 +84,7 @@ MonoBehaviour:
   freezSlowDown: .300000012
   deFreezSpeed: .00200000009
   deadSpawnObjects:
-  - {fileID: 100000, guid: 904a6f8362359d041a1369d1a9479cc7, type: 2}
+  - {fileID: 100000, guid: 84d43e96ec976594eb378e73f5825507, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
