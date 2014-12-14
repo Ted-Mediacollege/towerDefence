@@ -25,6 +25,8 @@ public class ItemManager : MonoBehaviour {
 	private int currentItem = 0;
 	private GameManager gameMngr;
 	
+	private bool rButton;
+	
 	//line
 	private LineRenderer lineRenderer;
 	private int lengthOfLineRenderer = 2;
@@ -67,7 +69,10 @@ public class ItemManager : MonoBehaviour {
 	private GameObject noIconHolder;
 	
 	private Quaternion gunRotation;
+	
 	void Awake () {
+		rButton = false;
+		
 		buttonList = new List<GameObject>();
 		towerMngr = GameObject.Find("gameManager").GetComponent<TowerManager>() as TowerManager;
 		gameMngr = GameObject.Find("gameManager").GetComponent<GameManager>() as GameManager;
@@ -204,7 +209,20 @@ public class ItemManager : MonoBehaviour {
         }
 		
 		//get input and mouse position
-		bool click = Input.GetMouseButtonDown(0);
+		bool click = Input.GetMouseButtonDown(0)||Input.GetAxisRaw("RButton")>0.9f;
+		if (BuildTypeData.buildType == BuildType.VITA) {
+			if(click){
+				if(!rButton){
+					click = true;
+					rButton = true;
+				}else{
+					click = false;
+				}
+			}
+			if(Input.GetAxisRaw("RButton")<0.1f){
+				rButton = false;
+			}
+		}
 		bool screenTouch = Input.GetMouseButton(0);
 		//if(Input.GetAxisRaw("RButton")<0.1f){
 		//}
@@ -224,11 +242,6 @@ public class ItemManager : MonoBehaviour {
 			firing = Input.GetMouseButton(0);
         }else if (BuildTypeData.buildType == BuildType.VITA) {
 			firing = (Input.GetAxisRaw("RButton")>0.9f);
-			if(Input.GetAxisRaw("RButton")>0.9f){
-				click = true;
-			}else{
-				click = false;	
-			}
 			if(screenTouch){
 				gunRotation = movement.RotateToPoint(gun.transform, mousePosition);
 			}else{
@@ -255,7 +268,7 @@ public class ItemManager : MonoBehaviour {
 			Collider2D uiHit = Physics2D.OverlapPoint(uiRay.origin
 			                                          ,1 << LayerMask.NameToLayer(SubDefLayers.UI));
 			// ui click
-			if(uiHit&&(click||screenTouch)){   
+			if(uiHit&&screenTouch){   
 				for (int i = 0;i<itemLenght;i++){
 					if(buttonList[i].GetComponent<Collider2D>() == uiHit){
 						currentItem = i;

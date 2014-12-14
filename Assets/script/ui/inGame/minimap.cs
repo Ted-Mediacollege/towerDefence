@@ -33,6 +33,7 @@ public class minimap : MonoBehaviour {
 		player = GameObject.Find("player");
 		enemymanager = GameObject.Find("gameManager").GetComponent<EnemyManager>() as EnemyManager;
 		texture = new Texture2D(20, 20);
+		drawMap = true;
 	}
 
 	void Update() {
